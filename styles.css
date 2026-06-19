@@ -727,8 +727,8 @@ a { text-decoration: none; color: inherit; }
 
 .pricing-card-top {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
+  flex-direction: row;
+  gap: 24px;
   align-items: center;
 }
 
@@ -762,10 +762,9 @@ a { text-decoration: none; color: inherit; }
 }
 
 .pricing-details {
-  width: 100%;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 6px;
 }
 
@@ -781,7 +780,6 @@ a { text-decoration: none; color: inherit; }
   display: flex;
   gap: 8px;
   align-items: center;
-  justify-content: center;
   padding: 0;
 }
 
