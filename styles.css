@@ -1043,45 +1043,7 @@ a { text-decoration: none; color: inherit; }
   inset: 0;
   z-index: 0;
   pointer-events: none;
-}
-
-.footer-circle {
-  position: absolute;
-  border-radius: 50%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.footer-circle-1 {
-  width: 545px; height: 545px;
-  top: 0; left: 50%;
-  transform: translateX(-50%);
-  background-image: url('https://static.codia.ai/image/2026-06-19/SboYRT3FmM.png');
-}
-
-.footer-circle-2 {
-  width: 1085px; height: 1085px;
-  top: 123px; left: 280px;
-  background-image: url('https://static.codia.ai/image/2026-06-19/K9ku3haw9c.png');
-}
-
-.footer-circle-3 {
-  width: 744px; height: 744px;
-  top: 95px; right: 0;
-  background-image: url('https://static.codia.ai/image/2026-06-19/dq2Vo0BKma.png');
-}
-
-.footer-circle-4 {
-  width: 903px; height: 903px;
-  bottom: 0; left: 0;
-  background-image: url('https://static.codia.ai/image/2026-06-19/1NLfiDNe0S.png');
-}
-
-.footer-circle-5 {
-  width: 903px; height: 903px;
-  bottom: 0; right: 0;
-  background-image: url('https://static.codia.ai/image/2026-06-19/iupX2xUVDG.png');
+  background: url('images/footer.png') center / cover no-repeat;
 }
 
 .footer-inner {
