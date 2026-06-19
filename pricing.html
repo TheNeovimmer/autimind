@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chatbot - AutiMind</title>
+  <title>Pricing - AutiMind</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="chatbot-page">
+<body>
   <nav class="navbar">
     <div class="nav-logo">
       <img src="https://static.codia.ai/image/2026-06-19/6vuxJTHMOw.png" alt="AutiMind">
@@ -24,22 +24,74 @@
       <li><a href="espaceenfant.html">Children</a></li>
       <li><a href="espaceparent.html">Parents</a></li>
       <li><a href="specialists.html">Specialists</a></li>
-      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="pricing.html" class="active">Pricing</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <a href="signup.html" class="btn-signup">Get Started</a>
   </nav>
 
-  <section class="chatbot-hero">
-    <div class="chatbot-hero-inner">
-      <h1>Your AI Assistant,<br><span class="highlight">Here to help</span></h1>
-      <p>Got questions about autism, services, or support?<br>Our AI chatbot is available 24/7 to give you quick, reliable answers and guidance.</p>
-      <a href="#" class="chatbot-cta">
-        Start Chatting
-        <img src="https://static.codia.ai/image/2026-06-19/71zAHtYsYZ.png" alt="">
-      </a>
+  <section class="pricing-hero fade-in">
+    <div class="section-tag" style="justify-content:center">
+      <span>PRICING</span>
+    </div>
+    <h1>Choose the right <span class="highlight">plan</span></h1>
+    <p>Flexible options designed to support families and professionals at every stage.</p>
+
+    <div class="pricing-toggle-wrap">
+      <span class="toggle-active" id="monthly-label">Monthly</span>
+      <label class="pricing-toggle-switch" for="pricing-toggle"></label>
+      <input type="checkbox" id="pricing-toggle">
+      <span id="annual-label">Annual <span style="color:var(--secondary);font-weight:600">Save 20%</span></span>
     </div>
   </section>
+
+  <div class="pricing-cards fade-in">
+    <div class="pricing-card">
+      <h3>Basic</h3>
+      <div class="price"><span class="price-amount" data-monthly="$9" data-annual="$7">$9</span></div>
+      <div class="pricing-period">/month</div>
+      <ul>
+        <li><i class="fas fa-check"></i> Early screening tools</li>
+        <li><i class="fas fa-check"></i> 5 learning activities</li>
+        <li><i class="fas fa-check"></i> Basic progress reports</li>
+        <li><i class="fas fa-check"></i> Email support</li>
+        <li class="disabled"><i class="fas fa-times"></i> AI-powered insights</li>
+        <li class="disabled"><i class="fas fa-times"></i> Specialist consultations</li>
+      </ul>
+      <a href="signup.html" class="pricing-btn">Get Started</a>
+    </div>
+
+    <div class="pricing-card featured">
+      <div class="pricing-card-badge">Most Popular</div>
+      <h3>Premium</h3>
+      <div class="price"><span class="price-amount" data-monthly="$19" data-annual="$15">$19</span></div>
+      <div class="pricing-period">/month</div>
+      <ul>
+        <li><i class="fas fa-check"></i> Everything in Basic</li>
+        <li><i class="fas fa-check"></i> Unlimited learning activities</li>
+        <li><i class="fas fa-check"></i> AI-powered insights</li>
+        <li><i class="fas fa-check"></i> Detailed progress analytics</li>
+        <li><i class="fas fa-check"></i> Priority support</li>
+        <li class="disabled"><i class="fas fa-times"></i> Dedicated specialist</li>
+      </ul>
+      <a href="signup.html" class="pricing-btn">Get Started</a>
+    </div>
+
+    <div class="pricing-card">
+      <h3>Family</h3>
+      <div class="price"><span class="price-amount" data-monthly="$29" data-annual="$23">$29</span></div>
+      <div class="pricing-period">/month</div>
+      <ul>
+        <li><i class="fas fa-check"></i> Everything in Premium</li>
+        <li><i class="fas fa-check"></i> Up to 4 child profiles</li>
+        <li><i class="fas fa-check"></i> Dedicated specialist</li>
+        <li><i class="fas fa-check"></i> Monthly consultations</li>
+        <li><i class="fas fa-check"></i> Family resources library</li>
+        <li><i class="fas fa-check"></i> 24/7 priority support</li>
+      </ul>
+      <a href="signup.html" class="pricing-btn">Get Started</a>
+    </div>
+  </div>
 
   <footer class="footer">
     <div class="footer-bg" aria-hidden="true"></div>
@@ -91,6 +143,7 @@
       </div>
     </div>
   </footer>
+
   <script src="app.js"></script>
 </body>
 </html>

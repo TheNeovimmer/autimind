@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chatbot - AutiMind</title>
+  <title>Contact - AutiMind</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="chatbot-page">
+<body>
   <nav class="navbar">
     <div class="nav-logo">
       <img src="https://static.codia.ai/image/2026-06-19/6vuxJTHMOw.png" alt="AutiMind">
@@ -25,21 +25,62 @@
       <li><a href="espaceparent.html">Parents</a></li>
       <li><a href="specialists.html">Specialists</a></li>
       <li><a href="pricing.html">Pricing</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
     </ul>
     <a href="signup.html" class="btn-signup">Get Started</a>
   </nav>
 
-  <section class="chatbot-hero">
-    <div class="chatbot-hero-inner">
-      <h1>Your AI Assistant,<br><span class="highlight">Here to help</span></h1>
-      <p>Got questions about autism, services, or support?<br>Our AI chatbot is available 24/7 to give you quick, reliable answers and guidance.</p>
-      <a href="#" class="chatbot-cta">
-        Start Chatting
-        <img src="https://static.codia.ai/image/2026-06-19/71zAHtYsYZ.png" alt="">
-      </a>
+  <section class="contact-hero fade-in">
+    <div class="section-tag" style="justify-content:center">
+      <span>CONTACT</span>
     </div>
+    <h1>Let's <span class="highlight">talk</span></h1>
+    <p>Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
   </section>
+
+  <div class="contact-layout fade-in">
+    <div class="contact-form-wrap">
+      <h2>Send a Message</h2>
+      <form class="contact-form" data-validate>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <input type="text" placeholder="Subject" required>
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn-primary"><i class="fas fa-paper-plane"></i> Send Message</button>
+      </form>
+    </div>
+    <div class="contact-info-wrap">
+      <div class="contact-info-card">
+        <i class="fas fa-phone"></i>
+        <div>
+          <h4>Phone</h4>
+          <p>+91 6232-1151-22</p>
+          <p>Mon-Fri 9am-6pm</p>
+        </div>
+      </div>
+      <div class="contact-info-card">
+        <i class="fas fa-envelope"></i>
+        <div>
+          <h4>Email</h4>
+          <p>Autimind@autism.com</p>
+          <p>We reply within 24 hours</p>
+        </div>
+      </div>
+      <div class="contact-info-card">
+        <i class="fas fa-location-dot"></i>
+        <div>
+          <h4>Location</h4>
+          <p>123 Autism Care Street,<br>Health District, NY 10001</p>
+        </div>
+      </div>
+      <div class="contact-social">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </div>
 
   <footer class="footer">
     <div class="footer-bg" aria-hidden="true"></div>
@@ -91,6 +132,7 @@
       </div>
     </div>
   </footer>
+
   <script src="app.js"></script>
 </body>
 </html>
