@@ -9,6 +9,12 @@
       navLinks.classList.toggle('open');
       toggle.classList.toggle('open');
     });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        toggle.classList.remove('open');
+      });
+    });
     document.addEventListener('click', (e) => {
       if (!e.target.closest('.navbar')) {
         navLinks.classList.remove('open');
