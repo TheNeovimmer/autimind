@@ -743,6 +743,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 .pricing-badge img { width: 21px; height: 20px; object-fit: contain; }
+.pricing-badge i { font-size: 18px; }
 
 .pricing-badge span {
   font-family: var(--font-heading);
@@ -774,6 +775,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 .pricing-detail-item img { width: 21px; height: 20px; object-fit: contain; flex-shrink: 0; }
+.pricing-detail-item i { width: 21px; font-size: 16px; text-align: center; flex-shrink: 0; }
 
 .pricing-detail-item span {
   font-family: var(--font-heading);
@@ -853,6 +855,7 @@ a { text-decoration: none; color: inherit; }
 .pricing-cta.featured-cta .pricing-arrow { background: var(--primary); }
 
 .pricing-arrow img { width: 10px; height: 19px; object-fit: contain; display: block; }
+.pricing-arrow i { font-size: 14px; }
 
 /* Testimonials */
 .testimonials-section {
