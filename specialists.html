@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body class="spec-page">
   <nav class="navbar">
@@ -151,33 +151,43 @@
     </div>
   </section>
 
-  <section class="spec-trust-banner">
-    <div class="spec-trust-left">
-      <h2>Trusted Expertise <br><span class="highlight">proven care</span></h2>
-      <p>Backed by science. Driven by compassion. Ready to support your family.</p>
-    </div>
-      <div class="spec-trust-grid">
-        <div class="spec-trust-item">
-          <i class="fas fa-lightbulb spec-trust-icon"></i>
-          <span class="spec-trust-title">Behavior Tips</span>
-          <span class="spec-trust-desc">Discover tips to manage challenging behaviors</span>
+  <section class="spec-theme">
+    <div class="spec-theme-inner">
+      <div class="spec-theme-header">
+        <h2>Trusted Expertise, <span class="highlight">proven care</span></h2>
+        <p>Backed by science. Driven by compassion. Ready to support your family.</p>
+      </div>
+      <div class="spec-theme-grid">
+        <div class="spec-theme-card">
+          <div class="spec-theme-icon-wrap">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <h3 class="spec-theme-title">Behavior Tips</h3>
+          <p class="spec-theme-desc">Discover tips to manage challenging behaviors</p>
         </div>
-        <div class="spec-trust-item">
-          <i class="fas fa-comments spec-trust-icon"></i>
-          <span class="spec-trust-title">Communication</span>
-          <span class="spec-trust-desc">Strategies to build language and social skills</span>
+        <div class="spec-theme-card">
+          <div class="spec-theme-icon-wrap">
+            <i class="fas fa-comments"></i>
+          </div>
+          <h3 class="spec-theme-title">Communication</h3>
+          <p class="spec-theme-desc">Strategies to build language and social skills</p>
         </div>
-        <div class="spec-trust-item">
-          <i class="fas fa-hand-sparkles spec-trust-icon"></i>
-          <span class="spec-trust-title">Sensory Play</span>
-          <span class="spec-trust-desc">Activities designed for sensory regulation</span>
+        <div class="spec-theme-card">
+          <div class="spec-theme-icon-wrap">
+            <i class="fas fa-hand-sparkles"></i>
+          </div>
+          <h3 class="spec-theme-title">Sensory Play</h3>
+          <p class="spec-theme-desc">Activities designed for sensory regulation</p>
         </div>
-        <div class="spec-trust-item">
-          <i class="fas fa-book-open spec-trust-icon"></i>
-          <span class="spec-trust-title">Learning Tools</span>
-          <span class="spec-trust-desc">Resources to support cognitive development</span>
+        <div class="spec-theme-card">
+          <div class="spec-theme-icon-wrap">
+            <i class="fas fa-book-open"></i>
+          </div>
+          <h3 class="spec-theme-title">Learning Tools</h3>
+          <p class="spec-theme-desc">Resources to support cognitive development</p>
         </div>
       </div>
+    </div>
   </section>
 
   <footer class="footer">
@@ -230,6 +240,9 @@
       </div>
     </div>
   </footer>
-  <script src="app.js"></script>
+  <div class="custom-cursor"></div>
+  <div class="cursor-follower"></div>
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="assets/js/app.js"></script>
 </body>
 </html>
