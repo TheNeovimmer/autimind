@@ -23,6 +23,22 @@
     });
   }
 
+  /* ---- Sticky Navbar Scroll Effect ---- */
+  const navbar = document.querySelector('.navbar');
+  if (navbar) {
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          navbar.classList.toggle('scrolled', window.scrollY > 50);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+    if (window.scrollY > 50) navbar.classList.add('scrolled');
+  }
+
   /* ---- Active Nav Highlight ---- */
   const currentPath = location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-links a').forEach(link => {
