@@ -387,6 +387,21 @@
   }
 
   /* ===============================
+     PROFILE DROPDOWN
+     =============================== */
+  document.addEventListener('click', function(e) {
+    var menu = document.querySelector('.profile-menu.open');
+    if (menu && !e.target.closest('.profile-dropdown')) {
+      menu.classList.remove('open');
+    }
+  });
+
+  window.toggleProfileMenu = function(el) {
+    var menu = el.closest('.profile-dropdown').querySelector('.profile-menu');
+    if (menu) menu.classList.toggle('open');
+  };
+
+  /* ===============================
      DESTRUCTIVE ACTION CONFIRMS
      =============================== */
   document.querySelectorAll('[data-confirm]').forEach(function(el) {

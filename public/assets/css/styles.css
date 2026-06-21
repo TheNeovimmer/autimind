@@ -194,6 +194,12 @@ a { text-decoration: none; color: inherit; }
 .nav-toggle.open span:nth-child(2) { opacity: 0; }
 .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
+/* Mobile-only nav items (Dashboard, Logout in mobile menu) */
+.mobile-only { display: none; }
+@media (max-width: 992px) {
+  .mobile-only { display: flex; }
+}
+
 /* Custom Cursor */
 .custom-cursor,
 .cursor-follower {
