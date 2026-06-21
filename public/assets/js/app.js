@@ -231,32 +231,6 @@
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   }
 
-  /* ---- Custom Cursor ---- */
-  const cursor = document.querySelector('.custom-cursor');
-  const follower = document.querySelector('.cursor-follower');
-
-  if (cursor && follower && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-    let mx = 0, my = 0, fx = 0, fy = 0;
-
-    document.addEventListener('mousemove', (e) => {
-      mx = e.clientX;
-      my = e.clientY;
-      cursor.style.transform = `translate(${mx - 8}px, ${my - 8}px)`;
-    });
-
-    (function animFollower() {
-      fx += (mx - fx) * 0.12;
-      fy += (my - fy) * 0.12;
-      follower.style.transform = `translate(${fx - 20}px, ${fy - 20}px)`;
-      requestAnimationFrame(animFollower);
-    })();
-
-    document.querySelectorAll('a, button, input, textarea, select, .nav-toggle, .pricing-card').forEach(el => {
-      el.addEventListener('mouseenter', () => { cursor.style.opacity = '0'; follower.style.transform = `scale(1.6)`; follower.style.borderColor = 'var(--accent, #b388ff)'; });
-      el.addEventListener('mouseleave', () => { cursor.style.opacity = '1'; follower.style.transform = `scale(1)`; follower.style.borderColor = 'rgba(255,255,255,0.6)'; });
-    });
-  }
-
   /* ===============================
      TOAST NOTIFICATION SYSTEM
      =============================== */

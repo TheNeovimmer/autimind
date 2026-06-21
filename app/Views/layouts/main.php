@@ -13,8 +13,6 @@
   <?php \App\Core\View::renderPartial('nav'); ?>
   <?= $content ?>
   <?php \App\Core\View::renderPartial('footer'); ?>
-  <div class="custom-cursor"></div>
-  <div class="cursor-follower"></div>
   <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
   <script src="/assets/js/app.js"></script>
 </body>

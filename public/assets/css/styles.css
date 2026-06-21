@@ -194,42 +194,6 @@ a { text-decoration: none; color: inherit; }
 .nav-toggle.open span:nth-child(2) { opacity: 0; }
 .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* Custom Cursor */
-.custom-cursor,
-.cursor-follower {
-  display: none;
-  position: fixed;
-  pointer-events: none;
-  z-index: 9999;
-  border-radius: 50%;
-}
-
-.custom-cursor {
-  width: 16px;
-  height: 16px;
-  background: var(--accent, #b388ff);
-  top: 0;
-  left: 0;
-  transition: opacity .15s;
-}
-
-.cursor-follower {
-  width: 40px;
-  height: 40px;
-  border: 2px solid rgba(255,255,255,0.6);
-  top: 0;
-  left: 0;
-  z-index: 9998;
-  transition: border-color .2s;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .custom-cursor,
-  .cursor-follower { display: block; }
-  body { cursor: none; }
-  a, button, input, textarea, select, .nav-toggle { cursor: none; }
-}
-
 /* Hero */
 .hero {
   position: relative;
