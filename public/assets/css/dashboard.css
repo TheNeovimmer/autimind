@@ -2148,17 +2148,24 @@ body.dashboard-body,
 }
 
 /* =============================================
-   BUTTON ENHANCEMENTS
+   DASHBOARD BUTTON SYSTEM
+   Professional-grade buttons for all dashboard UIs
    ============================================= */
 
+/* --- Base --- */
 .dashboard-body .dash-btn {
   border-radius: var(--radius-sm);
   font-weight: 500;
   font-size: 0.75rem;
   padding: 0.3rem 0.65rem;
-  transition: all 0.2s var(--ease);
+  transition: background 0.2s var(--ease),
+              border-color 0.2s var(--ease),
+              color 0.2s var(--ease),
+              box-shadow 0.25s var(--ease),
+              transform 0.15s var(--ease);
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.3rem;
   line-height: 1.3;
   border: 1px solid transparent;
@@ -2166,19 +2173,20 @@ body.dashboard-body,
   text-decoration: none;
   white-space: nowrap;
   user-select: none;
+  font-family: inherit;
+  position: relative;
+  vertical-align: middle;
 }
 
-.dashboard-body .dash-btn i {
+.dashboard-body .dash-btn i,
+.dashboard-body .dash-btn svg {
   font-size: 0.82em;
-}
-
-.dashboard-body .dash-btn:hover {
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-sm);
+  flex-shrink: 0;
+  pointer-events: none;
 }
 
 .dashboard-body .dash-btn:active {
-  transform: translateY(0);
+  transform: scale(0.97);
 }
 
 .dashboard-body .dash-btn:focus-visible {
@@ -2186,7 +2194,50 @@ body.dashboard-body,
   box-shadow: 0 0 0 3px var(--primary-glow);
 }
 
-/* Primary */
+/* --- Disabled --- */
+.dashboard-body .dash-btn:disabled,
+.dashboard-body .dash-btn.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* --- Loading state --- */
+.dashboard-body .dash-btn.is-loading {
+  pointer-events: none;
+  position: relative;
+}
+
+.dashboard-body .dash-btn.is-loading > * {
+  opacity: 0;
+}
+
+.dashboard-body .dash-btn.is-loading::after {
+  content: '';
+  position: absolute;
+  width: 0.85em;
+  height: 0.85em;
+  border: 2px solid var(--text-secondary);
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: dash-btn-spin 0.6s linear infinite;
+  top: 50%;
+  left: 50%;
+  margin: -0.425em 0 0 -0.425em;
+}
+
+.dashboard-body .dash-btn-primary.is-loading::after {
+  border-color: rgba(255,255,255,0.7);
+  border-right-color: transparent;
+}
+
+@keyframes dash-btn-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* --- Primary --- */
 .dashboard-body .dash-btn-primary {
   background: var(--primary);
   border-color: var(--primary);
@@ -2197,25 +2248,26 @@ body.dashboard-body,
   background: var(--primary-dark);
   border-color: var(--primary-dark);
   box-shadow: 0 3px 10px rgba(108, 0, 144, 0.2);
+  transform: translateY(-1px);
 }
 
 .dashboard-body .dash-btn-primary:active {
   background: #3d0050;
   border-color: #3d0050;
+  box-shadow: 0 1px 3px rgba(108, 0, 144, 0.2);
 }
 
-/* Outline Secondary */
+/* --- Outline Secondary --- */
 .dashboard-body .dash-btn-outline {
   border-color: var(--border);
   color: var(--text-secondary);
-  background: transparent;
+  background: var(--card-bg);
 }
 
 .dashboard-body .dash-btn-outline:hover {
   background: var(--primary-subtle);
   border-color: var(--primary-light);
   color: var(--primary);
-  box-shadow: 0 2px 6px rgba(108, 0, 144, 0.08);
 }
 
 .dashboard-body .dash-btn-outline:active {
@@ -2224,17 +2276,17 @@ body.dashboard-body,
   color: var(--primary);
 }
 
-/* Outline Danger */
+/* --- Outline Danger --- */
 .dashboard-body .dash-btn-danger {
-  border-color: #fecaca;
+  border-color: var(--border);
   color: var(--danger);
+  background: var(--card-bg);
 }
 
 .dashboard-body .dash-btn-danger:hover {
   background: var(--danger-bg);
   border-color: var(--danger);
   color: var(--danger);
-  box-shadow: 0 2px 6px rgba(239, 68, 68, 0.1);
 }
 
 .dashboard-body .dash-btn-danger:active {
@@ -2242,31 +2294,72 @@ body.dashboard-body,
   border-color: var(--danger);
 }
 
-/* Outline Success */
+/* --- Outline Success --- */
 .dashboard-body .dash-btn-success {
-  border-color: #bbf7d0;
+  border-color: var(--border);
   color: #16a34a;
+  background: var(--card-bg);
 }
 
 .dashboard-body .dash-btn-success:hover {
   background: var(--success-bg);
   border-color: var(--success);
   color: #166534;
-  box-shadow: 0 2px 6px rgba(34, 197, 94, 0.1);
 }
 
-/* Small buttons (tables, compact actions) */
+.dashboard-body .dash-btn-success:active {
+  background: #dcfce7;
+  border-color: var(--success);
+}
+
+/* --- Ghost (flat, no border) --- */
+.dashboard-body .dash-btn-ghost {
+  background: transparent;
+  border-color: transparent;
+  color: var(--text-secondary);
+}
+
+.dashboard-body .dash-btn-ghost:hover {
+  background: var(--card-hover);
+  color: var(--text);
+}
+
+.dashboard-body .dash-btn-ghost:active {
+  background: var(--border-light);
+}
+
+/* --- Small (tables, compact actions) --- */
 .dashboard-body .dash-btn-sm {
   font-size: 0.6rem;
   padding: 0.15rem 0.4rem;
   gap: 0.2rem;
 }
 
-.dashboard-body .dash-btn-sm i {
+.dashboard-body .dash-btn-sm i,
+.dashboard-body .dash-btn-sm svg {
   font-size: 0.7em;
 }
 
-/* Icon-only buttons (no text) */
+/* --- Large (page-header actions, CTAs) --- */
+.dashboard-body .dash-btn-lg {
+  font-size: 0.875rem;
+  padding: 0.5rem 1.1rem;
+  gap: 0.4rem;
+  border-radius: var(--radius);
+}
+
+.dashboard-body .dash-btn-lg i,
+.dashboard-body .dash-btn-lg svg {
+  font-size: 0.9em;
+}
+
+/* --- Block (full-width) --- */
+.dashboard-body .dash-btn-block {
+  width: 100%;
+  justify-content: center;
+}
+
+/* --- Icon-only --- */
 .dashboard-body .dash-btn-icon {
   padding: 0.3rem;
   min-width: 1.85rem;
@@ -2276,6 +2369,39 @@ body.dashboard-body,
 .dashboard-body .dash-btn-sm.dash-btn-icon {
   padding: 0.2rem;
   min-width: 1.5rem;
+}
+
+.dashboard-body .dash-btn-lg.dash-btn-icon {
+  padding: 0.5rem;
+  min-width: 2.5rem;
+}
+
+/* --- Button group (adjacent buttons touch) --- */
+.dashboard-body .dash-btn-group {
+  display: inline-flex;
+  gap: 0;
+}
+
+.dashboard-body .dash-btn-group > .dash-btn {
+  border-radius: 0;
+}
+
+.dashboard-body .dash-btn-group > .dash-btn:first-child {
+  border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+}
+
+.dashboard-body .dash-btn-group > .dash-btn:last-child {
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.dashboard-body .dash-btn-group > .dash-btn + .dash-btn {
+  margin-left: -1px;
+}
+
+/* --- Table action row buttons (side by side) --- */
+.table tbody .dash-btn + .dash-btn,
+.table tbody .dash-btn-sm + .dash-btn-sm {
+  margin-left: 0.35rem;
 }
 
 /* --- Filter / Search Bar --- */
@@ -2329,11 +2455,6 @@ body.dashboard-body,
 /* Filter bar button height matches inputs */
 .filter-bar .dash-btn {
   align-self: stretch;
-}
-
-/* Table row action buttons – no wrap, consistent narrow gap */
-.table tbody .dash-btn-sm + .dash-btn-sm {
-  margin-left: 0.25rem;
 }
 
 /* Hover row indicator for clickable rows */
