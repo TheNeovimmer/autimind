@@ -2137,6 +2137,16 @@
   transition: background 0.15s var(--ease);
 }
 
+/* Override styles.css custom cursor for dashboard */
+body.dashboard-body,
+.dashboard-body a,
+.dashboard-body button,
+.dashboard-body input,
+.dashboard-body textarea,
+.dashboard-body select {
+  cursor: auto !important;
+}
+
 /* =============================================
    BUTTON ENHANCEMENTS
    ============================================= */
@@ -2292,5 +2302,99 @@
   outline: none;
   border-color: var(--primary);
   box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+/* =============================================
+   UI POLISH – Alignment, spacing, consistency
+   ============================================= */
+
+/* Consistent card spacing */
+.dashboard-body .card + .card,
+.dashboard-body .card + .charts-section,
+.dashboard-body .charts-section + .card {
+  margin-top: 1.25rem;
+}
+
+/* Form action row – aligns buttons at end */
+.form-actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-light);
+}
+
+/* Filter bar button height matches inputs */
+.filter-bar .dash-btn {
+  align-self: stretch;
+}
+
+/* Table row action buttons – no wrap, consistent narrow gap */
+.table tbody .dash-btn-sm + .dash-btn-sm {
+  margin-left: 0.25rem;
+}
+
+/* Hover row indicator for clickable rows */
+.table tbody tr.clickable {
+  cursor: pointer;
+}
+
+/* Sidebar footer logout link weight */
+.dash-sidebar-footer .dash-nav-item {
+  color: rgba(255,255,255,0.5);
+}
+
+/* Toast container z-index */
+#toast-container {
+  z-index: 9999;
+}
+
+/* Page subtitle spacing */
+.dash-header h1 + p {
+  margin-top: 0.15rem;
+}
+
+/* Badge inline with buttons spacing fix */
+.table tbody td .badge + .dash-btn-sm {
+  margin-left: 0.4rem;
+}
+
+/* Responsive form layout – label above input on small screens */
+@media (max-width: 576px) {
+  .form-actions {
+    flex-direction: column;
+  }
+  .form-actions .dash-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .admin-welcome-actions {
+    width: 100%;
+  }
+  .admin-welcome-actions .dash-btn {
+    flex: 1;
+  }
+}
+
+/* Larger tap targets on mobile */
+@media (max-width: 480px) {
+  .dash-btn-sm {
+    padding: 0.25rem 0.45rem;
+  }
+}
+
+/* Calendar nav buttons consistent height */
+.calendar-nav .dash-btn {
+  align-self: center;
+}
+
+/* Message thread reply area */
+.message-reply-area {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
 }
 

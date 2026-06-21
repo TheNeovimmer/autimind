@@ -6,27 +6,25 @@
   <a href="/admin/users/add" class="dash-btn dash-btn-primary"><i class="fas fa-plus"></i> Add User</a>
 </div>
 
-<div class="card mb-2">
-  <form method="GET" class="d-flex gap-1 flex-wrap align-items-center">
-    <div class="mb-3 flex-1" style="min-width:200px;margin:0;">
-      <label for="search" class="form-label">Search</label>
-      <input type="text" id="search" name="search" value="<?= htmlspecialchars($search ?? '') ?>" placeholder="Name or email..." class="form-control">
-    </div>
-    <div class="mb-3" style="margin:0;">
-      <label for="role" class="form-label">Role</label>
-      <select id="role" name="role" class="form-select">
-        <option value="">All Roles</option>
-        <option value="parent" <?= ($role ?? '') === 'parent' ? 'selected' : '' ?>>Parent</option>
-        <option value="specialist" <?= ($role ?? '') === 'specialist' ? 'selected' : '' ?>>Specialist</option>
-        <option value="admin" <?= ($role ?? '') === 'admin' ? 'selected' : '' ?>>Admin</option>
-      </select>
-    </div>
-    <button type="submit" class="dash-btn dash-btn-primary" style="margin-bottom:0;">Filter</button>
-    <?php if (!empty($search) || !empty($role)): ?>
-      <a href="/admin/users" class="dash-btn dash-btn-outline" style="margin-bottom:0;">Clear</a>
-    <?php endif; ?>
-  </form>
-</div>
+<form method="GET" class="filter-bar">
+  <div style="min-width:200px;flex:1;">
+    <label for="search" class="form-label">Search</label>
+    <input type="text" id="search" name="search" value="<?= htmlspecialchars($search ?? '') ?>" placeholder="Name or email..." class="form-control">
+  </div>
+  <div>
+    <label for="role" class="form-label">Role</label>
+    <select id="role" name="role" class="form-select">
+      <option value="">All Roles</option>
+      <option value="parent" <?= ($role ?? '') === 'parent' ? 'selected' : '' ?>>Parent</option>
+      <option value="specialist" <?= ($role ?? '') === 'specialist' ? 'selected' : '' ?>>Specialist</option>
+      <option value="admin" <?= ($role ?? '') === 'admin' ? 'selected' : '' ?>>Admin</option>
+    </select>
+  </div>
+  <button type="submit" class="dash-btn dash-btn-primary">Filter</button>
+  <?php if (!empty($search) || !empty($role)): ?>
+    <a href="/admin/users" class="dash-btn dash-btn-outline">Clear</a>
+  <?php endif; ?>
+</form>
 
 <?php if (!empty($users)): ?>
 <div class="table-responsive">
