@@ -47,7 +47,7 @@
     </div>
 
     <div class="d-flex gap-2 align-items-center mt-3">
-      <button type="submit" class="btn btn-primary">Save Changes</button>
+      <button type="submit" class="dash-btn dash-btn-primary">Save Changes</button>
     </div>
   </form>
 </div>

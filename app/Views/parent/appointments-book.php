@@ -53,7 +53,7 @@
   </div>
 
   <div class="d-flex gap-2 align-items-center">
-    <a href="/parent/appointments" class="btn btn-outline-secondary">Cancel</a>
-    <button type="submit" class="btn btn-primary">Book Appointment</button>
+    <a href="/parent/appointments" class="dash-btn dash-btn-outline">Cancel</a>
+    <button type="submit" class="dash-btn dash-btn-primary">Book Appointment</button>
   </div>
 </form>

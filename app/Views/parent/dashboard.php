@@ -91,6 +91,6 @@
   <i class="fas fa-child dash-empty-icon"></i>
   <h2>Welcome to AutiMind!</h2>
   <p>Get started by adding your first child to begin tracking their progress.</p>
-  <a href="/parent/children/add" class="btn btn-primary">Add Your First Child</a>
+  <a href="/parent/children/add" class="dash-btn dash-btn-primary">Add Your First Child</a>
 </div>
 <?php endif; ?>

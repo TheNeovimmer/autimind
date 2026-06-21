@@ -3,7 +3,7 @@
     <h1>Edit FAQ</h1>
     <p>Update frequently asked question</p>
   </div>
-  <a href="/admin/faq" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> Back</a>
+  <a href="/admin/faq" class="dash-btn dash-btn-outline"><i class="fas fa-arrow-left"></i> Back</a>
 </div>
 
 <div class="card">
@@ -42,6 +42,6 @@
       </div>
     </div>
 
-    <button type="submit" class="btn btn-primary">Update FAQ</button>
+    <button type="submit" class="dash-btn dash-btn-primary">Update FAQ</button>
   </form>
 </div>

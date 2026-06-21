@@ -3,7 +3,7 @@
     <h1>Edit User</h1>
     <p><?= htmlspecialchars($user['name']) ?></p>
   </div>
-  <a href="/admin/users" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> Back</a>
+  <a href="/admin/users" class="dash-btn dash-btn-outline"><i class="fas fa-arrow-left"></i> Back</a>
 </div>
 
 <div class="card">
@@ -56,6 +56,6 @@
       <input type="password" id="password" name="password" class="form-control" minlength="8">
     </div>
 
-    <button type="submit" class="btn btn-primary">Update User</button>
+    <button type="submit" class="dash-btn dash-btn-primary">Update User</button>
   </form>
 </div>

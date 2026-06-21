@@ -3,7 +3,7 @@
     <h1>FAQ Items</h1>
     <p>Manage frequently asked questions</p>
   </div>
-  <a href="/admin/faq/add" class="btn btn-primary"><i class="fas fa-plus"></i> Add FAQ</a>
+  <a href="/admin/faq/add" class="dash-btn dash-btn-primary"><i class="fas fa-plus"></i> Add FAQ</a>
 </div>
 
 <?php if (!empty($faqs)): ?>
@@ -20,10 +20,10 @@
           <td><span class="badge bg-primary-subtle text-primary-emphasis"><?= htmlspecialchars($f['category']) ?></span></td>
           <td><?= $f['is_active'] ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>' ?></td>
           <td>
-            <a href="/admin/faq/<?= (int)$f['id'] ?>/edit" class="btn btn-sm btn-outline-secondary">Edit</a>
+            <a href="/admin/faq/<?= (int)$f['id'] ?>/edit" class="dash-btn dash-btn-sm dash-btn-outline">Edit</a>
             <form method="POST" action="/admin/faq/<?= (int)$f['id'] ?>/delete" class="d-inline" onsubmit="return confirm('Delete this FAQ?');">
               <input type="hidden" name="_csrf_token" value="<?= \App\Core\Session::csrf_token() ?>">
-              <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+              <button type="submit" class="dash-btn dash-btn-sm dash-btn-danger">Delete</button>
             </form>
           </td>
         </tr>

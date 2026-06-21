@@ -4,7 +4,7 @@
     <p>Communicate with parents</p>
   </div>
   <div class="dash-header-actions">
-    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newMessageModal">
+    <button class="dash-btn dash-btn-primary" data-bs-toggle="modal" data-bs-target="#newMessageModal">
       <i class="fas fa-plus"></i> New Message
     </button>
   </div>
@@ -39,8 +39,8 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
-          <button type="submit" class="btn btn-primary">Send Message</button>
+          <button type="button" class="dash-btn dash-btn-outline" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="dash-btn dash-btn-primary">Send Message</button>
         </div>
       </form>
     </div>

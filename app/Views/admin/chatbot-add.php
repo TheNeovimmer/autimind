@@ -3,7 +3,7 @@
     <h1>Add Chatbot Response</h1>
     <p>Create a new automated chatbot response</p>
   </div>
-  <a href="/admin/chatbot" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> Back</a>
+  <a href="/admin/chatbot" class="dash-btn dash-btn-outline"><i class="fas fa-arrow-left"></i> Back</a>
 </div>
 
 <div class="card">
@@ -35,6 +35,6 @@
       <input type="text" id="category" name="category" placeholder="e.g. greeting, support, faq" class="form-control">
     </div>
 
-    <button type="submit" class="btn btn-primary">Create Response</button>
+    <button type="submit" class="dash-btn dash-btn-primary">Create Response</button>
   </form>
 </div>

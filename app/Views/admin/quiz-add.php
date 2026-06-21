@@ -3,7 +3,7 @@
     <h1>Add Question</h1>
     <p>Create a new screening question</p>
   </div>
-  <a href="/admin/quiz" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> Back</a>
+  <a href="/admin/quiz" class="dash-btn dash-btn-outline"><i class="fas fa-arrow-left"></i> Back</a>
 </div>
 
 <div class="card">
@@ -60,10 +60,10 @@
           <input type="number" name="options[3][weight]" placeholder="Weight (0-5)" min="0" max="5" value="3" class="form-control">
         </div>
       </div>
-      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addOption()">+ Add Option</button>
+      <button type="button" class="dash-btn dash-btn-sm dash-btn-outline" onclick="addOption()">+ Add Option</button>
     </div>
 
-    <button type="submit" class="btn btn-primary">Create Question</button>
+    <button type="submit" class="dash-btn dash-btn-primary">Create Question</button>
   </form>
 </div>
 

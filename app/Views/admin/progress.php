@@ -19,7 +19,7 @@
           <td><?= (int)$c['activities_completed'] ?></td>
           <td><?= $c['avg_score'] !== null ? (float)$c['avg_score'] . '%' : '-' ?></td>
           <td><?= (int)$c['quiz_count'] ?></td>
-          <td><a href="/admin/progress/child/<?= (int)$c['id'] ?>" class="btn btn-sm btn-outline-secondary">View</a></td>
+          <td><a href="/admin/progress/child/<?= (int)$c['id'] ?>" class="dash-btn dash-btn-sm dash-btn-outline">View</a></td>
         </tr>
       <?php endforeach; ?>
     </tbody>

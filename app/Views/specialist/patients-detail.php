@@ -3,7 +3,7 @@
     <h1><?= htmlspecialchars($child['name']) ?></h1>
     <p>Patient details</p>
   </div>
-  <a href="/specialist/messages/thread/<?= (int)$parent['id'] ?>" class="btn btn-outline-secondary"><i class="fas fa-envelope"></i> Message Parent</a>
+  <a href="/specialist/messages/thread/<?= (int)$parent['id'] ?>" class="dash-btn dash-btn-outline"><i class="fas fa-envelope"></i> Message Parent</a>
 </div>
 
 <div class="row row-cols-1 row-cols-md-2 g-3 mb-3">
@@ -32,7 +32,7 @@
       <textarea id="notes" name="notes" class="form-control" rows="5"><?= htmlspecialchars($child['notes'] ?? '') ?></textarea>
     </div>
     <div class="d-flex gap-2 align-items-center">
-      <button type="submit" class="btn btn-primary">Save Observation</button>
+      <button type="submit" class="dash-btn dash-btn-primary">Save Observation</button>
     </div>
   </form>
 </div>

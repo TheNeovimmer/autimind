@@ -24,12 +24,12 @@
             <?php if (!$c['is_read']): ?>
               <form method="POST" action="/admin/contacts/<?= (int)$c['id'] ?>/read" class="d-inline">
                 <input type="hidden" name="_csrf_token" value="<?= htmlspecialchars($csrf_token) ?>">
-                <button type="submit" class="btn btn-sm btn-outline-secondary">Mark Read</button>
+                <button type="submit" class="dash-btn dash-btn-sm dash-btn-outline">Mark Read</button>
               </form>
             <?php endif; ?>
             <form method="POST" action="/admin/contacts/<?= (int)$c['id'] ?>/delete" class="d-inline" onsubmit="return confirm('Delete this message?')">
               <input type="hidden" name="_csrf_token" value="<?= htmlspecialchars($csrf_token) ?>">
-              <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+              <button type="submit" class="dash-btn dash-btn-sm dash-btn-danger">Delete</button>
             </form>
           </td>
         </tr>

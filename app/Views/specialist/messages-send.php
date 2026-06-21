@@ -3,7 +3,7 @@
     <h1>New Message</h1>
     <p>To: <?= htmlspecialchars($receiver['name']) ?></p>
   </div>
-  <a href="/specialist/messages" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> Back to Messages</a>
+  <a href="/specialist/messages" class="dash-btn dash-btn-outline"><i class="fas fa-arrow-left"></i> Back to Messages</a>
 </div>
 
 <div class="card">
@@ -27,8 +27,8 @@
     </div>
 
     <div class="d-flex gap-2 align-items-center">
-      <button type="submit" class="btn btn-primary">Send Message</button>
-      <a href="/specialist/messages" class="btn btn-outline-secondary">Cancel</a>
+      <button type="submit" class="dash-btn dash-btn-primary">Send Message</button>
+      <a href="/specialist/messages" class="dash-btn dash-btn-outline">Cancel</a>
     </div>
   </form>
 </div>

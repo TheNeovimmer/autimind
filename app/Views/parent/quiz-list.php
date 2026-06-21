@@ -25,12 +25,12 @@
         Risk: <span class="risk-<?= htmlspecialchars($data['latest']['risk_level']) ?>"><?= ucfirst(htmlspecialchars($data['latest']['risk_level'])) ?></span> · 
         <?= htmlspecialchars($data['latest']['completed_at']) ?></p>
         <div class="mt-1">
-          <a href="/parent/quiz/results/<?= (int)$data['latest']['id'] ?>" class="btn btn-outline-secondary btn-sm">View Results</a>
-          <a href="/parent/quiz/start/<?= (int)$data['child']['id'] ?>" class="btn btn-primary btn-sm">Take New Quiz</a>
+          <a href="/parent/quiz/results/<?= (int)$data['latest']['id'] ?>" class="dash-btn dash-btn-sm dash-btn-outline">View Results</a>
+          <a href="/parent/quiz/start/<?= (int)$data['child']['id'] ?>" class="dash-btn dash-btn-sm dash-btn-primary">Take New Quiz</a>
         </div>
       <?php else: ?>
         <p class="text-muted py-2">No screening completed yet.</p>
-        <a href="/parent/quiz/start/<?= (int)$data['child']['id'] ?>" class="btn btn-primary btn-sm">Start Screening</a>
+        <a href="/parent/quiz/start/<?= (int)$data['child']['id'] ?>" class="dash-btn dash-btn-sm dash-btn-primary">Start Screening</a>
       <?php endif; ?>
       
       <?php if (count($data['attempts']) > 1): ?>
@@ -59,6 +59,6 @@
   <div class="dash-empty-state">
     <h3>No children added</h3>
     <p>Add a child first to take the screening quiz.</p>
-    <a href="/parent/children/add" class="btn btn-primary">Add Child</a>
+    <a href="/parent/children/add" class="dash-btn dash-btn-primary">Add Child</a>
   </div>
 <?php endif; ?>

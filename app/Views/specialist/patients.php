@@ -3,7 +3,7 @@
     <h1>Patients</h1>
     <p>Children assigned to you</p>
   </div>
-  <a href="/specialist/patients/export" class="btn btn-outline-secondary"><i class="fas fa-download"></i> Export CSV</a>
+  <a href="/specialist/patients/export" class="dash-btn dash-btn-outline"><i class="fas fa-download"></i> Export CSV</a>
 </div>
 
 <?php if (!empty($patients)): ?>
@@ -21,7 +21,7 @@
           <td><?= htmlspecialchars($p['diagnosis_status'] ?? '-') ?></td>
           <td><?= (int)$p['appointment_count'] ?></td>
           <td><?= htmlspecialchars($p['last_screening'] ?? '-') ?></td>
-          <td><a href="/specialist/patients/<?= (int)$p['id'] ?>" class="btn btn-sm btn-outline-secondary">View</a></td>
+          <td><a href="/specialist/patients/<?= (int)$p['id'] ?>" class="dash-btn dash-btn-sm dash-btn-outline">View</a></td>
         </tr>
       <?php endforeach; ?>
     </tbody>

@@ -72,6 +72,6 @@ $riskColor = $riskColors[$result['risk_level']] ?? '#6b7280';
 <?php endif; ?>
 
 <div class="d-flex gap-2 align-items-center mt-2">
-  <a href="/parent/quiz" class="btn btn-outline-secondary">Back to Quiz</a>
-  <a href="/parent/quiz/start/<?= (int)$child['id'] ?>" class="btn btn-primary">Take Another Quiz</a>
+  <a href="/parent/quiz" class="dash-btn dash-btn-outline">Back to Quiz</a>
+  <a href="/parent/quiz/start/<?= (int)$child['id'] ?>" class="dash-btn dash-btn-primary">Take Another Quiz</a>
 </div>

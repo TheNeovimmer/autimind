@@ -3,7 +3,7 @@
     <h1>Reschedule Appointment</h1>
     <p>Change the date and time for your appointment</p>
   </div>
-  <a href="/parent/appointments" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> Back</a>
+  <a href="/parent/appointments" class="dash-btn dash-btn-outline"><i class="fas fa-arrow-left"></i> Back</a>
 </div>
 
 <div class="card">
@@ -35,7 +35,7 @@
   </div>
 
   <div class="d-flex gap-2 align-items-center">
-    <a href="/parent/appointments" class="btn btn-outline-secondary">Cancel</a>
-    <button type="submit" class="btn btn-primary">Update Appointment</button>
+    <a href="/parent/appointments" class="dash-btn dash-btn-outline">Cancel</a>
+    <button type="submit" class="dash-btn dash-btn-primary">Update Appointment</button>
   </div>
 </form>

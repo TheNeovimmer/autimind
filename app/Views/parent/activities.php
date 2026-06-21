@@ -3,7 +3,7 @@
     <h1><?= htmlspecialchars($child['name']) ?> - Activities</h1>
     <p>Completed activities and progress</p>
   </div>
-  <a href="/parent/progress" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> Back to Progress</a>
+  <a href="/parent/progress" class="dash-btn dash-btn-outline"><i class="fas fa-arrow-left"></i> Back to Progress</a>
 </div>
 
 <?php if ($averageScore !== null): ?>

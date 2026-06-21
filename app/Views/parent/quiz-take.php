@@ -34,8 +34,8 @@
   <?php endforeach; ?>
 
   <div class="d-flex gap-2 align-items-center">
-    <a href="/parent/quiz" class="btn btn-outline-secondary">Cancel</a>
-    <button type="submit" class="btn btn-primary">Submit Quiz</button>
+    <a href="/parent/quiz" class="dash-btn dash-btn-outline">Cancel</a>
+    <button type="submit" class="dash-btn dash-btn-primary">Submit Quiz</button>
   </div>
 </form>
 

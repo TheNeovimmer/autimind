@@ -3,7 +3,7 @@
     <h1>Add FAQ</h1>
     <p>Create a new frequently asked question</p>
   </div>
-  <a href="/admin/faq" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> Back</a>
+  <a href="/admin/faq" class="dash-btn dash-btn-outline"><i class="fas fa-arrow-left"></i> Back</a>
 </div>
 
 <div class="card">
@@ -45,6 +45,6 @@
       <input type="number" id="order_index" name="order_index" value="0" class="form-control">
     </div>
 
-    <button type="submit" class="btn btn-primary">Create FAQ</button>
+    <button type="submit" class="dash-btn dash-btn-primary">Create FAQ</button>
   </form>
 </div>

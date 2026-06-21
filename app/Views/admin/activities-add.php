@@ -3,7 +3,7 @@
     <h1>Add Activity</h1>
     <p>Create a new children's activity</p>
   </div>
-  <a href="/admin/activities" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> Back</a>
+  <a href="/admin/activities" class="dash-btn dash-btn-outline"><i class="fas fa-arrow-left"></i> Back</a>
 </div>
 
 <div class="card">
@@ -55,6 +55,6 @@
       <input type="text" id="image_url" name="image_url" placeholder="https://example.com/image.jpg" class="form-control">
     </div>
 
-    <button type="submit" class="btn btn-primary">Create Activity</button>
+    <button type="submit" class="dash-btn dash-btn-primary">Create Activity</button>
   </form>
 </div>

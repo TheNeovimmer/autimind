@@ -3,7 +3,7 @@
     <h1>Edit Specialist</h1>
     <p><?= htmlspecialchars($user['name']) ?></p>
   </div>
-  <a href="/admin/specialists" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> Back</a>
+  <a href="/admin/specialists" class="dash-btn dash-btn-outline"><i class="fas fa-arrow-left"></i> Back</a>
 </div>
 
 <div class="card">
@@ -66,6 +66,6 @@
       </div>
     </div>
 
-    <button type="submit" class="btn btn-primary">Update Specialist</button>
+    <button type="submit" class="dash-btn dash-btn-primary">Update Specialist</button>
   </form>
 </div>

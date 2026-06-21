@@ -56,8 +56,8 @@
   </div>
 
   <div class="d-flex gap-2 align-items-center">
-    <a href="/parent/children" class="btn btn-outline-secondary">Cancel</a>
-    <button type="submit" class="btn btn-primary">Update Child</button>
+    <a href="/parent/children" class="dash-btn dash-btn-outline">Cancel</a>
+    <button type="submit" class="dash-btn dash-btn-primary">Update Child</button>
   </div>
 </form>
 

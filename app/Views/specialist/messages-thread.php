@@ -2,7 +2,7 @@
   <div>
     <h1>Messages with <?= htmlspecialchars($partner['name']) ?></h1>
   </div>
-  <a href="/specialist/messages" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> Back</a>
+  <a href="/specialist/messages" class="dash-btn dash-btn-outline"><i class="fas fa-arrow-left"></i> Back</a>
 </div>
 
 <div class="card message-thread">
@@ -30,5 +30,5 @@
   <div class="mb-3">
     <textarea name="body" rows="3" class="form-control" required placeholder="Type your reply..."></textarea>
   </div>
-  <button type="submit" class="btn btn-primary">Send Reply</button>
+  <button type="submit" class="dash-btn dash-btn-primary">Send Reply</button>
 </form>

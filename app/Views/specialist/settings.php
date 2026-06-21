@@ -62,7 +62,7 @@
   </div>
 
   <div class="d-flex gap-2 align-items-center">
-    <button type="submit" class="btn btn-primary">Save Settings</button>
+    <button type="submit" class="dash-btn dash-btn-primary">Save Settings</button>
   </div>
 </form>
 

@@ -3,7 +3,7 @@
     <h1>Add Option</h1>
     <p><?= htmlspecialchars($question['question_text']) ?></p>
   </div>
-  <a href="/admin/quiz/<?= (int)$question['id'] ?>/options" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> Back</a>
+  <a href="/admin/quiz/<?= (int)$question['id'] ?>/options" class="dash-btn dash-btn-outline"><i class="fas fa-arrow-left"></i> Back</a>
 </div>
 
 <div class="card">
@@ -36,6 +36,6 @@
       <input type="number" id="order_index" name="order_index" value="0" class="form-control" required>
     </div>
 
-    <button type="submit" class="btn btn-primary">Create Option</button>
+    <button type="submit" class="dash-btn dash-btn-primary">Create Option</button>
   </form>
 </div>

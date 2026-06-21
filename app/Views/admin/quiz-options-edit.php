@@ -3,7 +3,7 @@
     <h1>Edit Option</h1>
     <p><?= htmlspecialchars($question['question_text'] ?? '') ?></p>
   </div>
-  <a href="/admin/quiz/<?= (int)($option['question_id'] ?? 0) ?>/options" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> Back</a>
+  <a href="/admin/quiz/<?= (int)($option['question_id'] ?? 0) ?>/options" class="dash-btn dash-btn-outline"><i class="fas fa-arrow-left"></i> Back</a>
 </div>
 
 <div class="card">
@@ -35,6 +35,6 @@
       <input type="number" id="order_index" name="order_index" value="<?= (int)$option['order_index'] ?>" class="form-control" required>
     </div>
 
-    <button type="submit" class="btn btn-primary">Update Option</button>
+    <button type="submit" class="dash-btn dash-btn-primary">Update Option</button>
   </form>
 </div>

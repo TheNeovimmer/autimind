@@ -32,7 +32,7 @@
   <div class="chatbot-input">
     <input type="hidden" id="csrfToken" value="<?= htmlspecialchars($csrf_token) ?>">
     <input type="text" id="chatInput" placeholder="Type your message..." autofocus>
-    <button id="chatSendBtn" class="btn btn-primary px-4"><i class="fas fa-paper-plane me-1"></i> Ask</button>
+    <button id="chatSendBtn" class="dash-btn dash-btn-primary px-4"><i class="fas fa-paper-plane me-1"></i> Ask</button>
   </div>
 </div>
 

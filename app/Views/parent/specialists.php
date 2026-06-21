@@ -24,8 +24,8 @@
       <?php endif; ?>
       <p class="specialist-exp"><?= (int)$spec['years_experience'] ?> years experience</p>
       <div class="specialist-actions">
-        <a href="/parent/appointments/book?specialist_id=<?= (int)$spec['id'] ?>" class="btn btn-primary btn-sm">Book Appointment</a>
-        <a href="/parent/messages/send/<?= (int)$spec['id'] ?>" class="btn btn-outline-secondary btn-sm">Send Message</a>
+        <a href="/parent/appointments/book?specialist_id=<?= (int)$spec['id'] ?>" class="dash-btn dash-btn-sm dash-btn-primary">Book Appointment</a>
+        <a href="/parent/messages/send/<?= (int)$spec['id'] ?>" class="dash-btn dash-btn-sm dash-btn-outline">Send Message</a>
       </div>
     </div>
   <?php endforeach; ?>

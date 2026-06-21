@@ -3,7 +3,7 @@
     <h1><?= htmlspecialchars($child['name']) ?></h1>
     <p>Parent: <?= htmlspecialchars($parent['parent_name'] ?? '') ?></p>
   </div>
-  <a href="/admin/progress" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> Back</a>
+  <a href="/admin/progress" class="dash-btn dash-btn-outline"><i class="fas fa-arrow-left"></i> Back</a>
 </div>
 
 <div class="dash-grid-auto mb-3">

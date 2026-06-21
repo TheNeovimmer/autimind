@@ -3,13 +3,13 @@
     <h1>Calendar</h1>
     <p><?= htmlspecialchars($monthName) ?></p>
   </div>
-  <a href="/specialist/appointments" class="btn btn-outline-secondary"><i class="fas fa-list"></i> List View</a>
+  <a href="/specialist/appointments" class="dash-btn dash-btn-outline"><i class="fas fa-list"></i> List View</a>
 </div>
 
 <div class="calendar-nav">
-  <a href="?year=<?= $prevYear ?>&month=<?= $prevMonth ?>" class="btn btn-outline-secondary">&larr; Previous</a>
+  <a href="?year=<?= $prevYear ?>&month=<?= $prevMonth ?>" class="dash-btn dash-btn-outline">&larr; Previous</a>
   <h2><?= htmlspecialchars($monthName) ?></h2>
-  <a href="?year=<?= $nextYear ?>&month=<?= $nextMonth ?>" class="btn btn-outline-secondary">Next &rarr;</a>
+  <a href="?year=<?= $nextYear ?>&month=<?= $nextMonth ?>" class="dash-btn dash-btn-outline">Next &rarr;</a>
 </div>
 
 <div class="calendar-grid">

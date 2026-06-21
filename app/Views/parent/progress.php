@@ -68,6 +68,6 @@
 <div class="dash-empty-state">
   <h3>No children added</h3>
   <p>Add a child first to view progress tracking.</p>
-  <a href="/parent/children/add" class="btn btn-primary">Add Child</a>
+  <a href="/parent/children/add" class="dash-btn dash-btn-primary">Add Child</a>
 </div>
 <?php endif; ?>

@@ -3,7 +3,7 @@
     <h1>Users</h1>
     <p>Manage all platform users (<?= (int)($totalUsers ?? 0) ?>)</p>
   </div>
-  <a href="/admin/users/add" class="btn btn-primary"><i class="fas fa-plus"></i> Add User</a>
+  <a href="/admin/users/add" class="dash-btn dash-btn-primary"><i class="fas fa-plus"></i> Add User</a>
 </div>
 
 <div class="card mb-2">
@@ -21,9 +21,9 @@
         <option value="admin" <?= ($role ?? '') === 'admin' ? 'selected' : '' ?>>Admin</option>
       </select>
     </div>
-    <button type="submit" class="btn btn-primary" style="margin-bottom:0;">Filter</button>
+    <button type="submit" class="dash-btn dash-btn-primary" style="margin-bottom:0;">Filter</button>
     <?php if (!empty($search) || !empty($role)): ?>
-      <a href="/admin/users" class="btn btn-outline-secondary" style="margin-bottom:0;">Clear</a>
+      <a href="/admin/users" class="dash-btn dash-btn-outline" style="margin-bottom:0;">Clear</a>
     <?php endif; ?>
   </form>
 </div>
@@ -43,11 +43,11 @@
           <td><?= $u['is_active'] ? '<span class="badge bg-success">Active</span>' : '<span class="badge bg-danger">Inactive</span>' ?></td>
           <td><?= htmlspecialchars($u['created_at']) ?></td>
           <td>
-            <a href="/admin/users/<?= (int)$u['id'] ?>/edit" class="btn btn-sm btn-outline-secondary">Edit</a>
+            <a href="/admin/users/<?= (int)$u['id'] ?>/edit" class="dash-btn dash-btn-sm dash-btn-outline">Edit</a>
             <?php if ((int)$u['id'] !== (int)\App\Core\Session::get('user_id')): ?>
             <form method="POST" action="/admin/users/<?= (int)$u['id'] ?>/delete" class="d-inline" onsubmit="return confirm('Delete this user?');">
               <input type="hidden" name="_csrf_token" value="<?= \App\Core\Session::csrf_token() ?>">
-              <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+              <button type="submit" class="dash-btn dash-btn-sm dash-btn-danger">Delete</button>
             </form>
             <?php endif; ?>
           </td>

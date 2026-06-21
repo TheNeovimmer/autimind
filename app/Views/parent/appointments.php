@@ -3,7 +3,7 @@
     <h1>Appointments</h1>
     <p>Manage your appointments</p>
   </div>
-  <a href="/parent/appointments/book" class="btn btn-primary"><i class="fas fa-plus"></i> Book Appointment</a>
+  <a href="/parent/appointments/book" class="dash-btn dash-btn-primary"><i class="fas fa-plus"></i> Book Appointment</a>
 </div>
 
 <?php if (!empty($appointments)): ?>
@@ -22,10 +22,10 @@
           <td><span class="badge <?= match($apt['status']) { 'active','confirmed' => 'bg-success', 'pending' => 'bg-warning text-dark', 'cancelled','expired' => 'bg-danger', default => 'bg-primary' } ?>"><?= ucfirst(htmlspecialchars($apt['status'])) ?></span></td>
           <td>
             <?php if ($apt['status'] === 'pending' || $apt['status'] === 'confirmed'): ?>
-              <a href="/parent/appointments/<?= (int)$apt['id'] ?>/reschedule" class="btn btn-sm btn-outline-secondary"><i class="fas fa-calendar-alt"></i> Reschedule</a>
+              <a href="/parent/appointments/<?= (int)$apt['id'] ?>/reschedule" class="dash-btn dash-btn-sm dash-btn-outline"><i class="fas fa-calendar-alt"></i> Reschedule</a>
               <form method="POST" action="/parent/appointments/<?= (int)$apt['id'] ?>/cancel" class="d-inline" onsubmit="return confirm('Cancel this appointment?')">
                 <input type="hidden" name="_csrf_token" value="<?= \App\Core\Session::csrf_token() ?>">
-                <button type="submit" class="btn btn-sm btn-outline-danger">Cancel</button>
+                <button type="submit" class="dash-btn dash-btn-sm dash-btn-danger">Cancel</button>
               </form>
             <?php endif; ?>
           </td>
@@ -38,6 +38,6 @@
 <div class="dash-empty-state">
   <h3>No appointments</h3>
   <p>Book your first appointment with a specialist.</p>
-  <a href="/parent/appointments/book" class="btn btn-primary">Book Appointment</a>
+  <a href="/parent/appointments/book" class="dash-btn dash-btn-primary">Book Appointment</a>
 </div>
 <?php endif; ?>

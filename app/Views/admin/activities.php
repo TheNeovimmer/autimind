@@ -3,7 +3,7 @@
     <h1>Activities</h1>
     <p>Manage children's educational activities</p>
   </div>
-  <a href="/admin/activities/add" class="btn btn-primary"><i class="fas fa-plus"></i> Add Activity</a>
+  <a href="/admin/activities/add" class="dash-btn dash-btn-primary"><i class="fas fa-plus"></i> Add Activity</a>
 </div>
 
 <?php if (!empty($activities)): ?>
@@ -20,10 +20,10 @@
           <td><?= htmlspecialchars($a['difficulty']) ?></td>
           <td><?= $a['is_active'] ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>' ?></td>
           <td>
-            <a href="/admin/activities/<?= (int)$a['id'] ?>/edit" class="btn btn-sm btn-outline-secondary">Edit</a>
+            <a href="/admin/activities/<?= (int)$a['id'] ?>/edit" class="dash-btn dash-btn-sm dash-btn-outline">Edit</a>
             <form method="POST" action="/admin/activities/<?= (int)$a['id'] ?>/delete" class="d-inline" onsubmit="return confirm('Delete this activity?');">
               <input type="hidden" name="_csrf_token" value="<?= \App\Core\Session::csrf_token() ?>">
-              <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+              <button type="submit" class="dash-btn dash-btn-sm dash-btn-danger">Delete</button>
             </form>
           </td>
         </tr>

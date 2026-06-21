@@ -4,8 +4,8 @@
     <p>Good to have you back, <?= htmlspecialchars(\App\Core\Session::get('user_name')) ?></p>
   </div>
   <div class="admin-welcome-actions">
-    <a href="/admin/users/add" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Add User</a>
-    <a href="/admin/quiz/add" class="btn btn-outline-secondary btn-sm"><i class="fas fa-plus"></i> Add Question</a>
+    <a href="/admin/users/add" class="dash-btn dash-btn-sm dash-btn-primary"><i class="fas fa-plus"></i> Add User</a>
+    <a href="/admin/quiz/add" class="dash-btn dash-btn-sm dash-btn-outline"><i class="fas fa-plus"></i> Add Question</a>
   </div>
 </div>
 

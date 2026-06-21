@@ -3,7 +3,7 @@
     <h1><?= htmlspecialchars($child['name']) ?></h1>
     <p>Child profile and activity overview</p>
   </div>
-  <a href="/parent/children" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> Back to Children</a>
+  <a href="/parent/children" class="dash-btn dash-btn-outline"><i class="fas fa-arrow-left"></i> Back to Children</a>
 </div>
 
 <div class="card mb-2">
@@ -39,7 +39,7 @@
               <td><?= htmlspecialchars($qh['completed_at']) ?></td>
               <td><?= (int)$qh['total_score'] ?>/50</td>
               <td><span class="risk-<?= htmlspecialchars($qh['risk_level']) ?>"><?= ucfirst(htmlspecialchars($qh['risk_level'])) ?></span></td>
-              <td><a href="/parent/quiz/results/<?= (int)$qh['id'] ?>" class="btn btn-sm btn-outline-secondary">View</a></td>
+              <td><a href="/parent/quiz/results/<?= (int)$qh['id'] ?>" class="dash-btn dash-btn-sm dash-btn-outline">View</a></td>
             </tr>
           <?php endforeach; ?>
         </tbody>

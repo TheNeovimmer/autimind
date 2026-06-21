@@ -3,7 +3,7 @@
     <h1>Add User</h1>
     <p>Create a new platform user</p>
   </div>
-  <a href="/admin/users" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> Back</a>
+  <a href="/admin/users" class="dash-btn dash-btn-outline"><i class="fas fa-arrow-left"></i> Back</a>
 </div>
 
 <div class="card">
@@ -44,6 +44,6 @@
       </select>
     </div>
 
-    <button type="submit" class="btn btn-primary">Create User</button>
+    <button type="submit" class="dash-btn dash-btn-primary">Create User</button>
   </form>
 </div>

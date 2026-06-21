@@ -3,7 +3,7 @@
     <h1>Appointments</h1>
     <p>Manage your appointments</p>
   </div>
-  <a href="/specialist/calendar" class="btn btn-outline-secondary"><i class="fas fa-calendar"></i> Calendar View</a>
+  <a href="/specialist/calendar" class="dash-btn dash-btn-outline"><i class="fas fa-calendar"></i> Calendar View</a>
 </div>
 
 <?php if (!empty($appointments)): ?>
@@ -26,20 +26,20 @@
               <form method="POST" action="/specialist/appointments/<?= (int)$apt['id'] ?>/status" class="d-inline-flex gap-1">
                 <input type="hidden" name="_csrf_token" value="<?= \App\Core\Session::csrf_token() ?>">
                 <input type="hidden" name="status" value="confirmed">
-                <button type="submit" class="btn btn-sm btn-outline-success">Confirm</button>
+                <button type="submit" class="dash-btn dash-btn-sm dash-btn-success">Confirm</button>
               </form>
               <form method="POST" action="/specialist/appointments/<?= (int)$apt['id'] ?>/cancel" class="d-inline-flex gap-1">
                 <input type="hidden" name="_csrf_token" value="<?= \App\Core\Session::csrf_token() ?>">
-                <button type="submit" class="btn btn-sm btn-outline-danger">Cancel</button>
+                <button type="submit" class="dash-btn dash-btn-sm dash-btn-danger">Cancel</button>
               </form>
             <?php elseif ($apt['status'] === 'confirmed'): ?>
               <form method="POST" action="/specialist/appointments/<?= (int)$apt['id'] ?>/complete" class="d-inline">
                 <input type="hidden" name="_csrf_token" value="<?= \App\Core\Session::csrf_token() ?>">
-                <button type="submit" class="btn btn-sm btn-outline-secondary">Complete</button>
+                <button type="submit" class="dash-btn dash-btn-sm dash-btn-outline">Complete</button>
               </form>
               <form method="POST" action="/specialist/appointments/<?= (int)$apt['id'] ?>/cancel" class="d-inline">
                 <input type="hidden" name="_csrf_token" value="<?= \App\Core\Session::csrf_token() ?>">
-                <button type="submit" class="btn btn-sm btn-outline-danger">Cancel</button>
+                <button type="submit" class="dash-btn dash-btn-sm dash-btn-danger">Cancel</button>
               </form>
             <?php endif; ?>
           </td>

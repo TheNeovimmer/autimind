@@ -29,12 +29,12 @@
         <?php endforeach; ?>
       </ul>
       <?php if ($currentSubscription && $currentSubscription['plan'] === $planKey): ?>
-        <span class="btn btn-outline-secondary" disabled>Current Plan</span>
+        <span class="dash-btn dash-btn-outline" disabled>Current Plan</span>
       <?php else: ?>
         <form method="POST" action="/parent/subscription/upgrade" onsubmit="return confirm('Change to <?= htmlspecialchars($plan['name']) ?> plan?')">
           <input type="hidden" name="_csrf_token" value="<?= htmlspecialchars($csrf_token) ?>">
           <input type="hidden" name="plan" value="<?= htmlspecialchars($planKey) ?>">
-          <button type="submit" class="btn btn-primary">Upgrade</button>
+          <button type="submit" class="dash-btn dash-btn-primary">Upgrade</button>
         </form>
       <?php endif; ?>
     </div>

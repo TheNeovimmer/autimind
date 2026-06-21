@@ -3,7 +3,7 @@
     <h1>Edit Subscription</h1>
     <p><?= htmlspecialchars($subscription['user_name']) ?> - <?= ucfirst(htmlspecialchars($subscription['plan'])) ?></p>
   </div>
-  <a href="/admin/subscriptions" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> Back</a>
+  <a href="/admin/subscriptions" class="dash-btn dash-btn-outline"><i class="fas fa-arrow-left"></i> Back</a>
 </div>
 
 <div class="card">
@@ -33,6 +33,6 @@
       <input type="date" id="ends_at" name="ends_at" value="<?= htmlspecialchars($subscription['ends_at'] ?? '') ?>" class="form-control">
     </div>
 
-    <button type="submit" class="btn btn-primary">Update Subscription</button>
+    <button type="submit" class="dash-btn dash-btn-primary">Update Subscription</button>
   </form>
 </div>

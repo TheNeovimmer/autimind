@@ -3,7 +3,7 @@
     <h1>Quiz Questions</h1>
     <p>Manage screening quiz questions and options</p>
   </div>
-  <a href="/admin/quiz/add" class="btn btn-primary"><i class="fas fa-plus"></i> Add Question</a>
+  <a href="/admin/quiz/add" class="dash-btn dash-btn-primary"><i class="fas fa-plus"></i> Add Question</a>
 </div>
 
 <?php if (!empty($questions)): ?>
@@ -21,11 +21,11 @@
           <td><?= (int)$q['option_count'] ?></td>
           <td><?= $q['is_active'] ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>' ?></td>
           <td>
-            <a href="/admin/quiz/<?= (int)$q['id'] ?>/options" class="btn btn-sm btn-outline-secondary">Options</a>
-            <a href="/admin/quiz/<?= (int)$q['id'] ?>/edit" class="btn btn-sm btn-outline-secondary">Edit</a>
+            <a href="/admin/quiz/<?= (int)$q['id'] ?>/options" class="dash-btn dash-btn-sm dash-btn-outline">Options</a>
+            <a href="/admin/quiz/<?= (int)$q['id'] ?>/edit" class="dash-btn dash-btn-sm dash-btn-outline">Edit</a>
             <form method="POST" action="/admin/quiz/<?= (int)$q['id'] ?>/delete" class="d-inline" onsubmit="return confirm('Delete this question?');">
               <input type="hidden" name="_csrf_token" value="<?= \App\Core\Session::csrf_token() ?>">
-              <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+              <button type="submit" class="dash-btn dash-btn-sm dash-btn-danger">Delete</button>
             </form>
           </td>
         </tr>
