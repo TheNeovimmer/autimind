@@ -1,0 +1,174 @@
+<section class="enfant-hero">
+  <div class="container enfant-hero-layout">
+    <div class="enfant-hero-content">
+      <div class="enfant-breadcrumb">
+        <img src="https://static.codia.ai/image/2026-06-19/uVnC3z14ys.png" alt="" aria-hidden="true">
+        <span>Home</span>
+        <img src="https://static.codia.ai/image/2026-06-19/r0JH9ZD4kD.png" alt="" aria-hidden="true">
+        <span class="enfant-breadcrumb-current">Children</span>
+      </div>
+      <h1>A world of fun ,<br><span class="highlight">learning & growth</span><br>just for you</h1>
+      <p class="enfant-hero-desc">Fun activities , exciting games , and helpful tools designed just for you to learn , grow and shine every day !</p>
+      <div class="enfant-hero-buttons">
+        <a href="#" class="enfant-btn-explore">Explore activities</a>
+        <a href="#" class="enfant-btn-watch"><span>Watch video</span><img src="https://static.codia.ai/image/2026-06-19/P0S6fMsQ2b.png" alt=""></a>
+      </div>
+    </div>
+    <div class="enfant-hero-img">
+      <img src="https://static.codia.ai/image/2026-06-19/2BsB1cJ8Ky.png" alt="Kids playing">
+      <div class="enfant-stats-card">
+        <div class="enfant-stats-number">+330</div>
+        <div class="enfant-stats-label">Active<br>Members</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="enfant-features-bar-section">
+  <div class="container">
+    <div class="enfant-features-bar">
+      <div class="enfant-feature-item">
+        <div class="enfant-fi-icon"><i class="fas fa-star"></i></div>
+        <div class="enfant-fi-text">
+          <strong>Fun &amp; Engaging</strong>
+          <span>Celebrate small wins and feel proud every day.</span>
+        </div>
+      </div>
+      <div class="enfant-feature-item">
+        <div class="enfant-fi-icon"><i class="fas fa-hand-holding-heart"></i></div>
+        <div class="enfant-fi-text">
+          <strong>Safe &amp; Supportive</strong>
+          <span>A friendly space where you can be yourself</span>
+        </div>
+      </div>
+      <div class="enfant-feature-item">
+        <div class="enfant-fi-icon"><i class="fas fa-gauge-high"></i></div>
+        <div class="enfant-fi-text">
+          <strong>Learn at your pace</strong>
+          <span>Take your time and enjoy every step.</span>
+        </div>
+      </div>
+      <div class="enfant-feature-item">
+        <div class="enfant-fi-icon"><i class="fas fa-trophy"></i></div>
+        <div class="enfant-fi-text">
+          <strong>Build confidence</strong>
+          <span>Activities that make learning fun exciting</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="enfant-play-section">
+  <div class="container">
+    <h2 class="enfant-play-heading">Let's Play !<br><span class="highlight">Choose a fun game to play</span></h2>
+    <div class="enfant-play-layout">
+      <div class="enfant-play-card">
+        <div class="enfant-play-card-top">
+          <h3>Fun <span class="highlight">Activities</span> for you</h3>
+          <a href="#" class="enfant-view-all">View all</a>
+        </div>
+        <div class="enfant-play-icons">
+          <div class="enfant-pi-item">
+            <div class="enfant-pi-icon"><img src="https://static.codia.ai/image/2026-06-19/ojJEzZ71kb.png" alt=""></div>
+            <span>Games</span>
+          </div>
+          <div class="enfant-pi-item">
+            <div class="enfant-pi-icon"><img src="https://static.codia.ai/image/2026-06-19/N5K6XKS3PF.png" alt=""></div>
+            <span>Puzzles</span>
+          </div>
+          <div class="enfant-pi-item">
+            <div class="enfant-pi-icon"><img src="https://static.codia.ai/image/2026-06-19/wzFpEB70SZ.png" alt=""></div>
+            <span>Stories</span>
+          </div>
+          <div class="enfant-pi-item">
+            <div class="enfant-pi-icon"><img src="https://static.codia.ai/image/2026-06-19/Gi8Ys3pG5h.png" alt=""></div>
+            <span>Video</span>
+          </div>
+          <div class="enfant-pi-item">
+            <div class="enfant-pi-icon"><img src="https://static.codia.ai/image/2026-06-19/1hWZyUAn4d.png" alt=""></div>
+            <span>Coloring</span>
+          </div>
+        </div>
+        <div class="enfant-cool-banner">
+          <div class="enfant-cool-banner-icon"><img src="https://static.codia.ai/image/2026-06-19/rrP929DjCb.png" alt=""></div>
+          <div class="enfant-cool-banner-text">
+            <strong>Cool Stuff for You</strong>
+            <span>Video , Songs and stories made just for you !</span>
+          </div>
+          <a href="#" class="enfant-start-playing">Start playing<img src="https://static.codia.ai/image/2026-06-19/nKkTdMZ3U7.png" alt=""></a>
+        </div>
+      </div>
+      <div class="enfant-play-card">
+        <div class="enfant-play-card-top">
+          <h3>Track <span class="highlight">Your Progress</span></h3>
+          <img src="https://static.codia.ai/image/2026-06-19/ESo0RhCYDk.png" alt="" class="enfant-progress-trophy">
+        </div>
+        <div class="enfant-progress-card">
+          <div class="enfant-progress-header">Your Progress</div>
+          <div class="enfant-progress-subtitle">Keep going ! You're doing great !</div>
+          <div class="enfant-progress-bars">
+            <div class="enfant-pbar-row">
+              <img src="https://static.codia.ai/image/2026-06-19/t2KGUwP7xx.png" alt="">
+              <div class="enfant-pbar-track"><div class="enfant-pbar-fill" style="width:80%"></div></div>
+              <span>80%</span>
+            </div>
+            <div class="enfant-pbar-row">
+              <img src="https://static.codia.ai/image/2026-06-19/GnoB36phCT.png" alt="">
+              <div class="enfant-pbar-track"><div class="enfant-pbar-fill" style="width:65%"></div></div>
+              <span>65%</span>
+            </div>
+            <div class="enfant-pbar-row">
+              <img src="https://static.codia.ai/image/2026-06-19/YbxZNReZPx.png" alt="">
+              <div class="enfant-pbar-track"><div class="enfant-pbar-fill" style="width:79%"></div></div>
+              <span>79%</span>
+            </div>
+          </div>
+          <a href="#" class="enfant-btn-progress">View My Progress<img src="https://static.codia.ai/image/2026-06-19/dc2Xsn16uY.png" alt=""></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="enfant-showcase">
+  <div class="container">
+    <div class="enfant-showcase-layout">
+      <div class="enfant-sc-left">
+        <span class="enfant-sc-heading">Cool Stuff for You</span>
+        <span class="enfant-sc-desc">Video , Songs and stories <br>made just for you !</span>
+        <img src="https://static.codia.ai/image/2026-06-19/qSJpAF18RR.png" alt="" class="enfant-sc-thumb" style="top:26px;left:775px">
+        <img src="https://static.codia.ai/image/2026-06-19/g1pL0cMAJg.png" alt="" class="enfant-sc-thumb" style="top:26px;left:525px">
+        <img src="https://static.codia.ai/image/2026-06-19/jpN4qCu5Q6.png" alt="" class="enfant-sc-thumb" style="top:26px;left:650px">
+        <img src="https://static.codia.ai/image/2026-06-19/ZZQjZhdYcH.png" alt="" class="enfant-sc-thumb" style="top:26px;left:403px">
+      </div>
+      <div class="enfant-sc-right">
+        <div class="enfant-sc-right-top">
+          <span class="enfant-sc-heading">You Matter !</span>
+          <img src="https://static.codia.ai/image/2026-06-19/srrZkVCk9B.png" alt="" class="enfant-sc-icon-sm">
+        </div>
+        <div class="enfant-sc-right-bottom">
+          <span class="enfant-sc-desc">You are important . You are capable . You are loved . <br>Keep shining , superstar</span>
+          <img src="https://static.codia.ai/image/2026-06-19/FBJtA2Mque.png" alt="" class="enfant-sc-icon-lg">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="enfant-cta">
+  <div class="enfant-cta-deco-left">
+    <img src="https://static.codia.ai/image/2026-06-19/oANazkMyDr.png" alt="" aria-hidden="true">
+    <img src="https://static.codia.ai/image/2026-06-19/CrXXbwSZ28.png" alt="" aria-hidden="true" class="enfant-cta-circle">
+  </div>
+  <div class="enfant-cta-inner">
+    <div class="enfant-cta-text">
+      <h2>Believe in yourself !</h2>
+      <p>Every step you take today is making you tomorrow brighter.</p>
+    </div>
+    <a href="#" class="enfant-btn-how">See How It Works</a>
+  </div>
+  <div class="enfant-cta-deco-right">
+    <img src="https://static.codia.ai/image/2026-06-19/ij5vA9bUnV.png" alt="" aria-hidden="true">
+  </div>
+</section>

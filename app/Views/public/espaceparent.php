@@ -1,0 +1,202 @@
+<section class="parent-hero">
+  <div class="parent-hero-layout">
+    <div class="parent-hero-content">
+      <nav class="parent-breadcrumb">
+        <img src="https://static.codia.ai/image/2026-06-19/5DkKkCCYhJ.png" alt="">
+        <span>Home</span>
+        <img src="https://static.codia.ai/image/2026-06-19/YWN85EmbbP.png" alt="">
+        <span class="current">Children</span>
+      </nav>
+      <h1>
+        A world of fun,<br>
+        <span class="highlight">learning & growth</span><br>
+        just for you
+      </h1>
+      <p class="parent-hero-desc">
+        Practical tools, trusted guidance, and a caring community to
+        help you understand, support, and empower your child every day
+      </p>
+      <div class="parent-hero-buttons">
+        <a href="#" class="parent-btn-primary">Start screening test</a>
+        <a href="#" class="parent-btn-secondary">
+          Watch video
+          <img src="https://static.codia.ai/image/2026-06-19/GSmf51d5iV.png" alt="">
+        </a>
+      </div>
+    </div>
+    <div class="parent-hero-visual">
+      <img src="https://static.codia.ai/image/2026-06-19/3thcm9qjtq.png" alt="">
+      <div class="parent-stats-card">
+        <span class="parent-stats-number">+330</span>
+        <span class="parent-stats-label">Active<br>Members</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="parent-features-bar-section">
+  <div class="parent-features-bar">
+    <div class="parent-feature-item">
+      <div class="parent-fi-icon">
+        <i class="fas fa-star"></i>
+      </div>
+      <div class="parent-fi-text">
+        <strong>Fun & Engaging</strong>
+        <span>Activities that make learning fun exciting</span>
+      </div>
+    </div>
+    <div class="parent-feature-item">
+      <div class="parent-fi-icon">
+        <i class="fas fa-gauge-high"></i>
+      </div>
+      <div class="parent-fi-text">
+        <strong>Learn at your pace</strong>
+        <span>Take your time and enjoy every step.</span>
+      </div>
+    </div>
+    <div class="parent-feature-item">
+      <div class="parent-fi-icon">
+        <i class="fas fa-trophy"></i>
+      </div>
+      <div class="parent-fi-text">
+        <strong>Build confidence</strong>
+        <span>Celebrate small wins and feel proud every day.</span>
+      </div>
+    </div>
+    <div class="parent-feature-item">
+      <div class="parent-fi-icon">
+        <i class="fas fa-hand-holding-heart"></i>
+      </div>
+      <div class="parent-fi-text">
+        <strong>Safe & Supportive</strong>
+        <span>A friendly space where you can be yourself</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="parent-tools">
+  <div class="container">
+    <div class="parent-tools-layout">
+      <div class="parent-tools-left">
+        <div class="parent-tools-header">
+          <img src="https://static.codia.ai/image/2026-06-19/xozuOYGSBz.png" alt="">
+          <h2>Helpful Tools for Parents</h2>
+          <div class="parent-tools-badge pill-subtle"></div>
+        </div>
+        <div class="parent-tools-grid">
+          <div class="parent-tool-card">
+            <i class="fas fa-stethoscope parent-tool-icon"></i>
+            <h3>Screening Test</h3>
+            <p>Take an online test to identify early signs and get guidance</p>
+            <a href="#" class="parent-tool-btn blue-bg">
+              Start Test
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+          <div class="parent-tool-card">
+            <i class="fas fa-lightbulb parent-tool-icon"></i>
+            <h3>Behavior Tips</h3>
+            <p>Discover tips to manage challenging behaviors</p>
+            <a href="#" class="parent-tool-btn">
+              Learn Tips
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+          <div class="parent-tool-card">
+            <i class="fas fa-puzzle-piece parent-tool-icon"></i>
+            <h3>Daily Activities</h3>
+            <p>Access activities and games to support learning at home</p>
+            <a href="#" class="parent-tool-btn blue-bg">
+              Explore Activities
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="parent-tools-right">
+        <div class="parent-tools-header">
+          <img src="https://static.codia.ai/image/2026-06-19/UoTViRD9ac.png" alt="">
+          <h2>Parenting Tips</h2>
+          <span class="parent-tools-badge">New</span>
+        </div>
+        <div class="parent-tips-card">
+          <img class="parent-tips-image" src="https://static.codia.ai/image/2026-06-19/7nJoypU14k.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="parent-activity">
+  <div class="container">
+    <div class="parent-activity-layout">
+      <div class="parent-activity-card">
+        <div class="parent-activity-header">
+          <h3>Recent Activity</h3>
+          <a href="#" class="parent-activity-link">See Full History</a>
+        </div>
+        <div class="parent-activity-list">
+          <div class="parent-activity-item purple">
+            <span>Completed 'Shape Match'</span>
+          </div>
+          <div class="parent-activity-item white">
+            <span>Emotion check in</span>
+          </div>
+          <div class="parent-activity-item purple">
+            <span>Completed 'Shape Match'</span>
+          </div>
+        </div>
+      </div>
+      <div class="parent-therapist-card">
+        <div class="parent-therapist-top">
+          <h3>therapist</h3>
+          <a href="#" class="parent-therapist-view">View Profile</a>
+        </div>
+        <div class="parent-therapist-avatar">
+          <img src="https://static.codia.ai/image/2026-06-19/0Mn75sN1xD.png" alt="Dr. Emily Chen">
+        </div>
+        <div class="parent-therapist-info">
+          <h4>Dr. Emily Chen</h4>
+          <p class="specialty">speech therapist</p>
+          <p class="status">
+            <img src="https://static.codia.ai/image/2026-06-19/zQdhnAVmtJ.png" alt="">
+            Online
+          </p>
+        </div>
+        <div class="parent-therapist-actions">
+          <a href="#" class="parent-ther-btn purple">
+            <img src="https://static.codia.ai/image/2026-06-19/PgvB15MU7h.png" alt="">
+            Send Message
+          </a>
+          <a href="#" class="parent-ther-btn white">
+            <img src="https://static.codia.ai/image/2026-06-19/oV9Bu9cFPa.png" alt="">
+            Book Session
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="parent-insights">
+      <div class="parent-insights-header">
+        <img src="https://static.codia.ai/image/2026-06-19/T9gOiRJDRZ.png" alt="">
+        <h3>Mindi's AI Insights</h3>
+      </div>
+      <div class="parent-insights-grid">
+        <div class="parent-insight-card">
+          <div class="parent-insight-label">
+            <img src="https://static.codia.ai/image/2026-06-19/43oo9PTht0.png" alt="">
+            <span>STRENGTH</span>
+          </div>
+          <p>Leo is showing a strong preference for visual matching activities today. His accuracy increased by 20% when using the play module</p>
+        </div>
+        <div class="parent-insight-card recommend">
+          <div class="parent-insight-label">
+            <img src="https://static.codia.ai/image/2026-06-19/Fz3N5r46o5.png" alt="">
+            <span>RECOMMENDATION</span>
+          </div>
+          <p>Consider introducing social stories about school transitions this evening. He seemed slightly restless during the routine check in</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

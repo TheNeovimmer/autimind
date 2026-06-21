@@ -1,0 +1,48 @@
+<div class="dash-header">
+  <div>
+    <h1>Add Subscription</h1>
+    <p>Create a new subscription for a parent</p>
+  </div>
+  <a href="/admin/subscriptions" class="btn-outline"><i class="fas fa-arrow-left"></i> Back</a>
+</div>
+
+<div class="dash-card">
+  <form method="POST" class="dash-form">
+    <input type="hidden" name="_csrf_token" value="<?= htmlspecialchars($csrf_token) ?>">
+
+    <div class="form-group">
+      <label for="user_id">Parent</label>
+      <select id="user_id" name="user_id" required>
+        <option value="">Select parent...</option>
+        <?php foreach ($parents as $p): ?>
+          <option value="<?= (int)$p['id'] ?>"><?= htmlspecialchars($p['name']) ?> (<?= htmlspecialchars($p['email']) ?>)</option>
+        <?php endforeach; ?>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="plan">Plan</label>
+      <select id="plan" name="plan" required>
+        <option value="standard">Standard</option>
+        <option value="premium">Premium</option>
+        <option value="family">Family</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="status">Status</label>
+      <select id="status" name="status" required>
+        <option value="active">Active</option>
+        <option value="cancelled">Cancelled</option>
+        <option value="expired">Expired</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="ends_at">End Date</label>
+      <input type="date" id="ends_at" name="ends_at">
+    </div>
+
+    <button type="submit" class="btn-primary">Create Subscription</button>
+  </form>
+</div>
