@@ -2155,9 +2155,9 @@ body.dashboard-body,
 /* --- Base --- */
 .dashboard-body .dash-btn {
   border-radius: var(--radius-sm);
-  font-weight: 500;
-  font-size: 0.75rem;
-  padding: 0.3rem 0.65rem;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  padding: 0.45rem 0.9rem;
   transition: background 0.2s var(--ease),
               border-color 0.2s var(--ease),
               color 0.2s var(--ease),
@@ -2166,8 +2166,8 @@ body.dashboard-body,
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.3rem;
-  line-height: 1.3;
+  gap: 0.35rem;
+  line-height: 1.4;
   border: 1px solid transparent;
   cursor: pointer;
   text-decoration: none;
@@ -2180,7 +2180,7 @@ body.dashboard-body,
 
 .dashboard-body .dash-btn i,
 .dashboard-body .dash-btn svg {
-  font-size: 0.82em;
+  font-size: 0.85em;
   flex-shrink: 0;
   pointer-events: none;
 }
@@ -2192,6 +2192,14 @@ body.dashboard-body,
 .dashboard-body .dash-btn:focus-visible {
   outline: none;
   box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+.dashboard-body .dash-btn:hover {
+  transform: translateY(-1px);
+}
+
+.dashboard-body .dash-btn:active:hover {
+  transform: scale(0.97);
 }
 
 /* --- Disabled --- */
@@ -2239,22 +2247,28 @@ body.dashboard-body,
 
 /* --- Primary --- */
 .dashboard-body .dash-btn-primary {
-  background: var(--primary);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
   border-color: var(--primary);
   color: #fff;
+  box-shadow: 0 2px 8px rgba(108, 0, 144, 0.15);
 }
 
 .dashboard-body .dash-btn-primary:hover {
-  background: var(--primary-dark);
+  background: linear-gradient(135deg, var(--primary-dark) 0%, #3d0050 100%);
   border-color: var(--primary-dark);
-  box-shadow: 0 3px 10px rgba(108, 0, 144, 0.2);
+  box-shadow: 0 4px 14px rgba(108, 0, 144, 0.25);
   transform: translateY(-1px);
 }
 
 .dashboard-body .dash-btn-primary:active {
   background: #3d0050;
   border-color: #3d0050;
-  box-shadow: 0 1px 3px rgba(108, 0, 144, 0.2);
+  box-shadow: 0 1px 4px rgba(108, 0, 144, 0.2);
+  transform: scale(0.97);
+}
+
+.dashboard-body .dash-btn-primary:focus-visible {
+  box-shadow: 0 0 0 3px rgba(108, 0, 144, 0.25);
 }
 
 /* --- Outline Secondary --- */
