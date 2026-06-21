@@ -2,9 +2,10 @@
 $role = \App\Core\Session::get('role');
 $currentUri = $_SERVER['REQUEST_URI'];
 ?>
-<aside class="dash-sidebar">
-  <div class="dash-sidebar-logo">
+<aside class="dash-sidebar" id="dashSidebar">
+  <div class="dash-sidebar-logo d-flex align-items-center justify-content-between">
     <a href="/"><img src="https://static.codia.ai/image/2026-06-19/6vuxJTHMOw.png" alt="AutiMind"></a>
+    <button class="btn btn-close btn-close-white d-md-none" id="dashSidebarClose" aria-label="Close"></button>
   </div>
   <nav class="dash-sidebar-nav">
     <?php if ($role === 'parent'): ?>
@@ -66,3 +67,4 @@ $currentUri = $_SERVER['REQUEST_URI'];
     <a href="/logout"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
   </div>
 </aside>
+<div class="dash-sidebar-backdrop" id="dashSidebarBackdrop"></div>

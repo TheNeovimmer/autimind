@@ -28,5 +28,29 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="/assets/js/app.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var sidebar = document.getElementById('dashSidebar');
+    var toggle = document.getElementById('dashSidebarToggle');
+    var close = document.getElementById('dashSidebarClose');
+    var backdrop = document.getElementById('dashSidebarBackdrop');
+
+    function openSidebar() {
+      sidebar.classList.add('open');
+      backdrop.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeSidebar() {
+      sidebar.classList.remove('open');
+      backdrop.classList.remove('show');
+      document.body.style.overflow = '';
+    }
+
+    if (toggle) toggle.addEventListener('click', openSidebar);
+    if (close) close.addEventListener('click', closeSidebar);
+    if (backdrop) backdrop.addEventListener('click', closeSidebar);
+  });
+  </script>
 </body>
 </html>

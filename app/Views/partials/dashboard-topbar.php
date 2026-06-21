@@ -1,6 +1,6 @@
 <nav class="dash-topbar navbar navbar-light bg-white border-bottom px-3">
   <div class="d-flex align-items-center gap-3">
-    <button class="navbar-toggler dash-sidebar-toggle border-0 p-1" type="button">
+    <button class="navbar-toggler dash-sidebar-toggle border-0 p-1" type="button" id="dashSidebarToggle">
       <i class="fas fa-bars"></i>
     </button>
     <h2 class="h5 mb-0"><?= htmlspecialchars($title ?? 'Dashboard') ?></h2>

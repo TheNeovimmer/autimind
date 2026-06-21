@@ -1776,6 +1776,12 @@
    RESPONSIVE
    ============================================= */
 
+@media (max-width: 1200px) {
+  .dashboard-content .container-fluid {
+    padding: 1.25rem !important;
+  }
+}
+
 @media (max-width: 1024px) {
   .charts-section {
     grid-template-columns: 1fr 1fr;
@@ -1783,30 +1789,59 @@
   .chart-card-wide {
     grid-column: span 2;
   }
+  .stat-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+  .insight-grid {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @media (max-width: 768px) {
   .dash-sidebar {
-    width: 60px;
-    min-width: 60px;
+    transform: translateX(-100%);
+    width: 280px;
+    min-width: 280px;
+    transition: transform 0.3s ease;
+    z-index: 1050;
+  }
+  .dash-sidebar.open {
+    transform: translateX(0);
   }
   .dash-sidebar span {
-    display: none;
+    display: inline;
   }
   .dash-sidebar-logo img {
-    height: 28px;
+    height: 32px;
+  }
+  .dash-sidebar-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 1049;
+  }
+  .dash-sidebar-backdrop.show {
+    display: block;
   }
   .dashboard-main {
-    margin-left: 60px;
+    margin-left: 0;
   }
   .dashboard-content {
     padding: 1rem;
   }
+  .dashboard-content .container-fluid {
+    padding: 0 !important;
+  }
   .dash-topbar {
-    padding: 0.75rem 1rem;
+    padding: 0.6rem 0.75rem;
+  }
+  .dash-topbar-left h2 {
+    font-size: 0.95rem;
   }
   .stat-cards {
     grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
   }
   .charts-section {
     grid-template-columns: 1fr;
@@ -1820,12 +1855,182 @@
   .dash-header {
     flex-direction: column;
     align-items: flex-start;
+    gap: 0.75rem;
+  }
+  .dash-header h1 {
+    font-size: 1.35rem;
+  }
+  .dash-header p {
+    font-size: 0.85rem;
+  }
+  .card {
+    padding: 1rem;
+  }
+  .card > .card-header {
+    margin: -1rem -1rem 0.75rem;
+  }
+  .admin-welcome {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .calendar-cell {
+    min-height: 60px;
+    font-size: 0.7rem;
+    padding: 0.25rem;
+  }
+  .calendar-header div {
+    font-size: 0.65rem;
+    padding: 0.5rem 0.25rem;
+  }
+  .calendar-day-number {
+    font-size: 0.75rem;
+  }
+  .today .calendar-day-number {
+    width: 22px;
+    height: 22px;
+    font-size: 0.7rem;
+  }
+  .calendar-appt-count {
+    font-size: 0.6rem;
+    padding: 0.1rem 0.3rem;
+  }
+  .time-slot-day {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+  .time-slot-label {
+    min-width: auto;
+  }
+  .time-slot-inputs {
+    width: 100%;
+  }
+  .time-slot-inputs input[type="time"] {
+    flex: 1;
+  }
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+  .category-breakdown {
+    grid-template-columns: 1fr 1fr;
+  }
+  .dash-grid-auto {
+    grid-template-columns: 1fr 1fr;
+  }
+  .filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .filter-bar input,
+  .filter-bar select {
+    width: 100%;
+  }
+  .filter-bar .btn {
+    width: 100%;
   }
 }
 
-@media (max-width: 600px) {
-  .pricing-grid {
+@media (max-width: 480px) {
+  .dashboard-body {
+    font-size: 0.9rem;
+  }
+  .dashboard-content {
+    padding: 0.5rem;
+  }
+  .dash-topbar {
+    padding: 0.5rem 0.5rem;
+  }
+  .dash-topbar .navbar-toggler {
+    font-size: 1rem;
+  }
+  .stat-cards {
     grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+  .stat-card-item {
+    padding: 1rem;
+  }
+  .stat-card-value {
+    font-size: 1.3rem;
+  }
+  .dash-header h1 {
+    font-size: 1.15rem;
+  }
+  .dash-header-actions {
+    width: 100%;
+  }
+  .dash-header-actions .btn {
+    flex: 1;
+    font-size: 0.8rem;
+    padding: 0.35rem 0.6rem;
+  }
+  .card {
+    padding: 0.85rem;
+    border-radius: var(--radius-sm);
+  }
+  .card > .card-header {
+    margin: -0.85rem -0.85rem 0.65rem;
+  }
+  .table thead th {
+    font-size: 0.7rem;
+    padding: 0.5rem 0.6rem;
+    white-space: nowrap;
+  }
+  .table tbody td {
+    font-size: 0.78rem;
+    padding: 0.5rem 0.6rem;
+    white-space: nowrap;
+  }
+  .charts-section {
+    gap: 0.75rem;
+  }
+  .chart-card {
+    padding: 0.85rem;
+  }
+  .calendar-cell {
+    min-height: 50px;
+    font-size: 0.6rem;
+    padding: 0.15rem;
+  }
+  .calendar-header div {
+    font-size: 0.55rem;
+    padding: 0.35rem 0.15rem;
+  }
+  .calendar-day-number {
+    font-size: 0.65rem;
+  }
+  .dashboard-content .container-fluid {
+    padding: 0 !important;
+  }
+  .card-body {
+    padding: 0.75rem;
+  }
+  .dash-empty-state {
+    padding: 2rem 1rem;
+  }
+  .dash-empty-state i {
+    font-size: 2rem;
+  }
+  .dash-empty-state h3 {
+    font-size: 1rem;
+  }
+  .specialist-card {
+    padding: 1rem;
+  }
+  .pricing-card {
+    padding: 1.25rem;
+  }
+  .category-breakdown {
+    grid-template-columns: 1fr;
+  }
+  .dash-grid-auto {
+    grid-template-columns: 1fr;
+  }
+  .insight-grid {
+    grid-template-columns: 1fr;
+  }
+  .row-cols-md-2 > * {
+    width: 100%;
   }
   .child-profile-header {
     flex-direction: column;
@@ -1836,20 +2041,24 @@
     align-items: center;
     text-align: center;
   }
-  .stat-cards {
-    grid-template-columns: 1fr;
-  }
-  .dashboard-content {
-    padding: 0.75rem;
-  }
-  .dash-header h1 {
-    font-size: 1.3rem;
-  }
   .filter-bar {
     flex-direction: column;
     align-items: stretch;
   }
   .filter-bar .btn {
+    width: 100%;
+  }
+  .chat-message {
+    max-width: 95%;
+  }
+  .chatbot-input {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .chatbot-input input {
+    width: 100%;
+  }
+  .chatbot-input .btn {
     width: 100%;
   }
 }
