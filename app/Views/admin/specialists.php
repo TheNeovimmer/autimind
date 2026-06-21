@@ -19,8 +19,8 @@
           <td><?= htmlspecialchars($s['title'] ?? '-') ?></td>
           <td><?= htmlspecialchars($s['specializations'] ?? '-') ?></td>
           <td><?= $s['years_experience'] ? (int)$s['years_experience'] . ' yrs' : '-' ?></td>
-          <td><?= $s['is_available'] ? '<span class="status-active">Yes</span>' : '<span class="status-cancelled">No</span>' ?></td>
-          <td><?= $s['is_active'] ? '<span class="status-active">Active</span>' : '<span class="status-cancelled">Inactive</span>' ?></td>
+          <td><?= $s['is_available'] ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>' ?></td>
+          <td><?= $s['is_active'] ? '<span class="badge bg-success">Active</span>' : '<span class="badge bg-danger">Inactive</span>' ?></td>
           <td>
             <form method="POST" action="/admin/specialists/<?= (int)$s['id'] ?>/approve" class="d-inline">
               <input type="hidden" name="_csrf_token" value="<?= htmlspecialchars($csrf_token) ?>">

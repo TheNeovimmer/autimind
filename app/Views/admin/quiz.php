@@ -17,9 +17,9 @@
         <tr>
           <td><?= (int)$q['order_index'] ?></td>
           <td><?= htmlspecialchars(substr($q['question_text'], 0, 80)) ?></td>
-          <td><span class="role-badge"><?= str_replace('_', ' ', htmlspecialchars($q['category'])) ?></span></td>
+          <td><span class="badge bg-primary-subtle text-primary-emphasis"><?= str_replace('_', ' ', htmlspecialchars($q['category'])) ?></span></td>
           <td><?= (int)$q['option_count'] ?></td>
-          <td><?= $q['is_active'] ? '<span class="status-active">Yes</span>' : '<span class="status-cancelled">No</span>' ?></td>
+          <td><?= $q['is_active'] ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>' ?></td>
           <td>
             <a href="/admin/quiz/<?= (int)$q['id'] ?>/options" class="btn btn-sm btn-outline-secondary">Options</a>
             <a href="/admin/quiz/<?= (int)$q['id'] ?>/edit" class="btn btn-sm btn-outline-secondary">Edit</a>

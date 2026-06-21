@@ -18,7 +18,7 @@
           <td><?= htmlspecialchars($m['receiver_name']) ?></td>
           <td><?= htmlspecialchars($m['subject']) ?></td>
           <td><?= htmlspecialchars(substr($m['body'], 0, 80)) ?></td>
-          <td><?= $m['is_read'] ? '<span class="status-active">Read</span>' : '<span class="status-pending">Unread</span>' ?></td>
+          <td><?= $m['is_read'] ? '<span class="badge bg-success">Read</span>' : '<span class="badge bg-warning text-dark">Unread</span>' ?></td>
           <td><?= htmlspecialchars($m['created_at']) ?></td>
         </tr>
       <?php endforeach; ?>

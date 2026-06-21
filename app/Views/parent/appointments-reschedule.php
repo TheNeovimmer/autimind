@@ -20,18 +20,18 @@
 
   <div >
     <div class="mb-3">
-      <label for="date">New Date *</label>
-      <input type="date" id="date" name="date" value="<?= htmlspecialchars($old['date'] ?? $appointment['date']) ?>" required>
+      <label for="date" class="form-label">New Date *</label>
+      <input type="date" id="date" name="date" class="form-control" value="<?= htmlspecialchars($old['date'] ?? $appointment['date']) ?>" required>
     </div>
     <div class="mb-3">
-      <label for="time">New Time *</label>
-      <input type="time" id="time" name="time" value="<?= htmlspecialchars($old['time'] ?? substr($appointment['time'], 0, 5)) ?>" required>
+      <label for="time" class="form-label">New Time *</label>
+      <input type="time" id="time" name="time" class="form-control" value="<?= htmlspecialchars($old['time'] ?? substr($appointment['time'], 0, 5)) ?>" required>
     </div>
   </div>
 
   <div class="mb-3">
-    <label for="notes">Notes</label>
-    <textarea id="notes" name="notes" rows="3"><?= htmlspecialchars($old['notes'] ?? $appointment['notes'] ?? '') ?></textarea>
+    <label for="notes" class="form-label">Notes</label>
+    <textarea id="notes" name="notes" rows="3" class="form-control"><?= htmlspecialchars($old['notes'] ?? $appointment['notes'] ?? '') ?></textarea>
   </div>
 
   <div class="d-flex gap-2 align-items-center">

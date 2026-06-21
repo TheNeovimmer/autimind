@@ -16,9 +16,9 @@
       <?php foreach ($activities as $a): ?>
         <tr>
           <td><strong><?= htmlspecialchars($a['title']) ?></strong></td>
-          <td><span class="role-badge"><?= htmlspecialchars($a['category']) ?></span></td>
+          <td><span class="badge bg-primary-subtle text-primary-emphasis"><?= htmlspecialchars($a['category']) ?></span></td>
           <td><?= htmlspecialchars($a['difficulty']) ?></td>
-          <td><?= $a['is_active'] ? '<span class="status-active">Yes</span>' : '<span class="status-cancelled">No</span>' ?></td>
+          <td><?= $a['is_active'] ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>' ?></td>
           <td>
             <a href="/admin/activities/<?= (int)$a['id'] ?>/edit" class="btn btn-sm btn-outline-secondary">Edit</a>
             <form method="POST" action="/admin/activities/<?= (int)$a['id'] ?>/delete" class="d-inline" onsubmit="return confirm('Delete this activity?');">

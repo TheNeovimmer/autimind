@@ -17,8 +17,8 @@
         <tr>
           <td><?= (int)$f['order_index'] ?></td>
           <td><?= htmlspecialchars(substr($f['question'], 0, 80)) ?></td>
-          <td><span class="role-badge"><?= htmlspecialchars($f['category']) ?></span></td>
-          <td><?= $f['is_active'] ? '<span class="status-active">Yes</span>' : '<span class="status-cancelled">No</span>' ?></td>
+          <td><span class="badge bg-primary-subtle text-primary-emphasis"><?= htmlspecialchars($f['category']) ?></span></td>
+          <td><?= $f['is_active'] ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>' ?></td>
           <td>
             <a href="/admin/faq/<?= (int)$f['id'] ?>/edit" class="btn btn-sm btn-outline-secondary">Edit</a>
             <form method="POST" action="/admin/faq/<?= (int)$f['id'] ?>/delete" class="d-inline" onsubmit="return confirm('Delete this FAQ?');">

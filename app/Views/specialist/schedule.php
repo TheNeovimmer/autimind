@@ -11,20 +11,20 @@
     <input type="hidden" name="_csrf_token" value="<?= htmlspecialchars($csrf_token) ?>">
 
     <div class="mb-3">
-      <label>
-        <input type="checkbox" name="is_available" value="1" <?= ($details['is_available'] ?? 1) ? 'checked' : '' ?>>
-        Available for appointments
-      </label>
+      <div class="form-check">
+        <input type="checkbox" name="is_available" value="1" class="form-check-input" id="is_available" <?= ($details['is_available'] ?? 1) ? 'checked' : '' ?>>
+        <label class="form-check-label" for="is_available">Available for appointments</label>
+      </div>
     </div>
 
     <div class="mb-3">
-      <label for="title">Professional Title</label>
-      <input type="text" id="title" name="title" value="<?= htmlspecialchars($details['title'] ?? '') ?>">
+      <label for="title" class="form-label">Professional Title</label>
+      <input type="text" id="title" name="title" class="form-control" value="<?= htmlspecialchars($details['title'] ?? '') ?>">
     </div>
 
     <div class="mb-3">
-      <label for="bio">Bio / Description</label>
-      <textarea id="bio" name="bio" rows="4"><?= htmlspecialchars($details['bio'] ?? '') ?></textarea>
+      <label for="bio" class="form-label">Bio / Description</label>
+      <textarea id="bio" name="bio" class="form-control" rows="4"><?= htmlspecialchars($details['bio'] ?? '') ?></textarea>
     </div>
 
     <h4 class="mt-3 mb-1">Weekly Time Slots</h4>
@@ -38,9 +38,9 @@
         <div class="time-slot-day">
           <label class="time-slot-label"><?= $label ?></label>
           <div class="time-slot-inputs">
-            <input type="time" name="<?= $key ?>_start" value="<?= $start ?>">
+            <input type="time" name="<?= $key ?>_start" class="form-control" value="<?= $start ?>">
             <span class="time-slot-sep">to</span>
-            <input type="time" name="<?= $key ?>_end" value="<?= $end ?>">
+            <input type="time" name="<?= $key ?>_end" class="form-control" value="<?= $end ?>">
           </div>
         </div>
       <?php endforeach; ?>
@@ -52,11 +52,3 @@
   </form>
 </div>
 
-<style>
-.time-slots-grid { display:grid; gap:0.75rem; }
-.time-slot-day { display:flex; align-items:center; gap:1rem; padding:0.5rem 0; border-bottom:1px solid var(--border,#e5e7eb); }
-.time-slot-label { min-width:100px; font-weight:600; font-size:0.9rem; }
-.time-slot-inputs { display:flex; align-items:center; gap:0.5rem; }
-.time-slot-inputs input[type="time"] { padding:0.4rem 0.6rem; border:1px solid var(--border,#d1d5db); border-radius:6px; font-size:0.9rem; background:var(--input-bg,#fff); }
-.time-slot-sep { font-size:0.85rem; color:#6b7280; }
-</style>

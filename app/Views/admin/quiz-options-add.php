@@ -8,7 +8,7 @@
 
 <div class="card">
   <?php if (!empty($errors)): ?>
-    <div class="flash-error">
+    <div class="alert alert-danger">
       <?php foreach ($errors as $field => $msgs): ?>
         <?php foreach ($msgs as $msg): ?>
           <p><?= htmlspecialchars($msg) ?></p>
@@ -22,18 +22,18 @@
     <input type="hidden" name="question_id" value="<?= (int)$question['id'] ?>">
 
     <div class="mb-3">
-      <label for="option_text">Option Text</label>
-      <input type="text" id="option_text" name="option_text" required>
+      <label for="option_text" class="form-label">Option Text</label>
+      <input type="text" id="option_text" name="option_text" class="form-control" required>
     </div>
 
     <div class="mb-3">
-      <label for="weight">Weight (0-5)</label>
-      <input type="number" id="weight" name="weight" min="0" max="5" value="0" required>
+      <label for="weight" class="form-label">Weight (0-5)</label>
+      <input type="number" id="weight" name="weight" min="0" max="5" value="0" class="form-control" required>
     </div>
 
     <div class="mb-3">
-      <label for="order_index">Order Index</label>
-      <input type="number" id="order_index" name="order_index" value="0" required>
+      <label for="order_index" class="form-label">Order Index</label>
+      <input type="number" id="order_index" name="order_index" value="0" class="form-control" required>
     </div>
 
     <button type="submit" class="btn btn-primary">Create Option</button>

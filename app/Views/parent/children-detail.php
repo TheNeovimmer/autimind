@@ -45,7 +45,7 @@
         </tbody>
       </table>
     <?php else: ?>
-      <p class="dash-empty">No quiz attempts yet. <a href="/parent/quiz/start/<?= (int)$child['id'] ?>">Start a screening quiz</a></p>
+      <p class="text-muted py-2">No quiz attempts yet. <a href="/parent/quiz/start/<?= (int)$child['id'] ?>">Start a screening quiz</a></p>
     <?php endif; ?>
   </div>
 
@@ -70,7 +70,7 @@
         <p class="mt-1"><strong>Average Score:</strong> <?= round($averageScore, 1) ?></p>
       <?php endif; ?>
     <?php else: ?>
-      <p class="dash-empty">No activity data yet.</p>
+      <p class="text-muted py-2">No activity data yet.</p>
     <?php endif; ?>
   </div>
 </div>
@@ -86,12 +86,12 @@
             <td><?= htmlspecialchars($apt['specialist_name']) ?></td>
             <td><?= htmlspecialchars($apt['date']) ?></td>
             <td><?= htmlspecialchars(substr($apt['time'], 0, 5)) ?></td>
-            <td><span class="status-<?= htmlspecialchars($apt['status']) ?>"><?= ucfirst(htmlspecialchars($apt['status'])) ?></span></td>
+            <td><span class="badge <?= match($apt['status']) { 'active','confirmed' => 'bg-success', 'pending' => 'bg-warning text-dark', 'cancelled','expired' => 'bg-danger', default => 'bg-primary' } ?>"><?= ucfirst(htmlspecialchars($apt['status'])) ?></span></td>
           </tr>
         <?php endforeach; ?>
       </tbody>
     </table>
   <?php else: ?>
-    <p class="dash-empty">No appointments for this child. <a href="/parent/appointments/book">Book an appointment</a></p>
+    <p class="text-muted py-2">No appointments for this child. <a href="/parent/appointments/book">Book an appointment</a></p>
   <?php endif; ?>
 </div>

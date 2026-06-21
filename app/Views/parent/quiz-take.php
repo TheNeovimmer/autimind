@@ -5,7 +5,7 @@
   </div>
 </div>
 
-<div class="dash-info-box">
+<div class="alert alert-info d-flex align-items-start gap-2">
   <i class="fas fa-clock"></i>
   <p>Answer all 10 questions based on your observation of your child's typical behavior. There are no right or wrong answers.</p>
 </div>

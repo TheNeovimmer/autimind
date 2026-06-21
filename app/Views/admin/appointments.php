@@ -19,7 +19,7 @@
           <td><?= htmlspecialchars($apt['specialist_name']) ?></td>
           <td><?= htmlspecialchars($apt['date']) ?></td>
           <td><?= htmlspecialchars(substr($apt['time'], 0, 5)) ?></td>
-          <td><span class="status-<?= htmlspecialchars($apt['status']) ?>"><?= ucfirst(htmlspecialchars($apt['status'])) ?></span></td>
+          <td><span class="badge status-<?= htmlspecialchars($apt['status']) ?>"><?= ucfirst(htmlspecialchars($apt['status'])) ?></span></td>
           <td><?= htmlspecialchars(substr($apt['notes'] ?? '', 0, 60)) ?></td>
         </tr>
       <?php endforeach; ?>

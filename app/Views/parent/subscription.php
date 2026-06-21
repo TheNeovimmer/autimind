@@ -10,7 +10,7 @@
   <h3>Current Plan</h3>
   <div class="current-plan-badge">
     <span class="plan-label"><?= ucfirst(htmlspecialchars($currentSubscription['plan'])) ?></span>
-    <span class="plan-status status-active">Active</span>
+    <span class="plan-status badge bg-success">Active</span>
   </div>
   <p><strong>Started:</strong> <?= htmlspecialchars($currentSubscription['started_at'] ?? 'N/A') ?></p>
   <p><strong>Expires:</strong> <?= htmlspecialchars($currentSubscription['ends_at'] ?? 'N/A') ?></p>

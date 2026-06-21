@@ -11,7 +11,7 @@
       <h3><i class="fas fa-users"></i> Total Patients</h3>
       <span class="badge bg-primary-subtle text-primary"><?= (int)$totalPatients ?></span>
     </div>
-    <a href="/specialist/patients" class="dash-link">View Patients →</a>
+    <a href="/specialist/patients" class="text-decoration-none fw-medium">View Patients →</a>
   </div>
 
   <div class="card">
@@ -22,7 +22,7 @@
     <?php if ($pendingAppointments > 0): ?>
       <p><span class="pending-badge"><?= (int)$pendingAppointments ?> pending confirmation</span></p>
     <?php endif; ?>
-    <a href="/specialist/appointments" class="dash-link">Manage Appointments →</a>
+    <a href="/specialist/appointments" class="text-decoration-none fw-medium">Manage Appointments →</a>
   </div>
 
   <div class="card">
@@ -39,7 +39,7 @@
         <?php endforeach; ?>
       </ul>
     <?php else: ?>
-      <p class="dash-empty">No upcoming appointments.</p>
+      <p class="text-muted py-2">No upcoming appointments.</p>
     <?php endif; ?>
   </div>
 
@@ -51,6 +51,6 @@
       <?php endif; ?>
     </div>
     <p><?= $unreadMessages > 0 ? 'You have ' . $unreadMessages . ' unread messages.' : 'No unread messages.' ?></p>
-    <a href="/specialist/messages" class="dash-link">Go to Messages →</a>
+    <a href="/specialist/messages" class="text-decoration-none fw-medium">Go to Messages →</a>
   </div>
 </div>

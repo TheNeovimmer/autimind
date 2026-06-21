@@ -19,7 +19,7 @@
         <?php endforeach; ?>
       </div>
     <?php else: ?>
-      <p class="dash-empty">No messages yet.</p>
+      <p class="text-muted py-2">No messages yet.</p>
     <?php endif; ?>
   </div>
 
@@ -36,7 +36,7 @@
         <?php endforeach; ?>
       </div>
     <?php else: ?>
-      <p class="dash-empty">No sent messages.</p>
+      <p class="text-muted py-2">No sent messages.</p>
     <?php endif; ?>
   </div>
 </div>

@@ -8,7 +8,7 @@
 
 <div class="card">
   <?php if (!empty($errors)): ?>
-    <div class="flash-error">
+    <div class="alert alert-danger">
       <?php foreach ($errors as $field => $msgs): ?>
         <?php foreach ($msgs as $msg): ?>
           <p><?= htmlspecialchars($msg) ?></p>
@@ -21,18 +21,18 @@
     <input type="hidden" name="_csrf_token" value="<?= htmlspecialchars($csrf_token) ?>">
 
     <div class="mb-3">
-      <label for="keywords">Keywords (comma-separated)</label>
-      <input type="text" id="keywords" name="keywords" placeholder="hello, hi, greeting" required>
+      <label for="keywords" class="form-label">Keywords (comma-separated)</label>
+      <input type="text" id="keywords" name="keywords" placeholder="hello, hi, greeting" class="form-control" required>
     </div>
 
     <div class="mb-3">
-      <label for="response_text">Response Text</label>
-      <textarea id="response_text" name="response_text" rows="5" required></textarea>
+      <label for="response_text" class="form-label">Response Text</label>
+      <textarea id="response_text" name="response_text" rows="5" class="form-control" required></textarea>
     </div>
 
     <div class="mb-3">
-      <label for="category">Category</label>
-      <input type="text" id="category" name="category" placeholder="e.g. greeting, support, faq">
+      <label for="category" class="form-label">Category</label>
+      <input type="text" id="category" name="category" placeholder="e.g. greeting, support, faq" class="form-control">
     </div>
 
     <button type="submit" class="btn btn-primary">Create Response</button>

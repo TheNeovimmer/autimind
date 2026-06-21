@@ -19,7 +19,7 @@
           <td><?= htmlspecialchars($apt['specialist_name']) ?></td>
           <td><?= htmlspecialchars($apt['date']) ?></td>
           <td><?= htmlspecialchars(substr($apt['time'], 0, 5)) ?></td>
-          <td><span class="status-<?= htmlspecialchars($apt['status']) ?>"><?= ucfirst(htmlspecialchars($apt['status'])) ?></span></td>
+          <td><span class="badge <?= match($apt['status']) { 'active','confirmed' => 'bg-success', 'pending' => 'bg-warning text-dark', 'cancelled','expired' => 'bg-danger', default => 'bg-primary' } ?>"><?= ucfirst(htmlspecialchars($apt['status'])) ?></span></td>
           <td>
             <?php if ($apt['status'] === 'pending' || $apt['status'] === 'confirmed'): ?>
               <a href="/parent/appointments/<?= (int)$apt['id'] ?>/reschedule" class="btn btn-sm btn-outline-secondary"><i class="fas fa-calendar-alt"></i> Reschedule</a>

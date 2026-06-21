@@ -45,22 +45,3 @@
   </div>
 </div>
 
-<style>
-.calendar-nav { display:flex; align-items:center; justify-content:space-between; margin-bottom:1.5rem; }
-.calendar-nav h2 { margin:0; font-size:1.25rem; }
-.calendar-grid { background:var(--card-bg,#fff); border-radius:12px; overflow:hidden; box-shadow:0 1px 3px rgba(0,0,0,0.08); }
-.calendar-header { display:grid; grid-template-columns:repeat(7,1fr); background:var(--bg-muted,#f9fafb); border-bottom:1px solid var(--border,#e5e7eb); }
-.calendar-header div { padding:0.75rem 0.5rem; text-align:center; font-weight:600; font-size:0.8rem; text-transform:uppercase; color:#6b7280; }
-.calendar-body { display:grid; grid-template-columns:repeat(7,1fr); }
-.calendar-cell { min-height:100px; padding:0.4rem; border-right:1px solid var(--border,#e5e7eb); border-bottom:1px solid var(--border,#e5e7eb); font-size:0.8rem; }
-.calendar-cell:nth-child(7n) { border-right:none; }
-.calendar-empty { background:var(--bg-muted,#f9fafb); }
-.calendar-day-number { font-weight:700; font-size:0.9rem; margin-bottom:0.25rem; }
-.today .calendar-day-number { background:var(--primary,#4f46e5); color:#fff; width:28px; height:28px; display:flex; align-items:center; justify-content:center; border-radius:50%; }
-.has-appointments { background:#f0fdf4; }
-.calendar-appts { margin-top:0.25rem; }
-.calendar-appt-count { display:inline-block; background:var(--primary,#4f46e5); color:#fff; font-size:0.7rem; padding:0.1rem 0.4rem; border-radius:4px; font-weight:600; }
-.calendar-appt-children { font-size:0.7rem; color:#374151; margin-top:0.2rem; line-height:1.3; }
-.calendar-view-link { display:inline-block; margin-top:0.2rem; font-size:0.7rem; color:var(--primary,#4f46e5); text-decoration:underline; }
-.text-muted { color:#9ca3af; }
-</style>

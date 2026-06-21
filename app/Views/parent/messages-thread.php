@@ -18,7 +18,7 @@
       </div>
     <?php endforeach; ?>
   <?php else: ?>
-    <p class="dash-empty">No messages in this conversation.</p>
+    <p class="text-muted py-2">No messages in this conversation.</p>
   <?php endif; ?>
 </div>
 
@@ -28,8 +28,8 @@
   <input type="hidden" name="subject" value="Re: <?= htmlspecialchars(isset($thread[0]) ? $thread[0]['subject'] : 'Message') ?>">
 
   <div class="mb-3">
-    <label for="body">Reply</label>
-    <textarea id="body" name="body" rows="3" required placeholder="Type your reply..."></textarea>
+    <label for="body" class="form-label">Reply</label>
+    <textarea id="body" name="body" rows="3" class="form-control" required placeholder="Type your reply..."></textarea>
   </div>
 
   <button type="submit" class="btn btn-primary">Send Reply</button>

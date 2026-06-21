@@ -18,7 +18,7 @@
           <td><?= htmlspecialchars($c['email']) ?></td>
           <td><?= htmlspecialchars($c['subject']) ?></td>
           <td><?= htmlspecialchars(substr($c['message'], 0, 80)) ?></td>
-          <td><?= $c['is_read'] ? '<span class="status-active">Read</span>' : '<span class="status-pending">New</span>' ?></td>
+          <td><?= $c['is_read'] ? '<span class="badge bg-success">Read</span>' : '<span class="badge bg-warning text-dark">New</span>' ?></td>
           <td><?= htmlspecialchars($c['created_at']) ?></td>
           <td>
             <?php if (!$c['is_read']): ?>

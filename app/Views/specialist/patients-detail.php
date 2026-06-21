@@ -28,8 +28,8 @@
   <form method="POST" action="/specialist/patients/<?= (int)$child['id'] ?>/notes" class="">
     <input type="hidden" name="_csrf_token" value="<?= htmlspecialchars($csrf_token) ?>">
     <div class="mb-3">
-      <label for="notes">Observation Notes</label>
-      <textarea id="notes" name="notes" rows="5"><?= htmlspecialchars($child['notes'] ?? '') ?></textarea>
+      <label for="notes" class="form-label">Observation Notes</label>
+      <textarea id="notes" name="notes" class="form-control" rows="5"><?= htmlspecialchars($child['notes'] ?? '') ?></textarea>
     </div>
     <div class="d-flex gap-2 align-items-center">
       <button type="submit" class="btn btn-primary">Save Observation</button>
@@ -47,14 +47,14 @@
           <tr>
             <td><?= htmlspecialchars($apt['date']) ?></td>
             <td><?= htmlspecialchars(substr($apt['time'], 0, 5)) ?></td>
-            <td><span class="status-<?= htmlspecialchars($apt['status']) ?>"><?= ucfirst(htmlspecialchars($apt['status'])) ?></span></td>
+            <td><span class="badge <?= htmlspecialchars(['pending'=>'bg-warning text-dark','confirmed'=>'bg-success','active'=>'bg-success','completed'=>'bg-primary','cancelled'=>'bg-danger','expired'=>'bg-danger'][$apt['status']] ?? 'bg-secondary') ?>"><?= ucfirst(htmlspecialchars($apt['status'])) ?></span></td>
             <td><?= htmlspecialchars($apt['notes'] ?? '-') ?></td>
           </tr>
         <?php endforeach; ?>
       </tbody>
     </table>
   <?php else: ?>
-    <p class="dash-empty">No appointments yet.</p>
+    <p class="text-muted py-2">No appointments yet.</p>
   <?php endif; ?>
 </div>
 

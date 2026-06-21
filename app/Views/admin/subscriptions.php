@@ -17,8 +17,8 @@
         <tr>
           <td><?= htmlspecialchars($s['user_name']) ?></td>
           <td><?= htmlspecialchars($s['user_email']) ?></td>
-          <td><span class="role-badge"><?= ucfirst(htmlspecialchars($s['plan'])) ?></span></td>
-          <td><span class="status-<?= htmlspecialchars($s['status']) ?>"><?= ucfirst(htmlspecialchars($s['status'])) ?></span></td>
+          <td><span class="badge bg-primary-subtle text-primary-emphasis"><?= ucfirst(htmlspecialchars($s['plan'])) ?></span></td>
+          <td><span class="badge status-<?= htmlspecialchars($s['status']) ?>"><?= ucfirst(htmlspecialchars($s['status'])) ?></span></td>
           <td><?= htmlspecialchars($s['started_at']) ?></td>
           <td><?= htmlspecialchars($s['ends_at'] ?? '-') ?></td>
           <td>

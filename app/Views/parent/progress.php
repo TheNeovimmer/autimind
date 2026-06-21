@@ -8,8 +8,8 @@
 <?php if (!empty($children)): ?>
 <div class="card mb-2">
   <div class="mb-3">
-    <label for="child-select">Select Child:</label>
-    <select id="child-select" onchange="window.location.href='/parent/progress?child_id=' + this.value">
+    <label for="child-select" class="form-label">Select Child:</label>
+    <select id="child-select" class="form-select" onchange="window.location.href='/parent/progress?child_id=' + this.value">
       <?php foreach ($children as $child): ?>
         <option value="<?= (int)$child['id'] ?>" <?= $child['id'] === $selectedChildId ? 'selected' : '' ?>>
           <?= htmlspecialchars($child['name']) ?>
@@ -37,7 +37,7 @@
           </tbody>
         </table>
       <?php else: ?>
-        <p class="dash-empty">No quiz data yet.</p>
+        <p class="text-muted py-2">No quiz data yet.</p>
       <?php endif; ?>
     </div>
 
@@ -58,7 +58,7 @@
           </tbody>
         </table>
       <?php else: ?>
-        <p class="dash-empty">No activity data yet.</p>
+        <p class="text-muted py-2">No activity data yet.</p>
       <?php endif; ?>
     </div>
   </div>

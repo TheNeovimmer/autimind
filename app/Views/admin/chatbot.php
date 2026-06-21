@@ -18,7 +18,7 @@
           <td><?= htmlspecialchars($r['keywords']) ?></td>
           <td><?= htmlspecialchars(substr($r['response_text'], 0, 80)) ?><?= strlen($r['response_text']) > 80 ? '...' : '' ?></td>
           <td><?= htmlspecialchars($r['category'] ?? '-') ?></td>
-          <td><?= $r['is_active'] ? '<span class="status-active">Yes</span>' : '<span class="status-cancelled">No</span>' ?></td>
+          <td><?= $r['is_active'] ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>' ?></td>
           <td>
             <a href="/admin/chatbot/<?= (int)$r['id'] ?>/edit" class="btn btn-sm btn-outline-secondary">Edit</a>
             <form method="POST" action="/admin/chatbot/<?= (int)$r['id'] ?>/delete" class="d-inline" onsubmit="return confirm('Delete this response?');">

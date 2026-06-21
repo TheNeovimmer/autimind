@@ -5,7 +5,7 @@
   </div>
 </div>
 
-<div class="dash-info-box">
+<div class="alert alert-info d-flex align-items-start gap-2">
   <i class="fas fa-info-circle"></i>
   <p>This screening quiz consists of <strong>10 questions</strong> across key developmental areas. It takes about 5-10 minutes to complete. Results are for informational purposes only and not a medical diagnosis.</p>
 </div>
@@ -29,7 +29,7 @@
           <a href="/parent/quiz/start/<?= (int)$data['child']['id'] ?>" class="btn btn-primary btn-sm">Take New Quiz</a>
         </div>
       <?php else: ?>
-        <p class="dash-empty">No screening completed yet.</p>
+        <p class="text-muted py-2">No screening completed yet.</p>
         <a href="/parent/quiz/start/<?= (int)$data['child']['id'] ?>" class="btn btn-primary btn-sm">Start Screening</a>
       <?php endif; ?>
       

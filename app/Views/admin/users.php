@@ -9,12 +9,12 @@
 <div class="card mb-2">
   <form method="GET" class="d-flex gap-1 flex-wrap align-items-center">
     <div class="mb-3 flex-1" style="min-width:200px;margin:0;">
-      <label for="search">Search</label>
-      <input type="text" id="search" name="search" value="<?= htmlspecialchars($search ?? '') ?>" placeholder="Name or email...">
+      <label for="search" class="form-label">Search</label>
+      <input type="text" id="search" name="search" value="<?= htmlspecialchars($search ?? '') ?>" placeholder="Name or email..." class="form-control">
     </div>
     <div class="mb-3" style="margin:0;">
-      <label for="role">Role</label>
-      <select id="role" name="role">
+      <label for="role" class="form-label">Role</label>
+      <select id="role" name="role" class="form-select">
         <option value="">All Roles</option>
         <option value="parent" <?= ($role ?? '') === 'parent' ? 'selected' : '' ?>>Parent</option>
         <option value="specialist" <?= ($role ?? '') === 'specialist' ? 'selected' : '' ?>>Specialist</option>
@@ -39,8 +39,8 @@
         <tr>
           <td><strong><?= htmlspecialchars($u['name']) ?></strong></td>
           <td><?= htmlspecialchars($u['email']) ?></td>
-          <td><span class="role-badge role-<?= htmlspecialchars($u['role']) ?>"><?= ucfirst(htmlspecialchars($u['role'])) ?></span></td>
-          <td><?= $u['is_active'] ? '<span class="status-active">Active</span>' : '<span class="status-cancelled">Inactive</span>' ?></td>
+          <td><span class="badge bg-primary-subtle text-primary-emphasis role-<?= htmlspecialchars($u['role']) ?>"><?= ucfirst(htmlspecialchars($u['role'])) ?></span></td>
+          <td><?= $u['is_active'] ? '<span class="badge bg-success">Active</span>' : '<span class="badge bg-danger">Inactive</span>' ?></td>
           <td><?= htmlspecialchars($u['created_at']) ?></td>
           <td>
             <a href="/admin/users/<?= (int)$u['id'] ?>/edit" class="btn btn-sm btn-outline-secondary">Edit</a>

@@ -19,7 +19,7 @@
           <td><?= htmlspecialchars($apt['parent_name']) ?></td>
           <td><?= htmlspecialchars($apt['date']) ?></td>
           <td><?= htmlspecialchars(substr($apt['time'], 0, 5)) ?></td>
-          <td><span class="status-<?= htmlspecialchars($apt['status']) ?>"><?= ucfirst(htmlspecialchars($apt['status'])) ?></span></td>
+          <td><span class="badge <?= htmlspecialchars(['pending'=>'bg-warning text-dark','confirmed'=>'bg-success','active'=>'bg-success','completed'=>'bg-primary','cancelled'=>'bg-danger','expired'=>'bg-danger'][$apt['status']] ?? 'bg-secondary') ?>"><?= ucfirst(htmlspecialchars($apt['status'])) ?></span></td>
           <td><?= htmlspecialchars(substr($apt['notes'] ?? '', 0, 50)) ?></td>
           <td>
             <?php if ($apt['status'] === 'pending'): ?>

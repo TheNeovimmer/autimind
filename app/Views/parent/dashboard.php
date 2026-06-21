@@ -21,7 +21,7 @@
         </li>
       <?php endforeach; ?>
     </ul>
-    <a href="/parent/children" class="dash-link">Manage Children →</a>
+    <a href="/parent/children" class="text-decoration-none fw-medium">Manage Children →</a>
   </div>
 
   <div class="card">
@@ -39,9 +39,9 @@
         <?php endforeach; ?>
       </ul>
     <?php else: ?>
-      <p class="dash-empty">No upcoming appointments.</p>
+      <p class="text-muted py-2">No upcoming appointments.</p>
     <?php endif; ?>
-    <a href="/parent/appointments" class="dash-link">View All →</a>
+    <a href="/parent/appointments" class="text-decoration-none fw-medium">View All →</a>
   </div>
 
   <div class="card">
@@ -52,7 +52,7 @@
       <?php endif; ?>
     </div>
     <p><?= $unreadMessages > 0 ? 'You have ' . $unreadMessages . ' unread message(s).' : 'No unread messages.' ?></p>
-    <a href="/parent/messages" class="dash-link">Go to Messages →</a>
+    <a href="/parent/messages" class="text-decoration-none fw-medium">Go to Messages →</a>
   </div>
 
   <div class="card">
@@ -61,10 +61,10 @@
     </div>
     <?php if ($latestQuiz): ?>
       <p>Score: <strong><?= (int)$latestQuiz['total_score'] ?>/50</strong> · Risk: <span class="risk-<?= htmlspecialchars($latestQuiz['risk_level']) ?>"><?= ucfirst(htmlspecialchars($latestQuiz['risk_level'])) ?></span></p>
-      <a href="/parent/quiz" class="dash-link">View Details →</a>
+      <a href="/parent/quiz" class="text-decoration-none fw-medium">View Details →</a>
     <?php else: ?>
-      <p class="dash-empty">No screening completed yet.</p>
-      <a href="/parent/quiz" class="dash-link">Start Screening →</a>
+      <p class="text-muted py-2">No screening completed yet.</p>
+      <a href="/parent/quiz" class="text-decoration-none fw-medium">Start Screening →</a>
     <?php endif; ?>
   </div>
 </div>
