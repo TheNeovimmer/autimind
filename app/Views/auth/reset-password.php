@@ -17,6 +17,7 @@
     <?php endif; ?>
 
     <form method="POST" action="/reset-password/<?= htmlspecialchars($token) ?>" class="auth-form">
+      <input type="hidden" name="_csrf_token" value="<?= htmlspecialchars(\App\Core\Session::csrf_token()) ?>">
       <div class="form-group">
         <div class="input-wrap">
           <i class="fas fa-lock"></i>

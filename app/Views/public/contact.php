@@ -10,7 +10,7 @@
   <div class="contact-form-wrap">
     <h2>Send a Message</h2>
     <?php if (isset($errors) && !empty($errors)): ?>
-    <div class="form-errors">
+    <div class="">
       <?php foreach ($errors as $field => $error): ?>
         <p class="error-message"><?= htmlspecialchars(is_array($error) ? $error[0] : $error) ?></p>
       <?php endforeach; ?>
@@ -22,7 +22,7 @@
       <input type="email" name="email" placeholder="Your Email" value="<?= htmlspecialchars($old['email'] ?? '') ?>" required>
       <input type="text" name="subject" placeholder="Subject" value="<?= htmlspecialchars($old['subject'] ?? '') ?>" required>
       <textarea name="message" placeholder="Your Message" required><?= htmlspecialchars($old['message'] ?? '') ?></textarea>
-      <button type="submit" class="btn-primary"><i class="fas fa-paper-plane"></i> Send Message</button>
+      <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Send Message</button>
     </form>
   </div>
   <div class="contact-info-wrap">

@@ -7,7 +7,7 @@
 
 <?php if (!empty($appointments)): ?>
 <div class="table-responsive">
-  <table class="dash-table">
+  <table class="table table-hover align-middle mb-0 small">
     <thead>
       <tr><th>Child</th><th>Parent</th><th>Specialist</th><th>Date</th><th>Time</th><th>Status</th><th>Notes</th></tr>
     </thead>

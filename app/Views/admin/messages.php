@@ -7,7 +7,7 @@
 
 <?php if (!empty($messages)): ?>
 <div class="table-responsive">
-  <table class="dash-table">
+  <table class="table table-hover align-middle mb-0 small">
     <thead>
       <tr><th>From</th><th>To</th><th>Subject</th><th>Body</th><th>Status</th><th>Date</th></tr>
     </thead>

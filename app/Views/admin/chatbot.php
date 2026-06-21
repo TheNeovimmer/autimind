@@ -3,12 +3,12 @@
     <h1>Chatbot Responses</h1>
     <p>Manage automated chatbot responses</p>
   </div>
-  <a href="/admin/chatbot/add" class="btn-primary"><i class="fas fa-plus"></i> Add Response</a>
+  <a href="/admin/chatbot/add" class="btn btn-primary"><i class="fas fa-plus"></i> Add Response</a>
 </div>
 
 <?php if (!empty($responses)): ?>
 <div class="table-responsive">
-  <table class="dash-table">
+  <table class="table table-hover align-middle mb-0 small">
     <thead>
       <tr><th>Keywords</th><th>Response</th><th>Category</th><th>Active</th><th>Actions</th></tr>
     </thead>
@@ -20,10 +20,10 @@
           <td><?= htmlspecialchars($r['category'] ?? '-') ?></td>
           <td><?= $r['is_active'] ? '<span class="status-active">Yes</span>' : '<span class="status-cancelled">No</span>' ?></td>
           <td>
-            <a href="/admin/chatbot/<?= (int)$r['id'] ?>/edit" class="btn-sm btn-outline">Edit</a>
-            <form method="POST" action="/admin/chatbot/<?= (int)$r['id'] ?>/delete" style="display:inline;" onsubmit="return confirm('Delete this response?');">
+            <a href="/admin/chatbot/<?= (int)$r['id'] ?>/edit" class="btn btn-sm btn-outline-secondary">Edit</a>
+            <form method="POST" action="/admin/chatbot/<?= (int)$r['id'] ?>/delete" class="d-inline" onsubmit="return confirm('Delete this response?');">
               <input type="hidden" name="_csrf_token" value="<?= \App\Core\Session::csrf_token() ?>">
-              <button type="submit" class="btn-sm" style="background:#fee2e2;color:#dc2626;border:none;cursor:pointer;">Delete</button>
+              <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
             </form>
           </td>
         </tr>

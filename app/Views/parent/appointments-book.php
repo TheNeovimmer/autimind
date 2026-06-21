@@ -5,10 +5,10 @@
   </div>
 </div>
 
-<form method="POST" action="/parent/appointments/book" class="dash-form">
+<form method="POST" action="/parent/appointments/book" >
   <input type="hidden" name="_csrf_token" value="<?= htmlspecialchars($csrf_token) ?>">
   
-  <div class="form-group">
+  <div class="mb-3">
     <label for="child_id">Child *</label>
     <select id="child_id" name="child_id" required>
       <option value="">Select a child</option>
@@ -18,7 +18,7 @@
     </select>
   </div>
 
-  <div class="form-group">
+  <div class="mb-3">
     <label for="specialist_id">Specialist *</label>
     <select id="specialist_id" name="specialist_id" required>
       <option value="">Select a specialist</option>
@@ -28,16 +28,16 @@
     </select>
   </div>
 
-  <div class="form-row">
-    <div class="form-group">
+  <div >
+    <div class="mb-3">
       <label for="date">Date *</label>
       <input type="date" id="date" name="date" required min="<?= date('Y-m-d') ?>">
     </div>
-    <div class="form-group">
+    <div class="mb-3">
       <label for="time">Time *</label>
       <input type="time" id="time" name="time" required>
     </div>
-    <div class="form-group">
+    <div class="mb-3">
       <label for="duration">Duration (minutes)</label>
       <select id="duration" name="duration">
         <option value="30">30 min</option>
@@ -47,13 +47,13 @@
     </div>
   </div>
 
-  <div class="form-group">
+  <div class="mb-3">
     <label for="notes">Notes</label>
     <textarea id="notes" name="notes" rows="3" placeholder="Any specific concerns or topics you'd like to discuss..."><?= htmlspecialchars($old['notes'] ?? '') ?></textarea>
   </div>
 
-  <div class="form-actions">
-    <a href="/parent/appointments" class="btn btn-outline">Cancel</a>
+  <div class="d-flex gap-2 align-items-center">
+    <a href="/parent/appointments" class="btn btn-outline-secondary">Cancel</a>
     <button type="submit" class="btn btn-primary">Book Appointment</button>
   </div>
 </form>

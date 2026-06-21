@@ -3,8 +3,8 @@
     <h1>A better life for <span class="highlight">autistic</span> people</h1>
     <p>A comprehensive digital platform for early screening, support, and development of children with autism.</p>
     <div class="hero-buttons">
-      <a href="#" class="btn-primary">See How It Works</a>
-      <a href="#" class="btn-secondary">Get Started for Free</a>
+      <a href="#" class="btn btn-primary">See How It Works</a>
+      <a href="#" class="btn btn-outline-secondary">Get Started for Free</a>
     </div>
   </div>
 </header>

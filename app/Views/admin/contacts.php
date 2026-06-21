@@ -7,7 +7,7 @@
 
 <?php if (!empty($contacts)): ?>
 <div class="table-responsive">
-  <table class="dash-table">
+  <table class="table table-hover align-middle mb-0 small">
     <thead>
       <tr><th>Name</th><th>Email</th><th>Subject</th><th>Message</th><th>Status</th><th>Date</th><th>Actions</th></tr>
     </thead>
@@ -22,14 +22,14 @@
           <td><?= htmlspecialchars($c['created_at']) ?></td>
           <td>
             <?php if (!$c['is_read']): ?>
-              <form method="POST" action="/admin/contacts/<?= (int)$c['id'] ?>/read" style="display:inline;">
+              <form method="POST" action="/admin/contacts/<?= (int)$c['id'] ?>/read" class="d-inline">
                 <input type="hidden" name="_csrf_token" value="<?= htmlspecialchars($csrf_token) ?>">
-                <button type="submit" class="btn-sm btn-outline">Mark Read</button>
+                <button type="submit" class="btn btn-sm btn-outline-secondary">Mark Read</button>
               </form>
             <?php endif; ?>
-            <form method="POST" action="/admin/contacts/<?= (int)$c['id'] ?>/delete" style="display:inline;" onsubmit="return confirm('Delete this message?')">
+            <form method="POST" action="/admin/contacts/<?= (int)$c['id'] ?>/delete" class="d-inline" onsubmit="return confirm('Delete this message?')">
               <input type="hidden" name="_csrf_token" value="<?= htmlspecialchars($csrf_token) ?>">
-              <button type="submit" class="btn-sm btn-outline btn-danger">Delete</button>
+              <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
             </form>
           </td>
         </tr>

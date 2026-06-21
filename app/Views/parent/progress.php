@@ -6,8 +6,8 @@
 </div>
 
 <?php if (!empty($children)): ?>
-<div class="dash-card mb-2">
-  <div class="form-group">
+<div class="card mb-2">
+  <div class="mb-3">
     <label for="child-select">Select Child:</label>
     <select id="child-select" onchange="window.location.href='/parent/progress?child_id=' + this.value">
       <?php foreach ($children as $child): ?>
@@ -20,11 +20,11 @@
 </div>
 
 <?php if ($selectedChildId): ?>
-  <div class="dash-grid dash-grid-2 mb-2">
-    <div class="dash-card">
+  <div class="row row-cols-1 row-cols-md-2 g-3 mb-3">
+    <div class="card">
       <h3><i class="fas fa-clipboard-list"></i> Quiz History</h3>
       <?php if (!empty($quizHistory)): ?>
-        <table class="dash-table">
+        <table class="table table-hover align-middle mb-0 small">
           <thead><tr><th>Date</th><th>Score</th><th>Risk</th></tr></thead>
           <tbody>
             <?php foreach ($quizHistory as $qh): ?>
@@ -41,10 +41,10 @@
       <?php endif; ?>
     </div>
 
-    <div class="dash-card">
+    <div class="card">
       <h3><i class="fas fa-gamepad"></i> Recent Activity</h3>
       <?php if (!empty($progressData)): ?>
-        <table class="dash-table">
+        <table class="table table-hover align-middle mb-0 small">
           <thead><tr><th>Activity</th><th>Category</th><th>Score</th><th>Date</th></tr></thead>
           <tbody>
             <?php foreach ($progressData as $pd): ?>

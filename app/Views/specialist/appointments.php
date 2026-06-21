@@ -3,19 +3,12 @@
     <h1>Appointments</h1>
     <p>Manage your appointments</p>
   </div>
-  <a href="/specialist/calendar" class="btn btn-outline"><i class="fas fa-calendar"></i> Calendar View</a>
+  <a href="/specialist/calendar" class="btn btn-outline-secondary"><i class="fas fa-calendar"></i> Calendar View</a>
 </div>
-
-<?php if (\App\Core\Session::hasFlash('success')): ?>
-  <div class="flash-success"><?= \App\Core\Session::getFlash('success') ?></div>
-<?php endif; ?>
-<?php if (\App\Core\Session::hasFlash('error')): ?>
-  <div class="flash-error"><?= \App\Core\Session::getFlash('error') ?></div>
-<?php endif; ?>
 
 <?php if (!empty($appointments)): ?>
 <div class="table-responsive">
-  <table class="dash-table">
+  <table class="table table-hover align-middle mb-0 small">
     <thead>
       <tr><th>Child</th><th>Parent</th><th>Date</th><th>Time</th><th>Status</th><th>Notes</th><th>Actions</th></tr>
     </thead>
@@ -30,23 +23,23 @@
           <td><?= htmlspecialchars(substr($apt['notes'] ?? '', 0, 50)) ?></td>
           <td>
             <?php if ($apt['status'] === 'pending'): ?>
-              <form method="POST" action="/specialist/appointments/<?= (int)$apt['id'] ?>/status" style="display:flex;gap:0.25rem;">
+              <form method="POST" action="/specialist/appointments/<?= (int)$apt['id'] ?>/status" class="d-inline-flex gap-1">
                 <input type="hidden" name="_csrf_token" value="<?= \App\Core\Session::csrf_token() ?>">
                 <input type="hidden" name="status" value="confirmed">
-                <button type="submit" class="btn-sm" style="background:#dcfce7;color:#16a34a;border:none;cursor:pointer;">Confirm</button>
+                <button type="submit" class="btn btn-sm btn-outline-success">Confirm</button>
               </form>
-              <form method="POST" action="/specialist/appointments/<?= (int)$apt['id'] ?>/cancel" style="display:flex;gap:0.25rem;">
+              <form method="POST" action="/specialist/appointments/<?= (int)$apt['id'] ?>/cancel" class="d-inline-flex gap-1">
                 <input type="hidden" name="_csrf_token" value="<?= \App\Core\Session::csrf_token() ?>">
-                <button type="submit" class="btn-sm" style="background:#fee2e2;color:#dc2626;border:none;cursor:pointer;">Cancel</button>
+                <button type="submit" class="btn btn-sm btn-outline-danger">Cancel</button>
               </form>
             <?php elseif ($apt['status'] === 'confirmed'): ?>
-              <form method="POST" action="/specialist/appointments/<?= (int)$apt['id'] ?>/complete" style="display:inline;">
+              <form method="POST" action="/specialist/appointments/<?= (int)$apt['id'] ?>/complete" class="d-inline">
                 <input type="hidden" name="_csrf_token" value="<?= \App\Core\Session::csrf_token() ?>">
-                <button type="submit" class="btn-sm btn-outline">Complete</button>
+                <button type="submit" class="btn btn-sm btn-outline-secondary">Complete</button>
               </form>
-              <form method="POST" action="/specialist/appointments/<?= (int)$apt['id'] ?>/cancel" style="display:inline;">
+              <form method="POST" action="/specialist/appointments/<?= (int)$apt['id'] ?>/cancel" class="d-inline">
                 <input type="hidden" name="_csrf_token" value="<?= \App\Core\Session::csrf_token() ?>">
-                <button type="submit" class="btn-sm" style="background:#fee2e2;color:#dc2626;border:none;cursor:pointer;">Cancel</button>
+                <button type="submit" class="btn btn-sm btn-outline-danger">Cancel</button>
               </form>
             <?php endif; ?>
           </td>

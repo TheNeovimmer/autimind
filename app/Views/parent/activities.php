@@ -3,20 +3,21 @@
     <h1><?= htmlspecialchars($child['name']) ?> - Activities</h1>
     <p>Completed activities and progress</p>
   </div>
-  <a href="/parent/progress" class="btn btn-outline"><i class="fas fa-arrow-left"></i> Back to Progress</a>
+  <a href="/parent/progress" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> Back to Progress</a>
 </div>
 
 <?php if ($averageScore !== null): ?>
-<div class="dash-card mb-2">
+<div class="card mb-2">
   <h3>Overall Performance</h3>
   <p><strong>Average Score:</strong> <span class="score-highlight"><?= round($averageScore, 1) ?></span></p>
   <p><strong>Total Activities Completed:</strong> <?= count($activities) ?></p>
 </div>
 <?php endif; ?>
 
-<div class="dash-card">
+<div class="card">
   <?php if (!empty($activities)): ?>
-    <table class="dash-table">
+    <div class="table-responsive">
+    <table class="table table-hover align-middle mb-0 small">
       <thead>
         <tr>
           <th>Activity</th>
@@ -38,9 +39,10 @@
         <?php endforeach; ?>
       </tbody>
     </table>
+    </div>
   <?php else: ?>
     <div class="dash-empty-state">
-      <i class="fas fa-gamepad" style="font-size: 3rem; color: var(--primary);"></i>
+      <i class="fas fa-gamepad dash-empty-icon"></i>
       <h3>No activities completed yet</h3>
       <p>Activities completed by your child will appear here.</p>
     </div>

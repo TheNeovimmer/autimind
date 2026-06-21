@@ -5,17 +5,10 @@
   </div>
 </div>
 
-<?php if (\App\Core\Session::hasFlash('success')): ?>
-  <div class="flash-success"><?= \App\Core\Session::getFlash('success') ?></div>
-<?php endif; ?>
-<?php if (\App\Core\Session::hasFlash('error')): ?>
-  <div class="flash-error"><?= \App\Core\Session::getFlash('error') ?></div>
-<?php endif; ?>
-
-<form method="POST" action="/admin/settings" class="dash-form" enctype="multipart/form-data">
+<form method="POST" action="/admin/settings" class="" enctype="multipart/form-data">
   <input type="hidden" name="_csrf_token" value="<?= htmlspecialchars($csrf_token) ?>">
 
-  <div class="dash-card mb-2">
+  <div class="card mb-2">
     <h3>Profile Picture</h3>
     <div class="avatar-upload-wrapper">
       <div class="avatar-preview">
@@ -34,35 +27,41 @@
       </div>
     </div>
     <?php if (!empty($errors['avatar'])): ?>
-      <span class="form-error"><?= htmlspecialchars($errors['avatar'][0]) ?></span>
+      <span class="invalid-feedback d-block"><i class="fas fa-exclamation-circle"></i><?= htmlspecialchars($errors['avatar'][0]) ?></span>
     <?php endif; ?>
   </div>
 
-  <div class="dash-card">
-    <div class="form-group">
+  <div class="card mb-2">
+    <h3>Profile</h3>
+    <div class="mb-3">
       <label for="name">Name</label>
-      <input type="text" id="name" name="name" value="<?= htmlspecialchars($user['name']) ?>" required>
-      <?php if (!empty($errors['name'])): ?><span class="form-error"><?= htmlspecialchars($errors['name'][0]) ?></span><?php endif; ?>
+      <input type="text" id="name" name="name" value="<?= htmlspecialchars($user['name']) ?>"
+             class="<?= !empty($errors['name']) ? 'is-invalid' : '' ?>">
+      <?php if (!empty($errors['name'])): ?><span class="invalid-feedback d-block"><i class="fas fa-exclamation-circle"></i><?= htmlspecialchars($errors['name'][0]) ?></span><?php endif; ?>
     </div>
 
-    <div class="form-group">
+    <div class="mb-3">
       <label for="email">Email</label>
-      <input type="email" id="email" name="email" value="<?= htmlspecialchars($user['email']) ?>" required>
+      <input type="email" id="email" name="email" value="<?= htmlspecialchars($user['email']) ?>"
+             class="<?= !empty($errors['email']) ? 'is-invalid' : '' ?>">
     </div>
 
-    <div class="form-group">
+    <div class="mb-3">
       <label for="phone">Phone</label>
       <input type="text" id="phone" name="phone" value="<?= htmlspecialchars($user['phone'] ?? '') ?>">
     </div>
 
-    <div class="form-group">
+    <div class="mb-3">
       <label for="password">New Password (leave blank to keep current)</label>
-      <input type="password" id="password" name="password" minlength="8">
+      <div class="password-wrapper">
+        <input type="password" id="password" name="password" minlength="8">
+        <i class="fas fa-eye password-toggle" onclick="togglePassword(this)"></i>
+      </div>
     </div>
+  </div>
 
-    <div class="form-actions">
-      <button type="submit" class="btn-primary">Save Settings</button>
-    </div>
+  <div class="d-flex gap-2 align-items-center">
+    <button type="submit" class="btn btn-primary">Save Settings</button>
   </div>
 </form>
 

@@ -5,15 +5,8 @@
   </div>
 </div>
 
-<?php if (\App\Core\Session::hasFlash('success')): ?>
-  <div class="flash-success"><?= \App\Core\Session::getFlash('success') ?></div>
-<?php endif; ?>
-<?php if (\App\Core\Session::hasFlash('error')): ?>
-  <div class="flash-error"><?= \App\Core\Session::getFlash('error') ?></div>
-<?php endif; ?>
-
 <?php if ($currentSubscription): ?>
-<div class="dash-card mb-2">
+<div class="card mb-2">
   <h3>Current Plan</h3>
   <div class="current-plan-badge">
     <span class="plan-label"><?= ucfirst(htmlspecialchars($currentSubscription['plan'])) ?></span>
@@ -36,7 +29,7 @@
         <?php endforeach; ?>
       </ul>
       <?php if ($currentSubscription && $currentSubscription['plan'] === $planKey): ?>
-        <span class="btn btn-outline" disabled>Current Plan</span>
+        <span class="btn btn-outline-secondary" disabled>Current Plan</span>
       <?php else: ?>
         <form method="POST" action="/parent/subscription/upgrade" onsubmit="return confirm('Change to <?= htmlspecialchars($plan['name']) ?> plan?')">
           <input type="hidden" name="_csrf_token" value="<?= htmlspecialchars($csrf_token) ?>">

@@ -6,16 +6,9 @@
   <a href="/parent/children/add" class="btn btn-primary"><i class="fas fa-plus"></i> Add Child</a>
 </div>
 
-<?php if (\App\Core\Session::hasFlash('success')): ?>
-  <div class="flash-success"><?= \App\Core\Session::getFlash('success') ?></div>
-<?php endif; ?>
-<?php if (\App\Core\Session::hasFlash('error')): ?>
-  <div class="flash-error"><?= \App\Core\Session::getFlash('error') ?></div>
-<?php endif; ?>
-
 <?php if (!empty($children)): ?>
 <div class="table-responsive">
-  <table class="dash-table">
+  <table class="table table-hover align-middle mb-0 small">
     <thead>
       <tr>
         <th></th>
@@ -40,12 +33,12 @@
           <td><?= $child['age'] ? (int)$child['age'] . ' yrs' : '-' ?></td>
           <td><?= htmlspecialchars($child['birth_date'] ?? '-') ?></td>
           <td><?= htmlspecialchars($child['diagnosis_status'] ?? '-') ?></td>
-          <td class="actions">
-            <a href="/parent/children/<?= (int)$child['id'] ?>" class="btn-sm btn-outline"><i class="fas fa-eye"></i></a>
-            <a href="/parent/children/<?= (int)$child['id'] ?>/edit" class="btn-sm btn-outline"><i class="fas fa-edit"></i></a>
-            <form method="POST" action="/parent/children/<?= (int)$child['id'] ?>/delete" style="display:inline" onsubmit="return confirm('Remove this child?')">
+          <td>
+            <a href="/parent/children/<?= (int)$child['id'] ?>" class="btn btn-sm btn-outline-secondary"><i class="fas fa-eye"></i></a>
+            <a href="/parent/children/<?= (int)$child['id'] ?>/edit" class="btn btn-sm btn-outline-secondary"><i class="fas fa-edit"></i></a>
+            <form method="POST" action="/parent/children/<?= (int)$child['id'] ?>/delete" class="d-inline" onsubmit="return confirm('Remove this child?')">
               <input type="hidden" name="_csrf_token" value="<?= \App\Core\Session::csrf_token() ?>">
-              <button type="submit" class="btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+              <button type="submit" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></button>
             </form>
           </td>
         </tr>
@@ -55,7 +48,7 @@
 </div>
 <?php else: ?>
 <div class="dash-empty-state">
-  <i class="fas fa-child" style="font-size: 3rem; color: var(--primary);"></i>
+  <i class="fas fa-child dash-empty-icon"></i>
   <h3>No children added yet</h3>
   <p>Add your first child to start using the screening quiz and progress tracking.</p>
   <a href="/parent/children/add" class="btn btn-primary">Add Child</a>

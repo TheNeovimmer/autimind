@@ -5,8 +5,8 @@
   </div>
 </div>
 
-<div class="dash-grid dash-grid-2">
-  <div class="dash-card">
+<div class="row row-cols-1 row-cols-md-2 g-3">
+  <div class="card">
     <h3><i class="fas fa-inbox"></i> Inbox (<?= count($inbox) ?>)</h3>
     <?php if (!empty($inbox)): ?>
       <div class="message-list">
@@ -23,7 +23,7 @@
     <?php endif; ?>
   </div>
 
-  <div class="dash-card">
+  <div class="card">
     <h3><i class="fas fa-paper-plane"></i> Sent (<?= count($sent) ?>)</h3>
     <?php if (!empty($sent)): ?>
       <div class="message-list">

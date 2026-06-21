@@ -7,7 +7,7 @@
 
 <?php if (!empty($children)): ?>
 <div class="table-responsive">
-  <table class="dash-table">
+  <table class="table table-hover align-middle mb-0 small">
     <thead>
       <tr><th>Child Name</th><th>Parent</th><th>Activities</th><th>Avg Score</th><th>Quizzes</th><th>Actions</th></tr>
     </thead>
@@ -19,7 +19,7 @@
           <td><?= (int)$c['activities_completed'] ?></td>
           <td><?= $c['avg_score'] !== null ? (float)$c['avg_score'] . '%' : '-' ?></td>
           <td><?= (int)$c['quiz_count'] ?></td>
-          <td><a href="/admin/progress/child/<?= (int)$c['id'] ?>" class="btn-sm btn-outline">View</a></td>
+          <td><a href="/admin/progress/child/<?= (int)$c['id'] ?>" class="btn btn-sm btn-outline-secondary">View</a></td>
         </tr>
       <?php endforeach; ?>
     </tbody>

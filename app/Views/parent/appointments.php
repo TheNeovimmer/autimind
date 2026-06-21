@@ -6,16 +6,9 @@
   <a href="/parent/appointments/book" class="btn btn-primary"><i class="fas fa-plus"></i> Book Appointment</a>
 </div>
 
-<?php if (\App\Core\Session::hasFlash('success')): ?>
-  <div class="flash-success"><?= \App\Core\Session::getFlash('success') ?></div>
-<?php endif; ?>
-<?php if (\App\Core\Session::hasFlash('error')): ?>
-  <div class="flash-error"><?= \App\Core\Session::getFlash('error') ?></div>
-<?php endif; ?>
-
 <?php if (!empty($appointments)): ?>
 <div class="table-responsive">
-  <table class="dash-table">
+  <table class="table table-hover align-middle mb-0 small">
     <thead>
       <tr><th>Child</th><th>Specialist</th><th>Date</th><th>Time</th><th>Status</th><th>Actions</th></tr>
     </thead>
@@ -29,10 +22,10 @@
           <td><span class="status-<?= htmlspecialchars($apt['status']) ?>"><?= ucfirst(htmlspecialchars($apt['status'])) ?></span></td>
           <td>
             <?php if ($apt['status'] === 'pending' || $apt['status'] === 'confirmed'): ?>
-              <a href="/parent/appointments/<?= (int)$apt['id'] ?>/reschedule" class="btn-sm btn-outline"><i class="fas fa-calendar-alt"></i> Reschedule</a>
-              <form method="POST" action="/parent/appointments/<?= (int)$apt['id'] ?>/cancel" style="display:inline" onsubmit="return confirm('Cancel this appointment?')">
+              <a href="/parent/appointments/<?= (int)$apt['id'] ?>/reschedule" class="btn btn-sm btn-outline-secondary"><i class="fas fa-calendar-alt"></i> Reschedule</a>
+              <form method="POST" action="/parent/appointments/<?= (int)$apt['id'] ?>/cancel" class="d-inline" onsubmit="return confirm('Cancel this appointment?')">
                 <input type="hidden" name="_csrf_token" value="<?= \App\Core\Session::csrf_token() ?>">
-                <button type="submit" class="btn-sm btn-danger">Cancel</button>
+                <button type="submit" class="btn btn-sm btn-outline-danger">Cancel</button>
               </form>
             <?php endif; ?>
           </td>

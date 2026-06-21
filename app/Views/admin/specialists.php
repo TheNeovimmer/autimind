@@ -7,7 +7,7 @@
 
 <?php if (!empty($specialists)): ?>
 <div class="table-responsive">
-  <table class="dash-table">
+  <table class="table table-hover align-middle mb-0 small">
     <thead>
       <tr><th>Name</th><th>Email</th><th>Title</th><th>Specializations</th><th>Experience</th><th>Available</th><th>Active</th><th>Actions</th></tr>
     </thead>
@@ -22,10 +22,10 @@
           <td><?= $s['is_available'] ? '<span class="status-active">Yes</span>' : '<span class="status-cancelled">No</span>' ?></td>
           <td><?= $s['is_active'] ? '<span class="status-active">Active</span>' : '<span class="status-cancelled">Inactive</span>' ?></td>
           <td>
-            <form method="POST" action="/admin/specialists/<?= (int)$s['id'] ?>/approve" style="display:inline;">
+            <form method="POST" action="/admin/specialists/<?= (int)$s['id'] ?>/approve" class="d-inline">
               <input type="hidden" name="_csrf_token" value="<?= htmlspecialchars($csrf_token) ?>">
               <input type="hidden" name="is_active" value="<?= $s['is_active'] ? 0 : 1 ?>">
-              <button type="submit" class="btn-sm btn-outline">
+              <button type="submit" class="btn btn-sm btn-outline-secondary">
                 <?= $s['is_active'] ? 'Deactivate' : 'Activate' ?>
               </button>
             </form>

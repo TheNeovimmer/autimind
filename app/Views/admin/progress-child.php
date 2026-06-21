@@ -3,29 +3,29 @@
     <h1><?= htmlspecialchars($child['name']) ?></h1>
     <p>Parent: <?= htmlspecialchars($parent['parent_name'] ?? '') ?></p>
   </div>
-  <a href="/admin/progress" class="btn-outline"><i class="fas fa-arrow-left"></i> Back</a>
+  <a href="/admin/progress" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> Back</a>
 </div>
 
-<div class="dash-grid-3" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-bottom:1.5rem;">
-  <div class="dash-card" style="text-align:center;padding:1.5rem;">
-    <h3 style="margin:0;font-size:2rem;color:var(--primary);"><?= (int)$totalActivities ?></h3>
-    <p style="margin:0.25rem 0 0;color:var(--text-muted);">Activities Completed</p>
+<div class="dash-grid-auto mb-3">
+  <div class="card dash-stat-card">
+    <h3 class="dash-stat-value"><?= (int)$totalActivities ?></h3>
+    <p class="dash-stat-label">Activities Completed</p>
   </div>
-  <div class="dash-card" style="text-align:center;padding:1.5rem;">
-    <h3 style="margin:0;font-size:2rem;color:var(--primary);"><?= $avgScore !== null ? round($avgScore, 1) . '%' : '-' ?></h3>
-    <p style="margin:0.25rem 0 0;color:var(--text-muted);">Average Score</p>
+  <div class="card dash-stat-card">
+    <h3 class="dash-stat-value"><?= $avgScore !== null ? round($avgScore, 1) . '%' : '-' ?></h3>
+    <p class="dash-stat-label">Average Score</p>
   </div>
-  <div class="dash-card" style="text-align:center;padding:1.5rem;">
-    <h3 style="margin:0;font-size:2rem;color:var(--primary);"><?= count($quizAttempts) ?></h3>
-    <p style="margin:0.25rem 0 0;color:var(--text-muted);">Recent Quizzes</p>
+  <div class="card dash-stat-card">
+    <h3 class="dash-stat-value"><?= count($quizAttempts) ?></h3>
+    <p class="dash-stat-label">Recent Quizzes</p>
   </div>
 </div>
 
-<div class="dash-card">
+<div class="card">
   <h3>Activity History</h3>
   <?php if (!empty($activities)): ?>
   <div class="table-responsive">
-    <table class="dash-table">
+    <table class="table table-hover align-middle mb-0 small">
       <thead>
         <tr><th>Activity</th><th>Category</th><th>Difficulty</th><th>Score</th><th>Completed</th></tr>
       </thead>
@@ -47,11 +47,11 @@
   <?php endif; ?>
 </div>
 
-<div class="dash-card">
+<div class="card">
   <h3>Recent Quiz Attempts</h3>
   <?php if (!empty($quizAttempts)): ?>
   <div class="table-responsive">
-    <table class="dash-table">
+    <table class="table table-hover align-middle mb-0 small">
       <thead>
         <tr><th>Question</th><th>Score</th><th>Completed</th></tr>
       </thead>

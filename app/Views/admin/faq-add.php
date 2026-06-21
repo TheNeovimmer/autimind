@@ -3,10 +3,10 @@
     <h1>Add FAQ</h1>
     <p>Create a new frequently asked question</p>
   </div>
-  <a href="/admin/faq" class="btn-outline"><i class="fas fa-arrow-left"></i> Back</a>
+  <a href="/admin/faq" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> Back</a>
 </div>
 
-<div class="dash-card">
+<div class="card">
   <?php if (!empty($errors)): ?>
     <div class="flash-error">
       <?php foreach ($errors as $field => $msgs): ?>
@@ -17,20 +17,20 @@
     </div>
   <?php endif; ?>
 
-  <form method="POST" class="dash-form">
+  <form method="POST" class="">
     <input type="hidden" name="_csrf_token" value="<?= htmlspecialchars($csrf_token) ?>">
 
-    <div class="form-group">
+    <div class="mb-3">
       <label for="question">Question</label>
       <input type="text" id="question" name="question" required>
     </div>
 
-    <div class="form-group">
+    <div class="mb-3">
       <label for="answer">Answer</label>
       <textarea id="answer" name="answer" rows="5" required></textarea>
     </div>
 
-    <div class="form-group">
+    <div class="mb-3">
       <label for="category">Category</label>
       <select id="category" name="category" required>
         <option value="general">General</option>
@@ -40,11 +40,11 @@
       </select>
     </div>
 
-    <div class="form-group">
+    <div class="mb-3">
       <label for="order_index">Order</label>
       <input type="number" id="order_index" name="order_index" value="0">
     </div>
 
-    <button type="submit" class="btn-primary">Create FAQ</button>
+    <button type="submit" class="btn btn-primary">Create FAQ</button>
   </form>
 </div>

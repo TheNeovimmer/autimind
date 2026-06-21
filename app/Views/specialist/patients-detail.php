@@ -3,18 +3,11 @@
     <h1><?= htmlspecialchars($child['name']) ?></h1>
     <p>Patient details</p>
   </div>
-  <a href="/specialist/messages/thread/<?= (int)$parent['id'] ?>" class="btn btn-outline"><i class="fas fa-envelope"></i> Message Parent</a>
+  <a href="/specialist/messages/thread/<?= (int)$parent['id'] ?>" class="btn btn-outline-secondary"><i class="fas fa-envelope"></i> Message Parent</a>
 </div>
 
-<?php if (\App\Core\Session::hasFlash('success')): ?>
-  <div class="flash-success"><?= \App\Core\Session::getFlash('success') ?></div>
-<?php endif; ?>
-<?php if (\App\Core\Session::hasFlash('error')): ?>
-  <div class="flash-error"><?= \App\Core\Session::getFlash('error') ?></div>
-<?php endif; ?>
-
-<div class="dash-grid dash-grid-2 mb-2">
-  <div class="dash-card">
+<div class="row row-cols-1 row-cols-md-2 g-3 mb-3">
+  <div class="card">
     <h3>Child Information</h3>
     <p><strong>Age:</strong> <?= $child['age'] ? (int)$child['age'] . ' yrs' : '-' ?></p>
     <p><strong>Birth Date:</strong> <?= htmlspecialchars($child['birth_date'] ?? '-') ?></p>
@@ -22,7 +15,7 @@
     <p><strong>Notes:</strong> <?= nl2br(htmlspecialchars($child['notes'] ?? 'None')) ?></p>
   </div>
 
-  <div class="dash-card">
+  <div class="card">
     <h3>Parent Information</h3>
     <p><strong>Name:</strong> <?= htmlspecialchars($parent['name']) ?></p>
     <p><strong>Email:</strong> <?= htmlspecialchars($parent['email']) ?></p>
@@ -30,24 +23,24 @@
   </div>
 </div>
 
-<div class="dash-card mb-2">
+<div class="card mb-2">
   <h3>Add Observation</h3>
-  <form method="POST" action="/specialist/patients/<?= (int)$child['id'] ?>/notes" class="dash-form">
+  <form method="POST" action="/specialist/patients/<?= (int)$child['id'] ?>/notes" class="">
     <input type="hidden" name="_csrf_token" value="<?= htmlspecialchars($csrf_token) ?>">
-    <div class="form-group">
+    <div class="mb-3">
       <label for="notes">Observation Notes</label>
       <textarea id="notes" name="notes" rows="5"><?= htmlspecialchars($child['notes'] ?? '') ?></textarea>
     </div>
-    <div class="form-actions">
+    <div class="d-flex gap-2 align-items-center">
       <button type="submit" class="btn btn-primary">Save Observation</button>
     </div>
   </form>
 </div>
 
-<div class="dash-card mb-2">
+<div class="card mb-2">
   <h3>Appointment History</h3>
   <?php if (!empty($appointments)): ?>
-    <table class="dash-table">
+    <table class="table table-hover align-middle mb-0 small">
       <thead><tr><th>Date</th><th>Time</th><th>Status</th><th>Notes</th></tr></thead>
       <tbody>
         <?php foreach ($appointments as $apt): ?>
@@ -66,9 +59,9 @@
 </div>
 
 <?php if (!empty($quizHistory)): ?>
-<div class="dash-card">
+<div class="card">
   <h3>Screening History</h3>
-  <table class="dash-table">
+  <table class="table table-hover align-middle mb-0 small">
     <thead><tr><th>Date</th><th>Score</th><th>Risk Level</th><th>Category Breakdown</th></tr></thead>
     <tbody>
       <?php foreach ($quizHistory as $qh): ?>

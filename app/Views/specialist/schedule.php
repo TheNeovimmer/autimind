@@ -5,36 +5,29 @@
   </div>
 </div>
 
-<?php if (\App\Core\Session::hasFlash('success')): ?>
-  <div class="flash-success"><?= \App\Core\Session::getFlash('success') ?></div>
-<?php endif; ?>
-<?php if (\App\Core\Session::hasFlash('error')): ?>
-  <div class="flash-error"><?= \App\Core\Session::getFlash('error') ?></div>
-<?php endif; ?>
-
-<div class="dash-card mb-2">
+<div class="card mb-2">
   <h3>Availability Settings</h3>
-  <form method="POST" action="/specialist/schedule" class="dash-form">
+  <form method="POST" action="/specialist/schedule" class="">
     <input type="hidden" name="_csrf_token" value="<?= htmlspecialchars($csrf_token) ?>">
 
-    <div class="form-group">
+    <div class="mb-3">
       <label>
         <input type="checkbox" name="is_available" value="1" <?= ($details['is_available'] ?? 1) ? 'checked' : '' ?>>
         Available for appointments
       </label>
     </div>
 
-    <div class="form-group">
+    <div class="mb-3">
       <label for="title">Professional Title</label>
       <input type="text" id="title" name="title" value="<?= htmlspecialchars($details['title'] ?? '') ?>">
     </div>
 
-    <div class="form-group">
+    <div class="mb-3">
       <label for="bio">Bio / Description</label>
       <textarea id="bio" name="bio" rows="4"><?= htmlspecialchars($details['bio'] ?? '') ?></textarea>
     </div>
 
-    <h4 style="margin-top:1.5rem;margin-bottom:0.75rem;">Weekly Time Slots</h4>
+    <h4 class="mt-3 mb-1">Weekly Time Slots</h4>
     <div class="time-slots-grid">
       <?php
       $days = ['monday' => 'Monday', 'tuesday' => 'Tuesday', 'wednesday' => 'Wednesday', 'thursday' => 'Thursday', 'friday' => 'Friday', 'saturday' => 'Saturday', 'sunday' => 'Sunday'];
@@ -53,7 +46,7 @@
       <?php endforeach; ?>
     </div>
 
-    <div class="form-actions" style="margin-top:1.5rem;">
+    <div class="d-flex gap-2 align-items-center mt-3">
       <button type="submit" class="btn btn-primary">Save Changes</button>
     </div>
   </form>

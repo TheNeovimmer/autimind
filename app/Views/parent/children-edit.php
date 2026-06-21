@@ -5,10 +5,10 @@
   </div>
 </div>
 
-<form method="POST" action="/parent/children/<?= (int)$child['id'] ?>/edit" class="dash-form" enctype="multipart/form-data">
+<form method="POST" action="/parent/children/<?= (int)$child['id'] ?>/edit"  enctype="multipart/form-data">
   <input type="hidden" name="_csrf_token" value="<?= htmlspecialchars($csrf_token) ?>">
 
-  <div class="dash-card mb-2">
+  <div class="card mb-2">
     <h3>Profile Picture</h3>
     <div class="avatar-upload-wrapper">
       <div class="avatar-preview" id="avatar-preview">
@@ -28,35 +28,35 @@
     </div>
   </div>
   
-  <div class="form-group">
+  <div class="mb-3">
     <label for="name">Child's Name *</label>
     <input type="text" id="name" name="name" value="<?= htmlspecialchars($old['name'] ?? $child['name']) ?>" required>
-    <?php if (!empty($errors['name'])): ?><span class="form-error"><?= htmlspecialchars($errors['name'][0]) ?></span><?php endif; ?>
+    <?php if (!empty($errors['name'])): ?><span class="invalid-feedback d-block"><?= htmlspecialchars($errors['name'][0]) ?></span><?php endif; ?>
   </div>
 
-  <div class="form-row">
-    <div class="form-group">
+  <div >
+    <div class="mb-3">
       <label for="age">Age</label>
       <input type="number" id="age" name="age" min="0" max="18" value="<?= htmlspecialchars($old['age'] ?? $child['age']) ?>">
     </div>
-    <div class="form-group">
+    <div class="mb-3">
       <label for="birth_date">Birth Date</label>
       <input type="date" id="birth_date" name="birth_date" value="<?= htmlspecialchars($old['birth_date'] ?? $child['birth_date']) ?>">
     </div>
   </div>
 
-  <div class="form-group">
+  <div class="mb-3">
     <label for="diagnosis_status">Diagnosis Status</label>
     <input type="text" id="diagnosis_status" name="diagnosis_status" value="<?= htmlspecialchars($old['diagnosis_status'] ?? $child['diagnosis_status']) ?>">
   </div>
 
-  <div class="form-group">
+  <div class="mb-3">
     <label for="notes">Notes</label>
     <textarea id="notes" name="notes" rows="3"><?= htmlspecialchars($old['notes'] ?? $child['notes']) ?></textarea>
   </div>
 
-  <div class="form-actions">
-    <a href="/parent/children" class="btn btn-outline">Cancel</a>
+  <div class="d-flex gap-2 align-items-center">
+    <a href="/parent/children" class="btn btn-outline-secondary">Cancel</a>
     <button type="submit" class="btn btn-primary">Update Child</button>
   </div>
 </form>

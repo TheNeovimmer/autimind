@@ -3,16 +3,16 @@
     <h1>Users</h1>
     <p>Manage all platform users (<?= (int)($totalUsers ?? 0) ?>)</p>
   </div>
-  <a href="/admin/users/add" class="btn-primary"><i class="fas fa-plus"></i> Add User</a>
+  <a href="/admin/users/add" class="btn btn-primary"><i class="fas fa-plus"></i> Add User</a>
 </div>
 
-<div class="dash-card" style="margin-bottom:1rem;">
-  <form method="GET" class="dash-form" style="display:flex;gap:0.75rem;align-items:flex-end;flex-wrap:wrap;">
-    <div class="form-group" style="margin:0;flex:1;min-width:200px;">
+<div class="card mb-2">
+  <form method="GET" class="d-flex gap-1 flex-wrap align-items-center">
+    <div class="mb-3 flex-1" style="min-width:200px;margin:0;">
       <label for="search">Search</label>
       <input type="text" id="search" name="search" value="<?= htmlspecialchars($search ?? '') ?>" placeholder="Name or email...">
     </div>
-    <div class="form-group" style="margin:0;">
+    <div class="mb-3" style="margin:0;">
       <label for="role">Role</label>
       <select id="role" name="role">
         <option value="">All Roles</option>
@@ -21,16 +21,16 @@
         <option value="admin" <?= ($role ?? '') === 'admin' ? 'selected' : '' ?>>Admin</option>
       </select>
     </div>
-    <button type="submit" class="btn-primary" style="margin-bottom:0;">Filter</button>
+    <button type="submit" class="btn btn-primary" style="margin-bottom:0;">Filter</button>
     <?php if (!empty($search) || !empty($role)): ?>
-      <a href="/admin/users" class="btn-outline" style="margin-bottom:0;">Clear</a>
+      <a href="/admin/users" class="btn btn-outline-secondary" style="margin-bottom:0;">Clear</a>
     <?php endif; ?>
   </form>
 </div>
 
 <?php if (!empty($users)): ?>
 <div class="table-responsive">
-  <table class="dash-table">
+  <table class="table table-hover align-middle mb-0 small">
     <thead>
       <tr><th>Name</th><th>Email</th><th>Role</th><th>Status</th><th>Joined</th><th>Actions</th></tr>
     </thead>
@@ -43,11 +43,11 @@
           <td><?= $u['is_active'] ? '<span class="status-active">Active</span>' : '<span class="status-cancelled">Inactive</span>' ?></td>
           <td><?= htmlspecialchars($u['created_at']) ?></td>
           <td>
-            <a href="/admin/users/<?= (int)$u['id'] ?>/edit" class="btn-sm btn-outline">Edit</a>
+            <a href="/admin/users/<?= (int)$u['id'] ?>/edit" class="btn btn-sm btn-outline-secondary">Edit</a>
             <?php if ((int)$u['id'] !== (int)\App\Core\Session::get('user_id')): ?>
-            <form method="POST" action="/admin/users/<?= (int)$u['id'] ?>/delete" style="display:inline;" onsubmit="return confirm('Delete this user?');">
+            <form method="POST" action="/admin/users/<?= (int)$u['id'] ?>/delete" class="d-inline" onsubmit="return confirm('Delete this user?');">
               <input type="hidden" name="_csrf_token" value="<?= \App\Core\Session::csrf_token() ?>">
-              <button type="submit" class="btn-sm" style="background:#fee2e2;color:#dc2626;border:none;cursor:pointer;">Delete</button>
+              <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
             </form>
             <?php endif; ?>
           </td>
@@ -58,17 +58,25 @@
 </div>
 
 <?php if (($totalPages ?? 1) > 1): ?>
-<div style="display:flex;justify-content:center;align-items:center;gap:0.5rem;margin-top:1rem;">
-  <?php if (($page ?? 1) > 1): ?>
-    <a href="?page=<?= (int)$page - 1 ?>&search=<?= urlencode($search ?? '') ?>&role=<?= urlencode($role ?? '') ?>" class="btn-sm btn-outline">Previous</a>
-  <?php endif; ?>
-  <?php for ($p = 1; $p <= ($totalPages ?? 1); $p++): ?>
-    <a href="?page=<?= $p ?>&search=<?= urlencode($search ?? '') ?>&role=<?= urlencode($role ?? '') ?>" style="padding:0.4rem 0.7rem;text-decoration:none;border-radius:6px;<?= ($page ?? 1) === $p ? 'background:var(--primary);color:#fff;' : 'background:var(--card-bg);color:var(--text);' ?>"><?= $p ?></a>
-  <?php endfor; ?>
-  <?php if (($page ?? 1) < ($totalPages ?? 1)): ?>
-    <a href="?page=<?= (int)$page + 1 ?>&search=<?= urlencode($search ?? '') ?>&role=<?= urlencode($role ?? '') ?>" class="btn-sm btn-outline">Next</a>
-  <?php endif; ?>
-</div>
+<nav aria-label="User list pagination">
+  <ul class="pagination pagination-sm justify-content-center mb-0">
+    <?php if (($page ?? 1) > 1): ?>
+      <li class="page-item">
+        <a class="page-link" href="?page=<?= (int)$page - 1 ?>&search=<?= urlencode($search ?? '') ?>&role=<?= urlencode($role ?? '') ?>">Previous</a>
+      </li>
+    <?php endif; ?>
+    <?php for ($p = 1; $p <= ($totalPages ?? 1); $p++): ?>
+      <li class="page-item <?= ($page ?? 1) === $p ? 'active' : '' ?>">
+        <a class="page-link" href="?page=<?= $p ?>&search=<?= urlencode($search ?? '') ?>&role=<?= urlencode($role ?? '') ?>"><?= $p ?></a>
+      </li>
+    <?php endfor; ?>
+    <?php if (($page ?? 1) < ($totalPages ?? 1)): ?>
+      <li class="page-item">
+        <a class="page-link" href="?page=<?= (int)$page + 1 ?>&search=<?= urlencode($search ?? '') ?>&role=<?= urlencode($role ?? '') ?>">Next</a>
+      </li>
+    <?php endif; ?>
+  </ul>
+</nav>
 <?php endif; ?>
 
 <?php else: ?>

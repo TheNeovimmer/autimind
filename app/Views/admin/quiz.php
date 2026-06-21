@@ -3,12 +3,12 @@
     <h1>Quiz Questions</h1>
     <p>Manage screening quiz questions and options</p>
   </div>
-  <a href="/admin/quiz/add" class="btn-primary"><i class="fas fa-plus"></i> Add Question</a>
+  <a href="/admin/quiz/add" class="btn btn-primary"><i class="fas fa-plus"></i> Add Question</a>
 </div>
 
 <?php if (!empty($questions)): ?>
 <div class="table-responsive">
-  <table class="dash-table">
+  <table class="table table-hover align-middle mb-0 small">
     <thead>
       <tr><th>Order</th><th>Question</th><th>Category</th><th>Options</th><th>Active</th><th>Actions</th></tr>
     </thead>
@@ -21,11 +21,11 @@
           <td><?= (int)$q['option_count'] ?></td>
           <td><?= $q['is_active'] ? '<span class="status-active">Yes</span>' : '<span class="status-cancelled">No</span>' ?></td>
           <td>
-            <a href="/admin/quiz/<?= (int)$q['id'] ?>/options" class="btn-sm btn-outline">Options</a>
-            <a href="/admin/quiz/<?= (int)$q['id'] ?>/edit" class="btn-sm btn-outline">Edit</a>
-            <form method="POST" action="/admin/quiz/<?= (int)$q['id'] ?>/delete" style="display:inline;" onsubmit="return confirm('Delete this question?');">
+            <a href="/admin/quiz/<?= (int)$q['id'] ?>/options" class="btn btn-sm btn-outline-secondary">Options</a>
+            <a href="/admin/quiz/<?= (int)$q['id'] ?>/edit" class="btn btn-sm btn-outline-secondary">Edit</a>
+            <form method="POST" action="/admin/quiz/<?= (int)$q['id'] ?>/delete" class="d-inline" onsubmit="return confirm('Delete this question?');">
               <input type="hidden" name="_csrf_token" value="<?= \App\Core\Session::csrf_token() ?>">
-              <button type="submit" class="btn-sm" style="background:#fee2e2;color:#dc2626;border:none;cursor:pointer;">Delete</button>
+              <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
             </form>
           </td>
         </tr>

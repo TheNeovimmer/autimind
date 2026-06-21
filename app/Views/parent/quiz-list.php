@@ -12,11 +12,11 @@
 
 <?php if (!empty($quizData)): ?>
   <?php foreach ($quizData as $data): ?>
-    <div class="dash-card mb-2">
-      <div class="dash-card-header">
+    <div class="card mb-2">
+      <div class="card-header">
         <h3><i class="fas fa-child"></i> <?= htmlspecialchars($data['child']['name']) ?></h3>
         <?php if ($data['attemptCount'] > 0): ?>
-          <span class="dash-badge"><?= $data['attemptCount'] ?> attempt(s)</span>
+          <span class="badge bg-primary-subtle text-primary"><?= $data['attemptCount'] ?> attempt(s)</span>
         <?php endif; ?>
       </div>
       
@@ -25,7 +25,7 @@
         Risk: <span class="risk-<?= htmlspecialchars($data['latest']['risk_level']) ?>"><?= ucfirst(htmlspecialchars($data['latest']['risk_level'])) ?></span> · 
         <?= htmlspecialchars($data['latest']['completed_at']) ?></p>
         <div class="mt-1">
-          <a href="/parent/quiz/results/<?= (int)$data['latest']['id'] ?>" class="btn btn-outline btn-sm">View Results</a>
+          <a href="/parent/quiz/results/<?= (int)$data['latest']['id'] ?>" class="btn btn-outline-secondary btn-sm">View Results</a>
           <a href="/parent/quiz/start/<?= (int)$data['child']['id'] ?>" class="btn btn-primary btn-sm">Take New Quiz</a>
         </div>
       <?php else: ?>
@@ -36,7 +36,7 @@
       <?php if (count($data['attempts']) > 1): ?>
         <details class="mt-1">
           <summary>View History (<?= count($data['attempts']) ?> attempts)</summary>
-          <table class="dash-table mt-1">
+          <table class="table table-hover align-middle small mt-2">
             <thead>
               <tr><th>Date</th><th>Score</th><th>Risk Level</th><th></th></tr>
             </thead>

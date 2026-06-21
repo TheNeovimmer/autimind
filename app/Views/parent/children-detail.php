@@ -3,10 +3,10 @@
     <h1><?= htmlspecialchars($child['name']) ?></h1>
     <p>Child profile and activity overview</p>
   </div>
-  <a href="/parent/children" class="btn btn-outline"><i class="fas fa-arrow-left"></i> Back to Children</a>
+  <a href="/parent/children" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> Back to Children</a>
 </div>
 
-<div class="dash-card mb-2">
+<div class="card mb-2">
   <div class="child-profile-header">
     <div class="child-avatar-large">
       <?php if (!empty($child['avatar'])): ?>
@@ -27,11 +27,11 @@
   </div>
 </div>
 
-<div class="dash-grid dash-grid-2 mb-2">
-  <div class="dash-card">
+<div class="row row-cols-1 row-cols-md-2 g-3 mb-3">
+  <div class="card">
     <h3><i class="fas fa-clipboard-list"></i> Quiz History</h3>
     <?php if (!empty($quizHistory)): ?>
-      <table class="dash-table">
+      <table class="table table-hover align-middle mb-0 small">
         <thead><tr><th>Date</th><th>Score</th><th>Risk Level</th><th>Actions</th></tr></thead>
         <tbody>
           <?php foreach ($quizHistory as $qh): ?>
@@ -39,7 +39,7 @@
               <td><?= htmlspecialchars($qh['completed_at']) ?></td>
               <td><?= (int)$qh['total_score'] ?>/50</td>
               <td><span class="risk-<?= htmlspecialchars($qh['risk_level']) ?>"><?= ucfirst(htmlspecialchars($qh['risk_level'])) ?></span></td>
-              <td><a href="/parent/quiz/results/<?= (int)$qh['id'] ?>" class="btn-sm btn-outline">View</a></td>
+              <td><a href="/parent/quiz/results/<?= (int)$qh['id'] ?>" class="btn btn-sm btn-outline-secondary">View</a></td>
             </tr>
           <?php endforeach; ?>
         </tbody>
@@ -49,10 +49,10 @@
     <?php endif; ?>
   </div>
 
-  <div class="dash-card">
+  <div class="card">
     <h3><i class="fas fa-gamepad"></i> Activity Progress</h3>
     <?php if (!empty($progress)): ?>
-      <table class="dash-table">
+      <table class="table table-hover align-middle mb-0 small">
         <thead><tr><th>Activity</th><th>Category</th><th>Difficulty</th><th>Score</th><th>Date</th></tr></thead>
         <tbody>
           <?php foreach ($progress as $p): ?>
@@ -75,10 +75,10 @@
   </div>
 </div>
 
-<div class="dash-card">
+<div class="card">
   <h3><i class="fas fa-calendar-check"></i> Appointments</h3>
   <?php if (!empty($appointments)): ?>
-    <table class="dash-table">
+    <table class="table table-hover align-middle mb-0 small">
       <thead><tr><th>Specialist</th><th>Date</th><th>Time</th><th>Status</th></tr></thead>
       <tbody>
         <?php foreach ($appointments as $apt): ?>

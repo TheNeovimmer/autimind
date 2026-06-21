@@ -7,7 +7,7 @@
 
 <div class="specialist-grid">
   <?php foreach ($specialists as $spec): ?>
-    <div class="dash-card specialist-card">
+    <div class="card specialist-card">
       <div class="specialist-avatar">
         <span class="avatar-initials"><?= strtoupper(substr(htmlspecialchars($spec['name']), 0, 1)) ?></span>
       </div>
@@ -25,7 +25,7 @@
       <p class="specialist-exp"><?= (int)$spec['years_experience'] ?> years experience</p>
       <div class="specialist-actions">
         <a href="/parent/appointments/book?specialist_id=<?= (int)$spec['id'] ?>" class="btn btn-primary btn-sm">Book Appointment</a>
-        <a href="/parent/messages/send/<?= (int)$spec['id'] ?>" class="btn btn-outline btn-sm">Send Message</a>
+        <a href="/parent/messages/send/<?= (int)$spec['id'] ?>" class="btn btn-outline-secondary btn-sm">Send Message</a>
       </div>
     </div>
   <?php endforeach; ?>

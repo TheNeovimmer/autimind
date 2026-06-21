@@ -26,6 +26,12 @@ class AuthController
 
     public function login(): void
     {
+        if (!Session::verify_csrf($_POST['_csrf_token'] ?? '')) {
+            http_response_code(419);
+            View::render('errors/419', [], 'main');
+            return;
+        }
+
         $validator = new Validator();
         if (!$validator->validate($_POST, [
             'email' => 'required|email',
@@ -72,6 +78,12 @@ class AuthController
 
     public function signup(): void
     {
+        if (!Session::verify_csrf($_POST['_csrf_token'] ?? '')) {
+            http_response_code(419);
+            View::render('errors/419', [], 'main');
+            return;
+        }
+
         $validator = new Validator();
         if (!$validator->validate($_POST, [
             'name' => 'required|min:2|max:255',
@@ -127,6 +139,12 @@ class AuthController
 
     public function forgotPassword(): void
     {
+        if (!Session::verify_csrf($_POST['_csrf_token'] ?? '')) {
+            http_response_code(419);
+            View::render('errors/419', [], 'main');
+            return;
+        }
+
         $validator = new Validator();
         if (!$validator->validate($_POST, ['email' => 'required|email'])) {
             View::render('auth/forgot-password', ['errors' => $validator->errors()], 'main');
@@ -166,6 +184,12 @@ class AuthController
 
     public function resetPassword(string $token): void
     {
+        if (!Session::verify_csrf($_POST['_csrf_token'] ?? '')) {
+            http_response_code(419);
+            View::render('errors/419', [], 'main');
+            return;
+        }
+
         $db = Database::getInstance();
         $stmt = $db->prepare('SELECT * FROM password_resets WHERE token = ? AND used = 0 AND expires_at > NOW()');
         $stmt->execute([$token]);

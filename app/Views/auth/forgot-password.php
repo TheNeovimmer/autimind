@@ -11,6 +11,7 @@
     <?php endif; ?>
 
     <form method="POST" action="/forgot-password" class="auth-form">
+      <input type="hidden" name="_csrf_token" value="<?= htmlspecialchars(\App\Core\Session::csrf_token()) ?>">
       <div class="form-group">
         <div class="input-wrap">
           <i class="fas fa-envelope"></i>

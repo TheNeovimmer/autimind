@@ -6,11 +6,11 @@
 </div>
 
 <?php if (!empty($children)): ?>
-<div class="dash-grid">
-  <div class="dash-card">
-    <div class="dash-card-header">
+<div >
+  <div class="card">
+    <div class="card-header">
       <h3><i class="fas fa-child"></i> Children</h3>
-      <span class="dash-badge"><?= count($children) ?></span>
+      <span class="badge bg-primary-subtle text-primary"><?= count($children) ?></span>
     </div>
     <ul class="child-list-compact">
       <?php foreach ($children as $child): ?>
@@ -24,10 +24,10 @@
     <a href="/parent/children" class="dash-link">Manage Children →</a>
   </div>
 
-  <div class="dash-card">
-    <div class="dash-card-header">
+  <div class="card">
+    <div class="card-header">
       <h3><i class="fas fa-calendar-check"></i> Upcoming Appointments</h3>
-      <span class="dash-badge"><?= count($upcomingAppointments) ?></span>
+      <span class="badge bg-primary-subtle text-primary"><?= count($upcomingAppointments) ?></span>
     </div>
     <?php if (!empty($upcomingAppointments)): ?>
       <ul class="appointment-list-compact">
@@ -44,19 +44,19 @@
     <a href="/parent/appointments" class="dash-link">View All →</a>
   </div>
 
-  <div class="dash-card">
-    <div class="dash-card-header">
+  <div class="card">
+    <div class="card-header">
       <h3><i class="fas fa-envelope"></i> Messages</h3>
       <?php if ($unreadMessages > 0): ?>
-        <span class="dash-badge dash-badge-warning"><?= $unreadMessages ?> unread</span>
+        <span class="badge bg-warning-subtle text-warning-emphasis"><?= $unreadMessages ?> unread</span>
       <?php endif; ?>
     </div>
     <p><?= $unreadMessages > 0 ? 'You have ' . $unreadMessages . ' unread message(s).' : 'No unread messages.' ?></p>
     <a href="/parent/messages" class="dash-link">Go to Messages →</a>
   </div>
 
-  <div class="dash-card">
-    <div class="dash-card-header">
+  <div class="card">
+    <div class="card-header">
       <h3><i class="fas fa-clipboard-list"></i> Latest Screening</h3>
     </div>
     <?php if ($latestQuiz): ?>
@@ -72,9 +72,9 @@
 <?php if (!empty($insights)): ?>
 <div class="dash-section">
   <h2><i class="fas fa-lightbulb"></i> AI Insights</h2>
-  <div class="dash-grid dash-grid-2">
+  <div class="row row-cols-1 row-cols-md-2 g-3">
     <?php foreach ($insights as $insight): ?>
-      <div class="dash-card insight-card insight-<?= htmlspecialchars($insight['type']) ?>">
+      <div class="card insight-card insight-<?= htmlspecialchars($insight['type']) ?>">
         <div class="insight-icon"><i class="fas <?= htmlspecialchars($insight['icon']) ?>"></i></div>
         <div class="insight-content">
           <h4><?= htmlspecialchars($insight['title']) ?></h4>
@@ -88,7 +88,7 @@
 
 <?php else: ?>
 <div class="dash-empty-state">
-  <i class="fas fa-child" style="font-size: 3rem; color: var(--primary);"></i>
+  <i class="fas fa-child dash-empty-icon"></i>
   <h2>Welcome to AutiMind!</h2>
   <p>Get started by adding your first child to begin tracking their progress.</p>
   <a href="/parent/children/add" class="btn btn-primary">Add Your First Child</a>

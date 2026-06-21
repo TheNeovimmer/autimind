@@ -3,10 +3,10 @@
     <h1>Add Question</h1>
     <p>Create a new screening question</p>
   </div>
-  <a href="/admin/quiz" class="btn-outline"><i class="fas fa-arrow-left"></i> Back</a>
+  <a href="/admin/quiz" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> Back</a>
 </div>
 
-<div class="dash-card">
+<div class="card">
   <?php if (!empty($errors)): ?>
     <div class="flash-error">
       <?php foreach ($errors as $field => $msgs): ?>
@@ -17,15 +17,15 @@
     </div>
   <?php endif; ?>
 
-  <form method="POST" class="dash-form" id="quizForm">
+  <form method="POST" class="" id="quizForm">
     <input type="hidden" name="_csrf_token" value="<?= htmlspecialchars($csrf_token) ?>">
 
-    <div class="form-group">
+    <div class="mb-3">
       <label for="question_text">Question Text</label>
       <textarea id="question_text" name="question_text" rows="3" required></textarea>
     </div>
 
-    <div class="form-group">
+    <div class="mb-3">
       <label for="category">Category</label>
       <select id="category" name="category" required>
         <option value="social_communication">Social Communication</option>
@@ -35,35 +35,35 @@
       </select>
     </div>
 
-    <div class="form-group">
+    <div class="mb-3">
       <label for="order_index">Order</label>
       <input type="number" id="order_index" name="order_index" value="0" required>
     </div>
 
-    <div class="form-group">
+    <div class="mb-3">
       <label>Options (at least 2 recommended)</label>
       <div id="optionsContainer">
-        <div class="option-row form-grid-3" style="margin-bottom:0.5rem;">
+        <div class="option-row form-grid-3">
           <input type="text" name="options[0][text]" placeholder="Option text" required>
           <input type="number" name="options[0][weight]" placeholder="Weight (0-5)" min="0" max="5" value="0" required>
         </div>
-        <div class="option-row form-grid-3" style="margin-bottom:0.5rem;">
+        <div class="option-row form-grid-3">
           <input type="text" name="options[1][text]" placeholder="Option text" required>
           <input type="number" name="options[1][weight]" placeholder="Weight (0-5)" min="0" max="5" value="1" required>
         </div>
-        <div class="option-row form-grid-3" style="margin-bottom:0.5rem;">
+        <div class="option-row form-grid-3">
           <input type="text" name="options[2][text]" placeholder="Option text">
           <input type="number" name="options[2][weight]" placeholder="Weight (0-5)" min="0" max="5" value="2">
         </div>
-        <div class="option-row form-grid-3" style="margin-bottom:0.5rem;">
+        <div class="option-row form-grid-3">
           <input type="text" name="options[3][text]" placeholder="Option text">
           <input type="number" name="options[3][weight]" placeholder="Weight (0-5)" min="0" max="5" value="3">
         </div>
       </div>
-      <button type="button" class="btn-sm btn-outline" onclick="addOption()">+ Add Option</button>
+      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addOption()">+ Add Option</button>
     </div>
 
-    <button type="submit" class="btn-primary">Create Question</button>
+    <button type="submit" class="btn btn-primary">Create Question</button>
   </form>
 </div>
 
@@ -73,7 +73,6 @@ function addOption() {
   const container = document.getElementById('optionsContainer');
   const div = document.createElement('div');
   div.className = 'option-row form-grid-3';
-  div.style.marginBottom = '0.5rem';
   div.innerHTML = '<input type="text" name="options[' + optionIndex + '][text]" placeholder="Option text">' +
     '<input type="number" name="options[' + optionIndex + '][weight]" placeholder="Weight (0-5)" min="0" max="5" value="0">';
   container.appendChild(div);

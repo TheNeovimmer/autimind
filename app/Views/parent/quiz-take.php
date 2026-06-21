@@ -15,7 +15,7 @@
   <input type="hidden" name="attempt_id" value="<?= (int)$attemptId ?>">
 
   <?php foreach ($questions as $index => $question): ?>
-    <div class="dash-card quiz-question" data-question="<?= $index + 1 ?>">
+    <div class="card quiz-question" data-question="<?= $index + 1 ?>">
       <div class="question-header">
         <span class="question-number">Q<?= $index + 1 ?></span>
         <span class="question-category"><?= ucwords(str_replace('_', ' ', htmlspecialchars($question['category']))) ?></span>
@@ -33,8 +33,8 @@
     </div>
   <?php endforeach; ?>
 
-  <div class="form-actions">
-    <a href="/parent/quiz" class="btn btn-outline">Cancel</a>
+  <div class="d-flex gap-2 align-items-center">
+    <a href="/parent/quiz" class="btn btn-outline-secondary">Cancel</a>
     <button type="submit" class="btn btn-primary">Submit Quiz</button>
   </div>
 </form>

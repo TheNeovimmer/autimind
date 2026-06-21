@@ -5,7 +5,7 @@
   </div>
 </div>
 
-<div class="dash-card chatbot-container">
+<div class="card chatbot-container">
   <div class="chatbot-messages" id="chatMessages">
     <?php if (!empty($history)): ?>
       <?php foreach (array_reverse($history) as $entry): ?>
