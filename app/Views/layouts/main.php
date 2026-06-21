@@ -10,12 +10,8 @@
   <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 <body>
-  <?php if (\App\Core\Session::has('user_id')): ?>
-    <div id="session-timeout-data" data-lifetime="3600" data-warn="300" data-activity="<?= $_SESSION['_last_activity'] ?? time() ?>"></div>
-  <?php endif; ?>
   <?php \App\Core\View::renderPartial('nav'); ?>
   <?= $content ?>
-  <?php \App\Core\View::renderPartial('toast'); ?>
   <?php \App\Core\View::renderPartial('footer'); ?>
   <div class="custom-cursor"></div>
   <div class="cursor-follower"></div>
