@@ -25,7 +25,7 @@ AutiMind is a web application designed to support children with autism spectrum 
 ### Step 1: Install Laragon
 
 1. Download Laragon from [https://laragon.org/download/](https://laragon.org/download/)
-2. Run the installer (Laragon Full edition recommended — includes Apache, MySQL, PHP, Composer, Git)
+2. Run the installer (Laragon Full edition recommended — includes Apache, MySQL, PHP, Composer, Git, phpMyAdmin)
 3. Launch Laragon. Make sure the tray icon shows green (if not, click **Start All**)
 
 ### Step 2: Enable Required PHP Extensions
@@ -39,7 +39,17 @@ AutiMind is a web application designed to support children with autism spectrum 
    - `fileinfo`
 3. Click **OK** and then **Menu → Apache → Restart**
 
-### Step 3: Clone the Project
+### Step 3: Download the Project
+
+**Option A — Download ZIP (recommended):**
+
+1. Go to [https://github.com/TheNeovimmer/autimind](https://github.com/TheNeovimmer/autimind)
+2. Click the green **Code** button, then select **Download ZIP**
+3. Extract the ZIP file
+4. Copy the extracted `autimind` folder into Laragon's `www` directory (usually `C:\laragon\www\`)
+5. The project will be accessible at `http://autimind.test` (Laragon auto-creates this)
+
+**Option B — Clone with Git:**
 
 1. Open Laragon's terminal: **Menu → Terminal**
 2. Navigate to Laragon's www directory:
@@ -48,26 +58,25 @@ AutiMind is a web application designed to support children with autism spectrum 
    ```
 3. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/autimind.git
+   git clone https://github.com/TheNeovimmer/autimind.git
    ```
-4. The project will be accessible at `http://autimind.test` (Laragon auto-creates this)
 
 ### Step 4: Install Dependencies
 
-In the Laragon terminal, run:
+Laragon includes Composer. Open Laragon's terminal (**Menu → Terminal**) and run:
 
 ```bash
 cd autimind
 composer install
 ```
 
+If Composer is not found, download it from [https://getcomposer.org/download/](https://getcomposer.org/download/) and install it.
+
 ### Step 5: Configure Environment
 
-1. Copy the example environment file:
-   ```bash
-   cp .env.example .env
-   ```
-2. Open `.env` in a text editor and update:
+1. In the `autimind` folder, locate `.env.example` and rename it to `.env`
+2. Right-click `.env` → **Edit with notepad** (or any text editor)
+3. Update these values:
    ```env
    APP_URL=http://autimind.test
    DB_HOST=127.0.0.1
@@ -76,20 +85,24 @@ composer install
    DB_USER=root
    DB_PASS=
    ```
+   Leave DB_PASS empty — Laragon's default MySQL has no password.
 
-   Leave DB_PASS empty if using Laragon's default MySQL (no password).
+### Step 6: Create the Database & Import Schema
 
-### Step 6: Create the Database
-
-1. In Laragon, click **Database** to open HeidiSQL (or use **Menu → MySQL → MySQL Console**)
-2. Run:
-   ```sql
-   CREATE DATABASE IF NOT EXISTS autimind CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-   ```
-3. Import the schema:
-   - In HeidiSQL, select the `autimind` database
-   - Go to **File → Load SQL File** → select `migrations/001_create_tables.sql`
-   - Execute (or press F9)
+1. In Laragon, click **Start All** (Apache + MySQL must be running)
+2. Click **Menu → Database** — this opens phpMyAdmin in your browser
+3. In phpMyAdmin:
+   - Click the **Databases** tab at the top
+   - Under **Create database**, enter `autimind`
+   - Select `utf8mb4_general_ci` as the collation
+   - Click **Create**
+4. Now import the tables:
+   - Click on the `autimind` database in the left sidebar
+   - Click the **Import** tab at the top
+   - Under **File to import**, click **Choose File**
+   - Select `migrations/001_create_tables.sql` from the `autimind` folder
+   - Scroll down and click **Import**
+5. You should see a success message: "Import has been successfully finished"
 
 ### Step 7: Configure OpenRouter AI (Optional but Recommended)
 
@@ -104,13 +117,13 @@ composer install
 
 ### Step 8: Set Folder Permissions
 
-Laragon on Windows usually handles this, but ensure these folders are writable:
+On Windows, ensure the uploads folder is writable:
 
-```bash
-chmod -R 755 public/uploads
-```
-
-(On Windows, right-click the `public/uploads` folder → Properties → Security → make sure your user has full control)
+1. Navigate to `C:\laragon\www\autimind\public\uploads`
+2. Right-click the `uploads` folder → **Properties**
+3. Go to the **Security** tab
+4. Select your user and make sure **Full control** is checked
+5. Click **Apply** → **OK**
 
 ### Step 9: Access the Application
 
@@ -118,9 +131,14 @@ chmod -R 755 public/uploads
 2. Open your browser and go to: `http://autimind.test`
 3. Register a new account or log in
 4. To access the admin panel, set the first user's role to `admin` in the database:
-   ```sql
-   UPDATE users SET role = 'admin' WHERE email = 'your-email@example.com';
-   ```
+   - Open phpMyAdmin (Laragon → Menu → Database)
+   - Click the `autimind` database
+   - Click the **SQL** tab
+   - Run:
+     ```sql
+     UPDATE users SET role = 'admin' WHERE email = 'your-email@example.com';
+     ```
+   - Click **Go**
 
 ## Configuration
 
