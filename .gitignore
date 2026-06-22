@@ -4,3 +4,7 @@ _test_db.php
 docs/
 /vendor/
 node_modules/
+
+# OpenCode agent skills
+.agents/
+.superpowers/
