@@ -1,4 +1,4 @@
-<div class="dash-header">
+<div class="dash-header-premium">
   <div>
     <h1><?= htmlspecialchars($child['name']) ?></h1>
     <p>Parent: <?= htmlspecialchars($parent['parent_name'] ?? '') ?></p>
@@ -6,7 +6,7 @@
   <a href="/admin/progress" class="dash-btn dash-btn-outline"><i class="fas fa-arrow-left"></i> Back</a>
 </div>
 
-<div class="dash-grid-auto mb-3">
+<div class="dash-grid-auto">
   <div class="card dash-stat-card">
     <h3 class="dash-stat-value"><?= (int)$totalActivities ?></h3>
     <p class="dash-stat-label">Activities Completed</p>
@@ -24,8 +24,8 @@
 <div class="card">
   <h3>Activity History</h3>
   <?php if (!empty($activities)): ?>
-  <div class="table-responsive">
-    <table class="table table-hover align-middle mb-0 small">
+  <div class="dash-table-wrapper">
+    <table class="dash-table">
       <thead>
         <tr><th>Activity</th><th>Category</th><th>Difficulty</th><th>Score</th><th>Completed</th></tr>
       </thead>
@@ -50,8 +50,8 @@
 <div class="card">
   <h3>Recent Quiz Attempts</h3>
   <?php if (!empty($quizAttempts)): ?>
-  <div class="table-responsive">
-    <table class="table table-hover align-middle mb-0 small">
+  <div class="dash-table-wrapper">
+    <table class="dash-table">
       <thead>
         <tr><th>Question</th><th>Score</th><th>Completed</th></tr>
       </thead>

@@ -1,4 +1,4 @@
-<div class="dash-header">
+<div class="dash-header-premium">
   <div>
     <h1>FAQ Items</h1>
     <p>Manage frequently asked questions</p>
@@ -7,8 +7,8 @@
 </div>
 
 <?php if (!empty($faqs)): ?>
-<div class="table-responsive">
-  <table class="table table-hover align-middle mb-0 small">
+<div class="dash-table-wrapper">
+  <table class="dash-table">
     <thead>
       <tr><th>Order</th><th>Question</th><th>Category</th><th>Active</th><th>Actions</th></tr>
     </thead>
@@ -17,11 +17,11 @@
         <tr>
           <td><?= (int)$f['order_index'] ?></td>
           <td><?= htmlspecialchars(substr($f['question'], 0, 80)) ?></td>
-          <td><span class="badge bg-primary-subtle text-primary-emphasis"><?= htmlspecialchars($f['category']) ?></span></td>
-          <td><?= $f['is_active'] ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>' ?></td>
+          <td><span class="status-badge status-badge-completed"><?= htmlspecialchars($f['category']) ?></span></td>
+          <td><?= $f['is_active'] ? '<span class="status-badge status-badge-active">Yes</span>' : '<span class="status-badge status-badge-cancelled">No</span>' ?></td>
           <td>
             <a href="/admin/faq/<?= (int)$f['id'] ?>/edit" class="dash-btn dash-btn-sm dash-btn-outline">Edit</a>
-            <form method="POST" action="/admin/faq/<?= (int)$f['id'] ?>/delete" class="d-inline" onsubmit="return confirm('Delete this FAQ?');">
+            <form method="POST" action="/admin/faq/<?= (int)$f['id'] ?>/delete" class="d-inline-flex" onsubmit="return confirm('Delete this FAQ?');">
               <input type="hidden" name="_csrf_token" value="<?= \App\Core\Session::csrf_token() ?>">
               <button type="submit" class="dash-btn dash-btn-sm dash-btn-danger">Delete</button>
             </form>

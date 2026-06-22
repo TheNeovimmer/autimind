@@ -1,0 +1,6 @@
+.env
+_test_db.php
+.superpowers/
+docs/
+/vendor/
+node_modules/

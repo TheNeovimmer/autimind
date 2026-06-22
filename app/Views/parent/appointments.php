@@ -1,4 +1,4 @@
-<div class="dash-header">
+<div class="dash-header-premium">
   <div>
     <h1>Appointments</h1>
     <p>Manage your appointments</p>
@@ -7,8 +7,8 @@
 </div>
 
 <?php if (!empty($appointments)): ?>
-<div class="table-responsive">
-  <table class="table table-hover align-middle mb-0 small">
+<div class="dash-table-wrapper">
+  <table class="dash-table">
     <thead>
       <tr><th>Child</th><th>Specialist</th><th>Date</th><th>Time</th><th>Status</th><th>Actions</th></tr>
     </thead>
@@ -19,11 +19,11 @@
           <td><?= htmlspecialchars($apt['specialist_name']) ?></td>
           <td><?= htmlspecialchars($apt['date']) ?></td>
           <td><?= htmlspecialchars(substr($apt['time'], 0, 5)) ?></td>
-          <td><span class="badge <?= match($apt['status']) { 'active','confirmed' => 'bg-success', 'pending' => 'bg-warning text-dark', 'cancelled','expired' => 'bg-danger', default => 'bg-primary' } ?>"><?= ucfirst(htmlspecialchars($apt['status'])) ?></span></td>
+          <td><span class="status-badge <?= match($apt['status']) { 'active','confirmed' => 'status-badge-active', 'pending' => 'status-badge-pending', 'cancelled','expired' => 'status-badge-cancelled', default => '' } ?>"><?= ucfirst(htmlspecialchars($apt['status'])) ?></span></td>
           <td>
             <?php if ($apt['status'] === 'pending' || $apt['status'] === 'confirmed'): ?>
               <a href="/parent/appointments/<?= (int)$apt['id'] ?>/reschedule" class="dash-btn dash-btn-sm dash-btn-outline"><i class="fas fa-calendar-alt"></i> Reschedule</a>
-              <form method="POST" action="/parent/appointments/<?= (int)$apt['id'] ?>/cancel" class="d-inline" onsubmit="return confirm('Cancel this appointment?')">
+              <form method="POST" action="/parent/appointments/<?= (int)$apt['id'] ?>/cancel" class="d-inline-flex" onsubmit="return confirm('Cancel this appointment?')">
                 <input type="hidden" name="_csrf_token" value="<?= \App\Core\Session::csrf_token() ?>">
                 <button type="submit" class="dash-btn dash-btn-sm dash-btn-danger">Cancel</button>
               </form>

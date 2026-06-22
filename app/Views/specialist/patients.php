@@ -1,4 +1,4 @@
-<div class="dash-header">
+<div class="dash-header-premium">
   <div>
     <h1>Patients</h1>
     <p>Children assigned to you</p>
@@ -7,8 +7,8 @@
 </div>
 
 <?php if (!empty($patients)): ?>
-<div class="table-responsive">
-  <table class="table table-hover align-middle mb-0 small">
+<div class="dash-table-wrapper">
+  <table class="dash-table">
     <thead>
       <tr><th>Child</th><th>Parent</th><th>Age</th><th>Diagnosis</th><th>Appointments</th><th>Last Screening</th><th></th></tr>
     </thead>

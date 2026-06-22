@@ -1,11 +1,11 @@
-<div class="dash-header">
+<div class="dash-header-premium">
   <div>
     <h1>Messages</h1>
     <p>Communicate with specialists</p>
   </div>
 </div>
 
-<div class="row row-cols-1 row-cols-md-2 g-3">
+<div class="dash-grid-2">
   <div class="card">
     <h3><i class="fas fa-inbox"></i> Inbox (<?= count($inbox) ?>)</h3>
     <?php if (!empty($inbox)): ?>
@@ -19,7 +19,7 @@
         <?php endforeach; ?>
       </div>
     <?php else: ?>
-      <p class="text-muted py-2">No messages yet.</p>
+      <p class="dash-text-muted py-2">No messages yet.</p>
     <?php endif; ?>
   </div>
 
@@ -36,7 +36,7 @@
         <?php endforeach; ?>
       </div>
     <?php else: ?>
-      <p class="text-muted py-2">No sent messages.</p>
+      <p class="dash-text-muted py-2">No sent messages.</p>
     <?php endif; ?>
   </div>
 </div>

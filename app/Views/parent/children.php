@@ -1,4 +1,4 @@
-<div class="dash-header">
+<div class="dash-header-premium">
   <div>
     <h1>My Children</h1>
     <p>Manage your children's profiles</p>
@@ -7,8 +7,8 @@
 </div>
 
 <?php if (!empty($children)): ?>
-<div class="table-responsive">
-  <table class="table table-hover align-middle mb-0 small">
+<div class="dash-table-wrapper">
+  <table class="dash-table">
     <thead>
       <tr>
         <th></th>
@@ -36,7 +36,7 @@
           <td>
             <a href="/parent/children/<?= (int)$child['id'] ?>" class="dash-btn dash-btn-sm dash-btn-outline"><i class="fas fa-eye"></i></a>
             <a href="/parent/children/<?= (int)$child['id'] ?>/edit" class="dash-btn dash-btn-sm dash-btn-outline"><i class="fas fa-edit"></i></a>
-            <form method="POST" action="/parent/children/<?= (int)$child['id'] ?>/delete" class="d-inline" onsubmit="return confirm('Remove this child?')">
+            <form method="POST" action="/parent/children/<?= (int)$child['id'] ?>/delete" class="d-inline-flex" onsubmit="return confirm('Remove this child?')">
               <input type="hidden" name="_csrf_token" value="<?= \App\Core\Session::csrf_token() ?>">
               <button type="submit" class="dash-btn dash-btn-sm dash-btn-danger"><i class="fas fa-trash"></i></button>
             </form>

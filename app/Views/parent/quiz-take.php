@@ -1,11 +1,11 @@
-<div class="dash-header">
+<div class="dash-header-premium">
   <div>
     <h1>Screening Quiz</h1>
     <p>For: <?= htmlspecialchars($child['name']) ?></p>
   </div>
 </div>
 
-<div class="alert alert-info d-flex align-items-start gap-2">
+<div class="dash-alert dash-alert--info">
   <i class="fas fa-clock"></i>
   <p>Answer all 10 questions based on your observation of your child's typical behavior. There are no right or wrong answers.</p>
 </div>
@@ -33,7 +33,7 @@
     </div>
   <?php endforeach; ?>
 
-  <div class="d-flex gap-2 align-items-center">
+  <div class="form-actions">
     <a href="/parent/quiz" class="dash-btn dash-btn-outline">Cancel</a>
     <button type="submit" class="dash-btn dash-btn-primary">Submit Quiz</button>
   </div>

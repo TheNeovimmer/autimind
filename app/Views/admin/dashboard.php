@@ -1,6 +1,6 @@
 <div class="admin-welcome">
   <div class="admin-welcome-text">
-    <h1>Dashboard</h1>
+    <h1>Admin Dashboard</h1>
     <p>Good to have you back, <?= htmlspecialchars(\App\Core\Session::get('user_name')) ?></p>
   </div>
   <div class="admin-welcome-actions">
@@ -9,94 +9,80 @@
   </div>
 </div>
 
-<!-- Stat Cards -->
-<div class="stat-cards">
-  <div class="stat-card-item">
-    <div class="stat-card-icon users"><i class="fas fa-users"></i></div>
-    <div class="stat-card-body">
-      <span class="stat-card-value"><?= (int)$totalUsers ?></span>
-      <span class="stat-card-label">Total Users</span>
-    </div>
-    <div class="stat-card-footer">
-      <span class="stat-card-detail"><?= (int)$totalParents ?> parents, <?= (int)$totalSpecialists ?> specialists</span>
-      <a href="/admin/users" class="stat-card-link">View →</a>
+<div class="dash-stats-grid dash-stagger">
+  <div class="dash-stat-card">
+    <div class="stat-icon users"><i class="fas fa-users"></i></div>
+    <div class="stat-value"><?= (int)$totalUsers ?></div>
+    <div class="stat-label">Total Users</div>
+    <div class="stat-footer">
+      <span class="stat-detail"><?= (int)$totalParents ?> parents · <?= (int)$totalSpecialists ?> specialists</span>
+      <a href="/admin/users" class="stat-link">View →</a>
     </div>
   </div>
-  <div class="stat-card-item">
-    <div class="stat-card-icon appointments"><i class="fas fa-calendar-check"></i></div>
-    <div class="stat-card-body">
-      <span class="stat-card-value"><?= (int)$totalAppointments ?></span>
-      <span class="stat-card-label">Appointments</span>
-    </div>
-    <div class="stat-card-footer">
+  <div class="dash-stat-card">
+    <div class="stat-icon appointments"><i class="fas fa-calendar-check"></i></div>
+    <div class="stat-value"><?= (int)$totalAppointments ?></div>
+    <div class="stat-label">Appointments</div>
+    <div class="stat-footer">
       <?php if ($pendingAppointments > 0): ?>
-        <span class="stat-card-detail pending"><?= (int)$pendingAppointments ?> pending</span>
+        <span class="stat-detail pending"><?= (int)$pendingAppointments ?> pending</span>
       <?php else: ?>
-        <span class="stat-card-detail">All handled</span>
+        <span class="stat-detail">All handled</span>
       <?php endif; ?>
-      <a href="/admin/appointments" class="stat-card-link">View →</a>
+      <a href="/admin/appointments" class="stat-link">View →</a>
     </div>
   </div>
-  <div class="stat-card-item">
-    <div class="stat-card-icon children"><i class="fas fa-child"></i></div>
-    <div class="stat-card-body">
-      <span class="stat-card-value"><?= (int)$totalChildren ?></span>
-      <span class="stat-card-label">Children</span>
-    </div>
-    <div class="stat-card-footer">
-      <span class="stat-card-detail"><?= (int)$totalChildren ?> registered</span>
+  <div class="dash-stat-card">
+    <div class="stat-icon children"><i class="fas fa-child"></i></div>
+    <div class="stat-value"><?= (int)$totalChildren ?></div>
+    <div class="stat-label">Children</div>
+    <div class="stat-footer">
+      <span class="stat-detail"><?= (int)$totalChildren ?> registered</span>
     </div>
   </div>
-  <div class="stat-card-item">
-    <div class="stat-card-icon subscriptions"><i class="fas fa-crown"></i></div>
-    <div class="stat-card-body">
-      <span class="stat-card-value"><?= (int)$totalSubscriptions ?></span>
-      <span class="stat-card-label">Subscriptions</span>
-    </div>
-    <div class="stat-card-footer">
-      <span class="stat-card-detail"><?= (int)$activeSubscriptions ?> active</span>
-      <a href="/admin/subscriptions" class="stat-card-link">Manage →</a>
+  <div class="dash-stat-card">
+    <div class="stat-icon subscriptions"><i class="fas fa-crown"></i></div>
+    <div class="stat-value"><?= (int)$totalSubscriptions ?></div>
+    <div class="stat-label">Subscriptions</div>
+    <div class="stat-footer">
+      <span class="stat-detail"><?= (int)$activeSubscriptions ?> active</span>
+      <a href="/admin/subscriptions" class="stat-link">Manage →</a>
     </div>
   </div>
-  <div class="stat-card-item">
-    <div class="stat-card-icon messages"><i class="fas fa-envelope"></i></div>
-    <div class="stat-card-body">
-      <span class="stat-card-value"><?= (int)$unreadMessages ?></span>
-      <span class="stat-card-label">Unread Messages</span>
-    </div>
-    <div class="stat-card-footer">
+  <div class="dash-stat-card">
+    <div class="stat-icon messages"><i class="fas fa-envelope"></i></div>
+    <div class="stat-value"><?= (int)$unreadMessages ?></div>
+    <div class="stat-label">Unread Messages</div>
+    <div class="stat-footer">
       <?php if ($unreadMessages > 0): ?>
-        <span class="stat-card-detail unread"><?= (int)$unreadMessages ?> need attention</span>
+        <span class="stat-detail unread"><?= (int)$unreadMessages ?> need attention</span>
       <?php else: ?>
-        <span class="stat-card-detail">All clear</span>
+        <span class="stat-detail">All clear</span>
       <?php endif; ?>
-      <a href="/admin/messages" class="stat-card-link">View →</a>
+      <a href="/admin/messages" class="stat-link">View →</a>
     </div>
   </div>
-  <div class="stat-card-item">
-    <div class="stat-card-icon contacts"><i class="fas fa-phone"></i></div>
-    <div class="stat-card-body">
-      <span class="stat-card-value"><?= (int)$unreadContacts ?></span>
-      <span class="stat-card-label">Unread Contacts</span>
-    </div>
-    <div class="stat-card-footer">
+  <div class="dash-stat-card">
+    <div class="stat-icon contacts"><i class="fas fa-phone"></i></div>
+    <div class="stat-value"><?= (int)$unreadContacts ?></div>
+    <div class="stat-label">Unread Contacts</div>
+    <div class="stat-footer">
       <?php if ($unreadContacts > 0): ?>
-        <span class="stat-card-detail unread"><?= (int)$unreadContacts ?> need reply</span>
+        <span class="stat-detail unread"><?= (int)$unreadContacts ?> need reply</span>
       <?php else: ?>
-        <span class="stat-card-detail">All read</span>
+        <span class="stat-detail">All read</span>
       <?php endif; ?>
-      <a href="/admin/contacts" class="stat-card-link">View →</a>
+      <a href="/admin/contacts" class="stat-link">View →</a>
     </div>
   </div>
 </div>
 
-<!-- Charts -->
 <div class="charts-section">
   <div class="chart-card chart-card-wide">
     <div class="chart-card-header">
       <h3><i class="fas fa-chart-line"></i> New Registrations (7 days)</h3>
     </div>
-    <div class="chart-body">
+    <div class="chart-body chart-body-line">
       <canvas id="chartRegistrations"></canvas>
     </div>
   </div>
@@ -104,7 +90,7 @@
     <div class="chart-card-header">
       <h3><i class="fas fa-chart-line"></i> Quiz Attempts (7 days)</h3>
     </div>
-    <div class="chart-body">
+    <div class="chart-body chart-body-line">
       <canvas id="chartQuizAttempts"></canvas>
     </div>
   </div>
@@ -146,7 +132,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function hex(c, a) { return c + Math.round(a * 255).toString(16).padStart(2, '0'); }
 
-  // --- Doughnut defaults ---
   const doughnutOpts = {
     responsive: true, maintainAspectRatio: false,
     plugins: { legend: { position: 'bottom', labels: { color: '#6b7280', padding: 16, font: { size: 12, family: 'Inter' }, usePointStyle: true, pointStyle: 'circle' } } },
@@ -154,7 +139,6 @@ document.addEventListener('DOMContentLoaded', function() {
     animation: { animateRotate: true, duration: 1000 }
   };
 
-  // Role Distribution
   <?php
   $roleLabels = []; $roleCounts = [];
   foreach ($roleDistribution as $r) { $roleLabels[] = ucfirst($r['role']); $roleCounts[] = (int)$r['count']; }
@@ -165,7 +149,6 @@ document.addEventListener('DOMContentLoaded', function() {
     options: doughnutOpts
   });
 
-  // Appointment Status
   <?php
   $sLabels = []; $sCounts = []; $sColors = [];
   $cm = ['pending'=>'#f59e0b','confirmed'=>'#22c55e','completed'=>'#3b82f6','cancelled'=>'#f43f5e'];
@@ -177,7 +160,6 @@ document.addEventListener('DOMContentLoaded', function() {
     options: doughnutOpts
   });
 
-  // --- Line chart helper ---
   function lineChart(id, labels, data, color, label) {
     new Chart(document.getElementById(id), {
       type: 'line',
@@ -197,21 +179,18 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Registrations
   <?php
   $regDays = []; $regCounts = [];
   foreach ($registrations as $r) { $regDays[] = date('M j', strtotime($r['day'])); $regCounts[] = (int)$r['count']; }
   ?>
   lineChart('chartRegistrations', <?= json_encode($regDays) ?>, <?= json_encode($regCounts) ?>, purple, 'New Users');
 
-  // Quiz Attempts
   <?php
   $quizDays = []; $quizCounts = [];
   foreach ($quizAttempts as $a) { $quizDays[] = date('M j', strtotime($a['day'])); $quizCounts[] = (int)$a['count']; }
   ?>
   lineChart('chartQuizAttempts', <?= json_encode($quizDays) ?>, <?= json_encode($quizCounts) ?>, teal, 'Attempts');
 
-  // Subscriptions by Plan (bar)
   <?php
   $planLabels = []; $planCounts = [];
   foreach ($planDistribution as $p) { $planLabels[] = ucfirst($p['plan']); $planCounts[] = (int)$p['count']; }

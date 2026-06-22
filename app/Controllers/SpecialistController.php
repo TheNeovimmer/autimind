@@ -31,6 +31,64 @@ class SpecialistController
         $stmt->execute([$specialistId]);
         $totalPatients = (int) $stmt->fetchColumn();
 
+        // Weekly appointment trend (last 8 weeks)
+        $stmt = $db->prepare("
+            SELECT
+                YEARWEEK(date, 1) as yw,
+                DATE_FORMAT(DATE_SUB(date, INTERVAL WEEKDAY(date) DAY), '%Y-%m-%d') as week_start,
+                COUNT(*) as count
+            FROM appointments
+            WHERE specialist_id = ?
+                AND date >= DATE_SUB(CURDATE(), INTERVAL 8 WEEK)
+            GROUP BY YEARWEEK(date, 1), week_start
+            ORDER BY yw ASC
+        ");
+        $stmt->execute([$specialistId]);
+        $weeklyAppts = $stmt->fetchAll();
+
+        // Patient age distribution
+        $stmt = $db->prepare("
+            SELECT
+                CASE
+                    WHEN c.age BETWEEN 0 AND 3 THEN '0-3'
+                    WHEN c.age BETWEEN 4 AND 6 THEN '4-6'
+                    WHEN c.age BETWEEN 7 AND 9 THEN '7-9'
+                    WHEN c.age BETWEEN 10 AND 12 THEN '10-12'
+                    ELSE '13+'
+                END as age_range,
+                COUNT(DISTINCT c.id) as count
+            FROM children c
+            JOIN appointments a ON a.child_id = c.id
+            WHERE a.specialist_id = ?
+                AND c.age IS NOT NULL
+            GROUP BY age_range
+            ORDER BY age_range
+        ");
+        $stmt->execute([$specialistId]);
+        $ageDist = $stmt->fetchAll();
+
+        // Quiz risk level distribution
+        $stmt = $db->prepare("
+            SELECT qa.risk_level, COUNT(*) as count
+            FROM quiz_attempts qa
+            JOIN appointments a ON a.child_id = qa.child_id
+            WHERE a.specialist_id = ?
+                AND qa.risk_level IS NOT NULL
+            GROUP BY qa.risk_level
+        ");
+        $stmt->execute([$specialistId]);
+        $riskDist = $stmt->fetchAll();
+
+        // Appointment status counts
+        $stmt = $db->prepare("
+            SELECT status, COUNT(*) as count
+            FROM appointments
+            WHERE specialist_id = ?
+            GROUP BY status
+        ");
+        $stmt->execute([$specialistId]);
+        $statusCounts = $stmt->fetchAll();
+
         View::render('specialist/dashboard', [
             'title' => 'Specialist Dashboard',
             'totalAppointments' => $totalAppointments,
@@ -38,6 +96,10 @@ class SpecialistController
             'upcoming' => $upcoming,
             'unreadMessages' => $unreadMessages,
             'totalPatients' => $totalPatients,
+            'weeklyAppts' => $weeklyAppts,
+            'ageDist' => $ageDist,
+            'riskDist' => $riskDist,
+            'statusCounts' => $statusCounts,
         ], 'dashboard');
     }
 

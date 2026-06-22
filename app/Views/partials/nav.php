@@ -9,16 +9,14 @@
     <li><a href="/" class="<?= $_SERVER['REQUEST_URI'] === '/' ? 'active' : '' ?>">Home</a></li>
     <li><a href="/about" class="<?= str_starts_with($_SERVER['REQUEST_URI'], '/about') ? 'active' : '' ?>">About</a></li>
     <li><a href="/program" class="<?= str_starts_with($_SERVER['REQUEST_URI'], '/program') ? 'active' : '' ?>">Program</a></li>
-    <li><a href="/espaceenfant" class="<?= str_starts_with($_SERVER['REQUEST_URI'], '/espaceenfant') ? 'active' : '' ?>">Children</a></li>
-    <li><a href="/espaceparent" class="<?= str_starts_with($_SERVER['REQUEST_URI'], '/espaceparent') ? 'active' : '' ?>">Parents</a></li>
-    <li><a href="/specialists" class="<?= str_starts_with($_SERVER['REQUEST_URI'], '/specialists') ? 'active' : '' ?>">Specialists</a></li>
+    <li><a href="/chatbot" class="<?= str_starts_with($_SERVER['REQUEST_URI'], '/chatbot') ? 'active' : '' ?>">AutiMind AI</a></li>
     <li><a href="/pricing" class="<?= str_starts_with($_SERVER['REQUEST_URI'], '/pricing') ? 'active' : '' ?>">Pricing</a></li>
     <li><a href="/contact" class="<?= str_starts_with($_SERVER['REQUEST_URI'], '/contact') ? 'active' : '' ?>">Contact</a></li>
     <?php if (\App\Core\Session::has('user_id')): ?>
       <li class="nav-btn-item mobile-only"><a href="/<?= \App\Core\Session::get('role') ?>/dashboard">Dashboard</a></li>
       <li class="nav-btn-item mobile-only"><a href="/logout">Logout</a></li>
     <?php else: ?>
-      <li class="nav-btn-item"><a href="/signup">Get Started</a></li>
+      <li class="nav-btn-item"><a href="/signup">Sign Up</a></li>
     <?php endif; ?>
   </ul>
   <div class="nav-actions">
@@ -54,7 +52,7 @@
         </div>
       </div>
     <?php else: ?>
-      <a href="/signup" class="btn-signup">Get Started</a>
+      <a href="/signup" class="btn-signup">Sign Up</a>
     <?php endif; ?>
   </div>
 </nav>

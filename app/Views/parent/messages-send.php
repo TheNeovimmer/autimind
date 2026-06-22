@@ -1,4 +1,4 @@
-<div class="dash-header">
+<div class="dash-header-premium">
   <div>
     <h1>Send Message</h1>
     <p>To: <?= htmlspecialchars($receiver['name']) ?></p>
@@ -10,17 +10,17 @@
   <input type="hidden" name="_csrf_token" value="<?= htmlspecialchars($csrf_token) ?>">
   <input type="hidden" name="receiver_id" value="<?= (int)$receiver['id'] ?>">
 
-  <div class="mb-3">
-    <label for="subject" class="form-label">Subject *</label>
-    <input type="text" id="subject" name="subject" class="form-control" required placeholder="Enter message subject...">
+  <div class="dash-field">
+    <label for="subject" >Subject *</label>
+    <input type="text" id="subject" name="subject"  required placeholder="Enter message subject...">
   </div>
 
-  <div class="mb-3">
-    <label for="body" class="form-label">Message *</label>
-    <textarea id="body" name="body" rows="6" class="form-control" required placeholder="Write your message here..."></textarea>
+  <div class="dash-field">
+    <label for="body" >Message *</label>
+    <textarea id="body" name="body" rows="6"  required placeholder="Write your message here..."></textarea>
   </div>
 
-  <div class="d-flex gap-2 align-items-center">
+  <div class="form-actions">
     <a href="/parent/messages" class="dash-btn dash-btn-outline">Cancel</a>
     <button type="submit" class="dash-btn dash-btn-primary">Send Message</button>
   </div>

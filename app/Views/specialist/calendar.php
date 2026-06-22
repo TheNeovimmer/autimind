@@ -1,4 +1,4 @@
-<div class="dash-header">
+<div class="dash-header-premium">
   <div>
     <h1>Calendar</h1>
     <p><?= htmlspecialchars($monthName) ?></p>
@@ -34,7 +34,7 @@
             <div class="calendar-appt-children">
               <?= htmlspecialchars(implode(', ', array_slice($dayAppts[$day]['children'], 0, 2))) ?>
               <?php if (count($dayAppts[$day]['children']) > 2): ?>
-                <span class="text-muted">+<?= count($dayAppts[$day]['children']) - 2 ?> more</span>
+                <span class="dash-text-muted">+<?= count($dayAppts[$day]['children']) - 2 ?> more</span>
               <?php endif; ?>
             </div>
             <a href="/specialist/appointments?date=<?= $dateStr ?>" class="calendar-view-link">View</a>

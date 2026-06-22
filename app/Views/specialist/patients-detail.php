@@ -1,4 +1,4 @@
-<div class="dash-header">
+<div class="dash-header-premium">
   <div>
     <h1><?= htmlspecialchars($child['name']) ?></h1>
     <p>Patient details</p>
@@ -6,7 +6,7 @@
   <a href="/specialist/messages/thread/<?= (int)$parent['id'] ?>" class="dash-btn dash-btn-outline"><i class="fas fa-envelope"></i> Message Parent</a>
 </div>
 
-<div class="row row-cols-1 row-cols-md-2 g-3 mb-3">
+<div class="dash-grid-2">
   <div class="card">
     <h3>Child Information</h3>
     <p><strong>Age:</strong> <?= $child['age'] ? (int)$child['age'] . ' yrs' : '-' ?></p>
@@ -27,11 +27,11 @@
   <h3>Add Observation</h3>
   <form method="POST" action="/specialist/patients/<?= (int)$child['id'] ?>/notes" class="">
     <input type="hidden" name="_csrf_token" value="<?= htmlspecialchars($csrf_token) ?>">
-    <div class="mb-3">
-      <label for="notes" class="form-label">Observation Notes</label>
-      <textarea id="notes" name="notes" class="form-control" rows="5"><?= htmlspecialchars($child['notes'] ?? '') ?></textarea>
+    <div class="dash-field">
+      <label for="notes">Observation Notes</label>
+      <textarea id="notes" name="notes" class="" rows="5"><?= htmlspecialchars($child['notes'] ?? '') ?></textarea>
     </div>
-    <div class="d-flex gap-2 align-items-center">
+    <div class="form-actions">
       <button type="submit" class="dash-btn dash-btn-primary">Save Observation</button>
     </div>
   </form>
@@ -40,28 +40,28 @@
 <div class="card mb-2">
   <h3>Appointment History</h3>
   <?php if (!empty($appointments)): ?>
-    <table class="table table-hover align-middle mb-0 small">
+    <table class="dash-table">
       <thead><tr><th>Date</th><th>Time</th><th>Status</th><th>Notes</th></tr></thead>
       <tbody>
         <?php foreach ($appointments as $apt): ?>
           <tr>
             <td><?= htmlspecialchars($apt['date']) ?></td>
             <td><?= htmlspecialchars(substr($apt['time'], 0, 5)) ?></td>
-            <td><span class="badge <?= htmlspecialchars(['pending'=>'bg-warning text-dark','confirmed'=>'bg-success','active'=>'bg-success','completed'=>'bg-primary','cancelled'=>'bg-danger','expired'=>'bg-danger'][$apt['status']] ?? 'bg-secondary') ?>"><?= ucfirst(htmlspecialchars($apt['status'])) ?></span></td>
+            <td><span class="<?= htmlspecialchars(['pending'=>'status-badge status-badge-pending','confirmed'=>'status-badge status-badge-active','active'=>'status-badge status-badge-active','completed'=>'status-badge status-badge-completed','cancelled'=>'status-badge status-badge-cancelled','expired'=>'status-badge status-badge-cancelled'][$apt['status']] ?? 'status-badge') ?>"><?= ucfirst(htmlspecialchars($apt['status'])) ?></span></td>
             <td><?= htmlspecialchars($apt['notes'] ?? '-') ?></td>
           </tr>
         <?php endforeach; ?>
       </tbody>
     </table>
   <?php else: ?>
-    <p class="text-muted py-2">No appointments yet.</p>
+    <p class="dash-text-muted py-2">No appointments yet.</p>
   <?php endif; ?>
 </div>
 
 <?php if (!empty($quizHistory)): ?>
 <div class="card">
   <h3>Screening History</h3>
-  <table class="table table-hover align-middle mb-0 small">
+  <table class="dash-table">
     <thead><tr><th>Date</th><th>Score</th><th>Risk Level</th><th>Category Breakdown</th></tr></thead>
     <tbody>
       <?php foreach ($quizHistory as $qh): ?>
@@ -74,13 +74,13 @@
               <div class="quiz-breakdown">
                 <?php $cats = ['social_communication' => 'Social', 'behavior' => 'Behavior', 'sensory' => 'Sensory', 'developmental' => 'Developmental']; ?>
                 <?php foreach ($quizBreakdowns[$qh['id']] as $cat): ?>
-                  <span class="badge badge-<?= htmlspecialchars($cat['category']) ?>">
+                  <span class="status-badge status-badge-completed">
                     <?= htmlspecialchars($cats[$cat['category']] ?? $cat['category']) ?>: <?= (int)$cat['score'] ?>
                   </span>
                 <?php endforeach; ?>
               </div>
             <?php else: ?>
-              <span class="text-muted">-</span>
+              <span class="dash-text-muted">-</span>
             <?php endif; ?>
           </td>
         </tr>

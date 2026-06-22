@@ -27,7 +27,8 @@ $router->get('/espaceenfant', 'HomeController@espaceEnfant');
 $router->get('/espaceparent', 'HomeController@espaceParent');
 $router->get('/specialists', 'HomeController@specialists');
 $router->get('/chatbot', 'HomeController@chatbot');
-$router->get('/chatbotstart', 'HomeController@chatbotStart');
+$router->get('/chatbotstart', 'HomeController@chatbotStart', ['auth']);
+$router->post('/chatbot/message', 'HomeController@chatbotMessage', ['auth']);
 
 // Newsletter
 $router->post('/subscribe', 'HomeController@subscribe');
@@ -140,6 +141,7 @@ $router->post('/admin/chatbot/add', 'AdminController@addChatbot', ['auth', 'role
 $router->get('/admin/chatbot/{id}/edit', 'AdminController@editChatbotForm', ['auth', 'role:admin']);
 $router->post('/admin/chatbot/{id}/edit', 'AdminController@editChatbot', ['auth', 'role:admin']);
 $router->post('/admin/chatbot/{id}/delete', 'AdminController@deleteChatbot', ['auth', 'role:admin']);
+$router->post('/admin/chatbot/config', 'AdminController@updateChatbotConfig', ['auth', 'role:admin']);
 $router->get('/admin/progress', 'AdminController@progress', ['auth', 'role:admin']);
 $router->get('/admin/progress/child/{childId}', 'AdminController@childProgress', ['auth', 'role:admin']);
 $router->get('/admin/settings', 'AdminController@settings', ['auth', 'role:admin']);

@@ -1,4 +1,4 @@
-<div class="dash-header">
+<div class="dash-header-premium">
   <div>
     <h1>Child Progress</h1>
     <p>Monitor children's activity and quiz progress</p>
@@ -6,8 +6,8 @@
 </div>
 
 <?php if (!empty($children)): ?>
-<div class="table-responsive">
-  <table class="table table-hover align-middle mb-0 small">
+<div class="dash-table-wrapper">
+  <table class="dash-table">
     <thead>
       <tr><th>Child Name</th><th>Parent</th><th>Activities</th><th>Avg Score</th><th>Quizzes</th><th>Actions</th></tr>
     </thead>

@@ -1,3 +1,4 @@
+<script>document.body.className = 'chatstart-page';</script>
 <main class="chatstart-main">
   <div class="chatstart-inner">
     <div class="chatstart-welcome">
@@ -5,20 +6,7 @@
       <h1>Welcome Back<br><strong>Bring your ideas to life today</strong></h1>
     </div>
 
-    <div class="chatstart-messages">
-      <div class="chatstart-bubble">
-        <img src="https://static.codia.ai/image/2026-06-19/bpSpf00Nne.png" alt="">
-        Hello Tasnime
-      </div>
-      <div class="chatstart-bubble">
-        <img src="https://static.codia.ai/image/2026-06-19/S0qSHuGe2M.png" alt="" class="chatstart-indicator">
-        Hello Autimind How are you ?
-      </div>
-      <div class="chatstart-bubble">
-        <img src="https://static.codia.ai/image/2026-06-19/Su06oGNEnE.png" alt="">
-        Thinking ...
-      </div>
-    </div>
+    <div class="chatstart-messages" id="chatstartMessages"></div>
 
     <div class="chatstart-chatbar">
       <div class="chatstart-chatbar-top">
@@ -44,7 +32,7 @@
             <img src="https://static.codia.ai/image/2026-06-19/VtPzjcjUM8.png" alt="">
             Voice
           </span>
-          <button class="chatstart-send-btn" aria-label="Send message">
+          <button class="chatstart-send-btn" id="chatstartSendBtn" aria-label="Send message">
             <img src="https://static.codia.ai/image/2026-06-19/jW9G0fDPwh.png" alt="">
           </button>
         </div>
@@ -91,9 +79,98 @@
       </div>
       <div class="chatstart-benefit">
         <img src="https://static.codia.ai/image/2026-06-19/r4uJDJmwBR.png" alt="">
-        <strong>Trusted & Secure</strong>
+        <strong>Trusted &amp; Secure</strong>
         <span>Your privacy is our priority</span>
       </div>
     </div>
   </div>
 </main>
+
+<input type="hidden" id="chatstartCsrf" value="<?= htmlspecialchars($csrf_token) ?>">
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const chatMessages = document.getElementById('chatstartMessages');
+  const sendBtn = document.getElementById('chatstartSendBtn');
+  const chatbarTop = document.querySelector('.chatstart-chatbar-top');
+  const csrfToken = document.getElementById('chatstartCsrf').value;
+
+  const input = document.createElement('input');
+  input.type = 'text';
+  input.className = 'chatstart-input-field';
+  input.placeholder = 'Ask me anything .....';
+  input.style.cssText = 'border:none;background:transparent;font-size:18px;color:#fff;outline:none;flex:1;font-family:inherit;';
+  chatbarTop.querySelector('span').style.display = 'none';
+  chatbarTop.appendChild(input);
+  input.focus();
+
+  input.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter' && input.value.trim()) {
+      sendMessage(input.value.trim());
+      input.value = '';
+    }
+  });
+
+  sendBtn.addEventListener('click', function() {
+    if (input.value.trim()) {
+      sendMessage(input.value.trim());
+      input.value = '';
+    }
+  });
+
+  function sendMessage(message) {
+    addMessage(message, 'user');
+
+    fetch('/chatbot/message', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({
+        _csrf_token: csrfToken,
+        message: message
+      })
+    })
+    .then(r => r.json())
+    .then(data => {
+      addMessage(data.response, 'bot');
+    })
+    .catch(() => {
+      addMessage("I'm having trouble connecting right now. Please try again in a moment.", 'bot');
+    });
+
+    scrollToBottom();
+  }
+
+  function addMessage(text, sender) {
+    const bubble = document.createElement('div');
+    bubble.className = 'chatstart-bubble';
+
+    if (sender === 'user') {
+      bubble.style.alignSelf = 'flex-end';
+      const img = document.createElement('img');
+      img.src = 'https://static.codia.ai/image/2026-06-19/S0qSHuGe2M.png';
+      img.alt = '';
+      img.className = 'chatstart-indicator';
+      bubble.appendChild(img);
+    } else {
+      bubble.style.alignSelf = 'flex-start';
+      const img = document.createElement('img');
+      img.src = 'https://static.codia.ai/image/2026-06-19/bpSpf00Nne.png';
+      img.alt = '';
+      bubble.appendChild(img);
+    }
+
+    const textNode = document.createTextNode(text);
+    bubble.appendChild(textNode);
+    chatMessages.appendChild(bubble);
+    scrollToBottom();
+  }
+
+  function scrollToBottom() {
+    setTimeout(() => {
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }, 50);
+  }
+
+  scrollToBottom();
+});
+</script>

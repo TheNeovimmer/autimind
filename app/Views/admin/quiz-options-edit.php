@@ -1,4 +1,4 @@
-<div class="dash-header">
+<div class="dash-header-premium">
   <div>
     <h1>Edit Option</h1>
     <p><?= htmlspecialchars($question['question_text'] ?? '') ?></p>
@@ -8,7 +8,7 @@
 
 <div class="card">
   <?php if (!empty($errors)): ?>
-    <div class="alert alert-danger">
+    <div class="dash-alert dash-alert--danger">
       <?php foreach ($errors as $field => $msgs): ?>
         <?php foreach ($msgs as $msg): ?>
           <p><?= htmlspecialchars($msg) ?></p>
@@ -20,19 +20,19 @@
   <form method="POST" class="">
     <input type="hidden" name="_csrf_token" value="<?= htmlspecialchars($csrf_token) ?>">
 
-    <div class="mb-3">
-      <label for="option_text" class="form-label">Option Text</label>
-      <input type="text" id="option_text" name="option_text" value="<?= htmlspecialchars($option['option_text']) ?>" class="form-control" required>
+    <div class="dash-field">
+      <label for="option_text">Option Text</label>
+      <input type="text" id="option_text" name="option_text" value="<?= htmlspecialchars($option['option_text']) ?>" required>
     </div>
 
-    <div class="mb-3">
-      <label for="weight" class="form-label">Weight (0-5)</label>
-      <input type="number" id="weight" name="weight" min="0" max="5" value="<?= (int)$option['weight'] ?>" class="form-control" required>
+    <div class="dash-field">
+      <label for="weight">Weight (0-5)</label>
+      <input type="number" id="weight" name="weight" min="0" max="5" value="<?= (int)$option['weight'] ?>" required>
     </div>
 
-    <div class="mb-3">
-      <label for="order_index" class="form-label">Order Index</label>
-      <input type="number" id="order_index" name="order_index" value="<?= (int)$option['order_index'] ?>" class="form-control" required>
+    <div class="dash-field">
+      <label for="order_index">Order Index</label>
+      <input type="number" id="order_index" name="order_index" value="<?= (int)$option['order_index'] ?>" required>
     </div>
 
     <button type="submit" class="dash-btn dash-btn-primary">Update Option</button>

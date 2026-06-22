@@ -1,145 +1,169 @@
-# AutiMind — Autism Support Platform
+# AutiMind
 
-A full-stack PHP MySQL MVC platform for autism screening, progress tracking, specialist booking, and community support. Built with PHP (no framework), MySQL, and a responsive dark-themed UI.
-
-## Roles & Credentials
-
-| Role | Email | Password |
-|------|-------|----------|
-| **Admin** | admin@autimind.com | admin123 |
-| **Specialist (Dr. Sarah Chen)** | sarah@autimind.com | admin123 |
-| **Specialist (David Okonkwo)** | david@autimind.com | admin123 |
-
-Sign up as a **Parent** at `/signup` to create a parent account.
+AutiMind is a web application designed to support children with autism spectrum disorder and their families. It provides interactive games, sensory-friendly activities, screening tools, AI-powered chat assistance, and connects families with specialists.
 
 ## Features
 
-### Public
-- 17 static-style pages (home, about, services, FAQ, contact, etc.)
-- Specialist directory with profile cards
-- Contact form
-- Newsletter subscription
+- **AI Chatbot** — Powered by OpenRouter AI for intelligent, compassionate responses about autism support
+- **Interactive Games** — Skill-building exercises for communication, sensory regulation, and problem-solving
+- **Screening Quiz** — Developmental screening tool for early autism signs
+- **Progress Tracking** — Monitor developmental milestones and activity completion
+- **Specialist Directory** — Browse and book appointments with certified professionals
+- **Parent Dashboard** — Manage children, view progress, and communicate with specialists
+- **Admin Panel** — Manage users, content, chatbot responses, and OpenRouter configuration
 
-### Parent Dashboard (`/parent/*`)
-- Multi-child management (add, edit, delete)
-- Clinical screening quiz (10 questions, 4 categories, weighted scoring 0–5)
-- Risk assessment: low (≤15), moderate (16–30), high (31–50)
-- Per-category breakdown + score history
-- Progress tracking & insights
-- Browse & book specialists
-- Appointment management (book, cancel)
-- Messaging with specialists
-- AI chatbot (keyword-match + fallback, history persisted)
-- Profile settings with avatar upload
+## Requirements
 
-### Specialist Dashboard (`/specialist/*`)
-- Patient list with profiles & quiz history
-- Appointment management (confirm, cancel)
-- Messaging with parents
-- Schedule management
-- Profile settings with avatar upload
+- PHP 8.1 or higher
+- MySQL 5.7+ or MariaDB 10.3+
+- Composer
+- cURL extension enabled
+- A web server (Apache/Nginx) — Laragon includes this
 
-### Admin Dashboard (`/admin/*`)
-- **Users** — full CRUD
-- **Specialists** — manage specialist profiles
-- **Quiz** — create/edit questions, options, weights
-- **Activities** — create/edit therapeutic activities
-- **Appointments** — view all
-- **Messages** — view all conversations
-- **Subscriptions** — full CRUD
-- **Contacts** — view contact form submissions
-- **FAQ** — full CRUD
-- **Settings** — profile with avatar upload
+## Installation Guide for Laragon (Windows)
 
-## Tech Stack
+### Step 1: Install Laragon
 
-| Layer | Technology |
-|-------|-----------|
-| Backend | PHP 8.2+ (no framework) |
-| Architecture | Flat MVC + Service Layer |
-| Autoloading | Composer (PSR-4) |
-| Database | MySQL / MariaDB |
-| Database Access | PDO with prepared statements |
-| Auth | Session-based with role middleware |
-| Frontend | HTML, CSS, vanilla JS |
-| Fonts | Geist (headings), Inter (body) |
-| Icons | Font Awesome 6 |
-| Smooth Scroll | Lenis |
+1. Download Laragon from [https://laragon.org/download/](https://laragon.org/download/)
+2. Run the installer (Laragon Full edition recommended — includes Apache, MySQL, PHP, Composer, Git)
+3. Launch Laragon. Make sure the tray icon shows green (if not, click **Start All**)
+
+### Step 2: Enable Required PHP Extensions
+
+1. In Laragon, go to **Menu → PHP → Settings**
+2. Enable (check) these extensions:
+   - `curl`
+   - `pdo_mysql`
+   - `mbstring`
+   - `openssl`
+   - `fileinfo`
+3. Click **OK** and then **Menu → Apache → Restart**
+
+### Step 3: Clone the Project
+
+1. Open Laragon's terminal: **Menu → Terminal**
+2. Navigate to Laragon's www directory:
+   ```bash
+   cd ~/Laragon/www
+   ```
+3. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/autimind.git
+   ```
+4. The project will be accessible at `http://autimind.test` (Laragon auto-creates this)
+
+### Step 4: Install Dependencies
+
+In the Laragon terminal, run:
+
+```bash
+cd autimind
+composer install
+```
+
+### Step 5: Configure Environment
+
+1. Copy the example environment file:
+   ```bash
+   cp .env.example .env
+   ```
+2. Open `.env` in a text editor and update:
+   ```env
+   APP_URL=http://autimind.test
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_NAME=autimind
+   DB_USER=root
+   DB_PASS=
+   ```
+
+   Leave DB_PASS empty if using Laragon's default MySQL (no password).
+
+### Step 6: Create the Database
+
+1. In Laragon, click **Database** to open HeidiSQL (or use **Menu → MySQL → MySQL Console**)
+2. Run:
+   ```sql
+   CREATE DATABASE IF NOT EXISTS autimind CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+   ```
+3. Import the schema:
+   - In HeidiSQL, select the `autimind` database
+   - Go to **File → Load SQL File** → select `migrations/001_create_tables.sql`
+   - Execute (or press F9)
+
+### Step 7: Configure OpenRouter AI (Optional but Recommended)
+
+1. Sign up for a free account at [https://openrouter.ai/](https://openrouter.ai/)
+2. Generate an API key from your dashboard
+3. Edit `.env` and add:
+   ```env
+   OPENROUTER_API_KEY=sk-or-v1-your-api-key-here
+   OPENROUTER_MODEL=google/gemma-4-31b-it:free
+   ```
+4. You can also change the model later from the Admin Panel → Chatbot page
+
+### Step 8: Set Folder Permissions
+
+Laragon on Windows usually handles this, but ensure these folders are writable:
+
+```bash
+chmod -R 755 public/uploads
+```
+
+(On Windows, right-click the `public/uploads` folder → Properties → Security → make sure your user has full control)
+
+### Step 9: Access the Application
+
+1. In Laragon, click **Start All** if not already running
+2. Open your browser and go to: `http://autimind.test`
+3. Register a new account or log in
+4. To access the admin panel, set the first user's role to `admin` in the database:
+   ```sql
+   UPDATE users SET role = 'admin' WHERE email = 'your-email@example.com';
+   ```
+
+## Configuration
+
+### OpenRouter AI
+
+The chatbot uses OpenRouter AI to provide intelligent responses. You can:
+
+- **Set the API key**: Edit `OPENROUTER_API_KEY` in `.env`
+- **Change the model**: Either edit `OPENROUTER_MODEL` in `.env` or use the Admin Panel → Chatbot page
+
+Free models available on OpenRouter:
+- `google/gemma-4-31b-it:free` (recommended)
+- `microsoft/phi-3-mini-128k-instruct:free`
+- `mistralai/mistral-7b-instruct:free`
+
+### Keyword Responses (Fallback)
+
+The system includes a keyword-based response system as fallback when OpenRouter is not configured. Manage responses from the Admin Panel → Chatbot page.
 
 ## Project Structure
 
 ```
+autimind/
 ├── app/
-│   ├── Controllers/       # AuthController, HomeController, ParentController,
-│   │                       # SpecialistController, AdminController
-│   ├── Core/              # App, Database, Router, Session, Validator, View, Migration
-│   ├── Models/            # User, Child, QuizQuestion, QuizAttempt, Appointment,
-│   │                       # Message, Activity, Subscription
-│   ├── Services/          # QuizScoringService, ChatbotService, InsightService
-│   └── Views/
-│       ├── layouts/       # main.php (public), dashboard.php (auth)
-│       ├── partials/      # nav, footer, dashboard-sidebar, dashboard-topbar
-│       ├── auth/          # login, signup, forgot-password, reset-password
-│       ├── parent/        # 16 views
-│       ├── specialist/    # 8 views
-│       ├── admin/         # 21 views
-│       └── public/        # 17 public pages
-├── migrations/            # 001_create_tables.sql, 002_seed_data.sql
-├── public/
-│   ├── assets/css/        # styles.css, dashboard.css
-│   ├── assets/js/         # app.js
-│   └── uploads/avatars/   # Profile picture uploads
+│   ├── Controllers/       # Application controllers
+│   ├── Core/              # Core framework (Router, View, Database, etc.)
+│   ├── Models/            # Database models
+│   ├── Services/          # Business logic services
+│   └── Views/             # View templates
+│       ├── admin/         # Admin dashboard views
+│       ├── auth/          # Login/registration views
+│       ├── layouts/       # Layout templates
+│       ├── partials/      # Reusable partials (nav, footer)
+│       ├── parent/        # Parent dashboard views
+│       ├── public/        # Public pages
+│       └── specialist/    # Specialist dashboard views
+├── migrations/            # Database migration files
+├── public/                # Public entry point + assets
+│   └── assets/
+│       ├── css/           # Stylesheets
+│       └── js/            # JavaScript files
 ├── routes/
-│   └── web.php            # 160+ routes
-├── .env                   # Database configuration
-├── composer.json
+│   └── web.php            # Route definitions
+├── .env                   # Environment configuration
 └── README.md
 ```
-
-## Setup
-
-### Requirements
-- PHP 8.2+
-- MySQL / MariaDB
-- Composer
-- Apache/Nginx with `mod_rewrite`
-- `ext-pdo`, `ext-mbstring`, `ext-fileinfo`
-
-### Quick Start (DDEV)
-
-```bash
-ddev start
-ddev composer install
-# Migrate + seed:
-ddev mysql autimind < migrations/001_create_tables.sql
-ddev mysql autimind < migrations/002_seed_data.sql
-# Configure .env:
-# DB_HOST=db, DB_USER=root, DB_PASS=root
-```
-
-### Manual Setup
-
-```bash
-git clone <repo>
-cd autimind
-composer install
-cp .env.example .env
-# Edit .env with your database credentials
-mysql -u root -p autimind < migrations/001_create_tables.sql
-mysql -u root -p autimind < migrations/002_seed_data.sql
-# Point your web root to public/
-```
-
-## Routes
-
-| Area | Base Path | Auth Required |
-|------|-----------|---------------|
-| Public | `/` | No |
-| Auth | `/login`, `/signup`, `/forgot-password`, `/reset-password` | No |
-| Parent | `/parent/*` | Yes (role: parent) |
-| Specialist | `/specialist/*` | Yes (role: specialist) |
-| Admin | `/admin/*` | Yes (role: admin) |
-
-## Database
-
-The database schema includes 12 tables covering users, children, quiz (questions, options, attempts, answers), appointments, messages, chat history, activities, subscriptions, specialist details, FAQ, contacts, and password resets.

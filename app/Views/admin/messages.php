@@ -1,4 +1,4 @@
-<div class="dash-header">
+<div class="dash-header-premium">
   <div>
     <h1>Messages</h1>
     <p>All platform messages</p>
@@ -6,8 +6,8 @@
 </div>
 
 <?php if (!empty($messages)): ?>
-<div class="table-responsive">
-  <table class="table table-hover align-middle mb-0 small">
+<div class="dash-table-wrapper">
+  <table class="dash-table">
     <thead>
       <tr><th>From</th><th>To</th><th>Subject</th><th>Body</th><th>Status</th><th>Date</th></tr>
     </thead>
@@ -18,7 +18,7 @@
           <td><?= htmlspecialchars($m['receiver_name']) ?></td>
           <td><?= htmlspecialchars($m['subject']) ?></td>
           <td><?= htmlspecialchars(substr($m['body'], 0, 80)) ?></td>
-          <td><?= $m['is_read'] ? '<span class="badge bg-success">Read</span>' : '<span class="badge bg-warning text-dark">Unread</span>' ?></td>
+          <td><?= $m['is_read'] ? '<span class="status-badge status-badge-active">Read</span>' : '<span class="status-badge status-badge-pending">Unread</span>' ?></td>
           <td><?= htmlspecialchars($m['created_at']) ?></td>
         </tr>
       <?php endforeach; ?>

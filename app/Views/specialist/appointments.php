@@ -1,4 +1,4 @@
-<div class="dash-header">
+<div class="dash-header-premium">
   <div>
     <h1>Appointments</h1>
     <p>Manage your appointments</p>
@@ -7,8 +7,8 @@
 </div>
 
 <?php if (!empty($appointments)): ?>
-<div class="table-responsive">
-  <table class="table table-hover align-middle mb-0 small">
+<div class="dash-table-wrapper">
+  <table class="dash-table">
     <thead>
       <tr><th>Child</th><th>Parent</th><th>Date</th><th>Time</th><th>Status</th><th>Notes</th><th>Actions</th></tr>
     </thead>
@@ -19,7 +19,7 @@
           <td><?= htmlspecialchars($apt['parent_name']) ?></td>
           <td><?= htmlspecialchars($apt['date']) ?></td>
           <td><?= htmlspecialchars(substr($apt['time'], 0, 5)) ?></td>
-          <td><span class="badge <?= htmlspecialchars(['pending'=>'bg-warning text-dark','confirmed'=>'bg-success','active'=>'bg-success','completed'=>'bg-primary','cancelled'=>'bg-danger','expired'=>'bg-danger'][$apt['status']] ?? 'bg-secondary') ?>"><?= ucfirst(htmlspecialchars($apt['status'])) ?></span></td>
+          <td><span class="<?= htmlspecialchars(['pending'=>'status-badge status-badge-pending','confirmed'=>'status-badge status-badge-active','active'=>'status-badge status-badge-active','completed'=>'status-badge status-badge-completed','cancelled'=>'status-badge status-badge-cancelled','expired'=>'status-badge status-badge-cancelled'][$apt['status']] ?? 'status-badge') ?>"><?= ucfirst(htmlspecialchars($apt['status'])) ?></span></td>
           <td><?= htmlspecialchars(substr($apt['notes'] ?? '', 0, 50)) ?></td>
           <td>
             <?php if ($apt['status'] === 'pending'): ?>
@@ -33,11 +33,11 @@
                 <button type="submit" class="dash-btn dash-btn-sm dash-btn-danger">Cancel</button>
               </form>
             <?php elseif ($apt['status'] === 'confirmed'): ?>
-              <form method="POST" action="/specialist/appointments/<?= (int)$apt['id'] ?>/complete" class="d-inline">
+              <form method="POST" action="/specialist/appointments/<?= (int)$apt['id'] ?>/complete" class="d-inline-flex">
                 <input type="hidden" name="_csrf_token" value="<?= \App\Core\Session::csrf_token() ?>">
                 <button type="submit" class="dash-btn dash-btn-sm dash-btn-outline">Complete</button>
               </form>
-              <form method="POST" action="/specialist/appointments/<?= (int)$apt['id'] ?>/cancel" class="d-inline">
+              <form method="POST" action="/specialist/appointments/<?= (int)$apt['id'] ?>/cancel" class="d-inline-flex">
                 <input type="hidden" name="_csrf_token" value="<?= \App\Core\Session::csrf_token() ?>">
                 <button type="submit" class="dash-btn dash-btn-sm dash-btn-danger">Cancel</button>
               </form>

@@ -4,7 +4,7 @@
     <p>A comprehensive digital platform for early screening, support, and development of children with autism.</p>
     <div class="hero-buttons">
       <a href="#" class="btn-primary">See How It Works</a>
-      <a href="#" class="btn-secondary">Get Started for Free</a>
+      <a href="/signup" class="btn-secondary">Get Started for Free</a>
     </div>
   </div>
 </header>
@@ -121,7 +121,7 @@
             <span class="price">$9</span>
             <span class="period">Per member, per month</span>
           </div>
-          <a href="#" class="pricing-cta">
+          <a href="/signup" class="pricing-cta">
             <span>Get Started</span>
             <span class="pricing-arrow"><i class="fa-solid fa-arrow-right" style="color: white;"></i></span>
           </a>
@@ -148,7 +148,7 @@
             <span class="price">$19</span>
             <span class="period">Per member, per month</span>
           </div>
-          <a href="#" class="pricing-cta featured-cta">
+          <a href="/signup" class="pricing-cta featured-cta">
             <span>Get Started</span>
             <span class="pricing-arrow"><i class="fa-solid fa-arrow-right" style="color: white;"></i></span>
           </a>
@@ -175,7 +175,7 @@
             <span class="price">$29</span>
             <span class="period">Per member, per month</span>
           </div>
-          <a href="#" class="pricing-cta">
+          <a href="/signup" class="pricing-cta">
             <span>Get Started</span>
             <span class="pricing-arrow"><i class="fa-solid fa-arrow-right" style="color: white;"></i></span>
           </a>

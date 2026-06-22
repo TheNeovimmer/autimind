@@ -1,4 +1,4 @@
-<div class="dash-header">
+<div class="dash-header-premium">
   <div>
     <h1>Appointments</h1>
     <p>All appointments across the platform</p>
@@ -6,8 +6,8 @@
 </div>
 
 <?php if (!empty($appointments)): ?>
-<div class="table-responsive">
-  <table class="table table-hover align-middle mb-0 small">
+<div class="dash-table-wrapper">
+  <table class="dash-table">
     <thead>
       <tr><th>Child</th><th>Parent</th><th>Specialist</th><th>Date</th><th>Time</th><th>Status</th><th>Notes</th></tr>
     </thead>
@@ -19,7 +19,7 @@
           <td><?= htmlspecialchars($apt['specialist_name']) ?></td>
           <td><?= htmlspecialchars($apt['date']) ?></td>
           <td><?= htmlspecialchars(substr($apt['time'], 0, 5)) ?></td>
-          <td><span class="badge status-<?= htmlspecialchars($apt['status']) ?>"><?= ucfirst(htmlspecialchars($apt['status'])) ?></span></td>
+          <td><span class="status-badge status-badge-<?= htmlspecialchars($apt['status']) ?>"><?= ucfirst(htmlspecialchars($apt['status'])) ?></span></td>
           <td><?= htmlspecialchars(substr($apt['notes'] ?? '', 0, 60)) ?></td>
         </tr>
       <?php endforeach; ?>

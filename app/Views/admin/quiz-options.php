@@ -1,4 +1,4 @@
-<div class="dash-header">
+<div class="dash-header-premium">
   <div>
     <h1>Quiz Options</h1>
     <p><?= htmlspecialchars($question['question_text']) ?></p>
@@ -10,8 +10,8 @@
 </div>
 
 <?php if (!empty($options)): ?>
-<div class="table-responsive">
-  <table class="table table-hover align-middle mb-0 small">
+<div class="dash-table-wrapper">
+  <table class="dash-table">
     <thead>
       <tr><th>Order</th><th>Option Text</th><th>Weight</th><th>Actions</th></tr>
     </thead>
@@ -23,7 +23,7 @@
           <td><?= (int)$o['weight'] ?></td>
           <td>
             <a href="/admin/quiz/options/<?= (int)$o['id'] ?>/edit" class="dash-btn dash-btn-sm dash-btn-outline">Edit</a>
-            <form method="POST" action="/admin/quiz/options/<?= (int)$o['id'] ?>/delete" class="d-inline" onsubmit="return confirm('Delete this option?');">
+            <form method="POST" action="/admin/quiz/options/<?= (int)$o['id'] ?>/delete" class="d-inline-flex" onsubmit="return confirm('Delete this option?');">
               <input type="hidden" name="_csrf_token" value="<?= \App\Core\Session::csrf_token() ?>">
               <button type="submit" class="dash-btn dash-btn-sm dash-btn-danger">Delete</button>
             </form>

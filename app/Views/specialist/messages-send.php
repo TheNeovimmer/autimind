@@ -1,4 +1,4 @@
-<div class="dash-header">
+<div class="dash-header-premium">
   <div>
     <h1>New Message</h1>
     <p>To: <?= htmlspecialchars($receiver['name']) ?></p>
@@ -11,22 +11,22 @@
     <input type="hidden" name="_csrf_token" value="<?= htmlspecialchars($csrf_token) ?>">
     <input type="hidden" name="receiver_id" value="<?= (int)$receiver['id'] ?>">
 
-    <div class="mb-3">
-      <label class="form-label">To</label>
-      <input type="text" class="form-control" value="<?= htmlspecialchars($receiver['name']) ?> (<?= htmlspecialchars($receiver['email']) ?>)" disabled>
+    <div class="dash-field">
+      <label>To</label>
+      <input type="text" class="" value="<?= htmlspecialchars($receiver['name']) ?> (<?= htmlspecialchars($receiver['email']) ?>)" disabled>
     </div>
 
-    <div class="mb-3">
-      <label for="subject" class="form-label">Subject</label>
-      <input type="text" id="subject" name="subject" class="form-control" required placeholder="Message subject">
+    <div class="dash-field">
+      <label for="subject">Subject</label>
+      <input type="text" id="subject" name="subject" class="" required placeholder="Message subject">
     </div>
 
-    <div class="mb-3">
-      <label for="body" class="form-label">Message</label>
-      <textarea id="body" name="body" rows="6" class="form-control" required placeholder="Type your message..."></textarea>
+    <div class="dash-field">
+      <label for="body">Message</label>
+      <textarea id="body" name="body" rows="6" class="" required placeholder="Type your message..."></textarea>
     </div>
 
-    <div class="d-flex gap-2 align-items-center">
+    <div class="form-actions">
       <button type="submit" class="dash-btn dash-btn-primary">Send Message</button>
       <a href="/specialist/messages" class="dash-btn dash-btn-outline">Cancel</a>
     </div>

@@ -1,4 +1,4 @@
-<div class="dash-header">
+<div class="dash-header-premium">
   <div>
     <h1>AI Chat Assistant</h1>
     <p>Ask questions about autism, screening, and features</p>

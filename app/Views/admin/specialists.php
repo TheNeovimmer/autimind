@@ -1,4 +1,4 @@
-<div class="dash-header">
+<div class="dash-header-premium">
   <div>
     <h1>Specialists</h1>
     <p>Manage specialist accounts and approvals</p>
@@ -6,8 +6,8 @@
 </div>
 
 <?php if (!empty($specialists)): ?>
-<div class="table-responsive">
-  <table class="table table-hover align-middle mb-0 small">
+<div class="dash-table-wrapper">
+  <table class="dash-table">
     <thead>
       <tr><th>Name</th><th>Email</th><th>Title</th><th>Specializations</th><th>Experience</th><th>Available</th><th>Active</th><th>Actions</th></tr>
     </thead>
@@ -19,10 +19,10 @@
           <td><?= htmlspecialchars($s['title'] ?? '-') ?></td>
           <td><?= htmlspecialchars($s['specializations'] ?? '-') ?></td>
           <td><?= $s['years_experience'] ? (int)$s['years_experience'] . ' yrs' : '-' ?></td>
-          <td><?= $s['is_available'] ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>' ?></td>
-          <td><?= $s['is_active'] ? '<span class="badge bg-success">Active</span>' : '<span class="badge bg-danger">Inactive</span>' ?></td>
+          <td><?= $s['is_available'] ? '<span class="status-badge status-badge-active">Yes</span>' : '<span class="status-badge status-badge-cancelled">No</span>' ?></td>
+          <td><?= $s['is_active'] ? '<span class="status-badge status-badge-active">Active</span>' : '<span class="status-badge status-badge-cancelled">Inactive</span>' ?></td>
           <td>
-            <form method="POST" action="/admin/specialists/<?= (int)$s['id'] ?>/approve" class="d-inline">
+            <form method="POST" action="/admin/specialists/<?= (int)$s['id'] ?>/approve" class="d-inline-flex">
               <input type="hidden" name="_csrf_token" value="<?= htmlspecialchars($csrf_token) ?>">
               <input type="hidden" name="is_active" value="<?= $s['is_active'] ? 0 : 1 ?>">
               <button type="submit" class="dash-btn dash-btn-sm dash-btn-outline">

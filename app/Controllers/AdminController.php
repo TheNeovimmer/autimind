@@ -5,6 +5,7 @@ use App\Core\View;
 use App\Core\Session;
 use App\Core\Validator;
 use App\Core\Database;
+use App\Core\Env;
 use App\Models\User;
 use App\Models\Appointment;
 use App\Models\Message;
@@ -937,7 +938,15 @@ class AdminController
     public function chatbot(): void
     {
         $responses = ChatbotResponse::getAll();
-        View::render('admin/chatbot', ['title' => 'Chatbot Responses', 'responses' => $responses], 'dashboard');
+        $openrouterModel = Env::get('OPENROUTER_MODEL', 'google/gemma-4-31b-it:free');
+        $apiKeySet = !empty(Env::get('OPENROUTER_API_KEY', ''));
+        View::render('admin/chatbot', [
+            'title' => 'Chatbot Responses',
+            'responses' => $responses,
+            'openrouterModel' => $openrouterModel,
+            'apiKeySet' => $apiKeySet,
+            'csrf_token' => Session::csrf_token(),
+        ], 'dashboard');
     }
 
     public function addChatbotForm(): void
@@ -1024,6 +1033,24 @@ class AdminController
 
         ChatbotResponse::delete($id);
         Session::setFlash('success', 'Chatbot response deleted.');
+        header('Location: /admin/chatbot');
+        exit;
+    }
+
+    public function updateChatbotConfig(): void
+    {
+        if (!Session::verify_csrf($_POST['_csrf_token'] ?? '')) {
+            http_response_code(419);
+            View::render('errors/419', [], 'dashboard');
+            return;
+        }
+
+        $model = $_POST['openrouter_model'] ?? '';
+        if (!empty($model)) {
+            Env::update('OPENROUTER_MODEL', $model);
+        }
+
+        Session::setFlash('success', 'OpenRouter configuration updated.');
         header('Location: /admin/chatbot');
         exit;
     }

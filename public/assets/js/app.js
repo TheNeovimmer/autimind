@@ -427,8 +427,21 @@
   document.addEventListener('submit', function(e) {
     var form = e.target;
     var btn = form.querySelector('button[type="submit"]');
-    if (btn && !btn.classList.contains('btn-loading')) {
-      btn.classList.add('btn-loading');
+    if (btn && !btn.classList.contains('is-loading')) {
+      btn.classList.add('is-loading');
+    }
+  });
+
+  /* ===============================
+     MODAL DISMISS
+     =============================== */
+  document.addEventListener('click', function(e) {
+    var toggle = e.target.closest('[data-dismiss="modal"]');
+    if (toggle) {
+      var modal = toggle.closest('.modal-overlay, .modal') || document.querySelector('.modal-overlay.open');
+      if (modal) {
+        modal.classList.remove('open');
+      }
     }
   });
 

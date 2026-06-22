@@ -12,7 +12,7 @@
         <li><img src="https://static.codia.ai/image/2026-06-19/cMK57ergyp.png" alt="" aria-hidden="true"><span>Sensory-friendly activities for regulation</span></li>
         <li><img src="https://static.codia.ai/image/2026-06-19/2OPErvSkao.png" alt="" aria-hidden="true"><span>Cognitive puzzles for problem-solving</span></li>
       </ul>
-      <a href="#" class="btn-learn">Learn more</a>
+      <a href="/espaceenfant" class="btn-learn">Learn more</a>
     </div>
     <div class="program-hero-img">
       <img src="/assets/images/program.png" alt="Program illustration">
@@ -37,7 +37,7 @@
         <li><img src="https://static.codia.ai/image/2026-06-19/6BqjnEWWF9.png" alt="" aria-hidden="true"><span>Community support from other families</span></li>
         <li><img src="https://static.codia.ai/image/2026-06-19/AOiixpK5JT.png" alt="" aria-hidden="true"><span>Daily activity recommendations tailored to your child</span></li>
       </ul>
-      <a href="#" class="btn-learn">Learn more</a>
+      <a href="/espaceparent" class="btn-learn">Learn more</a>
     </div>
   </div>
 </section>
@@ -57,7 +57,7 @@
         <li><img src="https://static.codia.ai/image/2026-06-19/H8fwEqq9TT.png" alt="" aria-hidden="true"><span>Progress monitoring and reporting tools</span></li>
         <li><img src="https://static.codia.ai/image/2026-06-19/c4X8RLn0kz.png" alt="" aria-hidden="true"><span>Collaborative care team coordination</span></li>
       </ul>
-      <a href="#" class="btn-learn">Learn more</a>
+      <a href="/specialists" class="btn-learn">Learn more</a>
     </div>
     <div class="specialists-cards">
       <div class="specialist-card">

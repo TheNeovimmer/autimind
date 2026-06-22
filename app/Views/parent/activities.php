@@ -1,4 +1,4 @@
-<div class="dash-header">
+<div class="dash-header-premium">
   <div>
     <h1><?= htmlspecialchars($child['name']) ?> - Activities</h1>
     <p>Completed activities and progress</p>
@@ -7,7 +7,7 @@
 </div>
 
 <?php if ($averageScore !== null): ?>
-<div class="card mb-2">
+<div class="card dash-field">
   <h3>Overall Performance</h3>
   <p><strong>Average Score:</strong> <span class="score-highlight"><?= round($averageScore, 1) ?></span></p>
   <p><strong>Total Activities Completed:</strong> <?= count($activities) ?></p>
@@ -16,8 +16,8 @@
 
 <div class="card">
   <?php if (!empty($activities)): ?>
-    <div class="table-responsive">
-    <table class="table table-hover align-middle mb-0 small">
+    <div class="dash-table-wrapper">
+    <table class="dash-table">
       <thead>
         <tr>
           <th>Activity</th>

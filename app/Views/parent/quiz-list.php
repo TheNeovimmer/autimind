@@ -1,22 +1,22 @@
-<div class="dash-header">
+<div class="dash-header-premium">
   <div>
     <h1>Screening Quiz</h1>
     <p>Developmental screening for your children</p>
   </div>
 </div>
 
-<div class="alert alert-info d-flex align-items-start gap-2">
+<div class="dash-alert dash-alert--info">
   <i class="fas fa-info-circle"></i>
   <p>This screening quiz consists of <strong>10 questions</strong> across key developmental areas. It takes about 5-10 minutes to complete. Results are for informational purposes only and not a medical diagnosis.</p>
 </div>
 
 <?php if (!empty($quizData)): ?>
   <?php foreach ($quizData as $data): ?>
-    <div class="card mb-2">
+    <div class="card dash-field">
       <div class="card-header">
         <h3><i class="fas fa-child"></i> <?= htmlspecialchars($data['child']['name']) ?></h3>
         <?php if ($data['attemptCount'] > 0): ?>
-          <span class="badge bg-primary-subtle text-primary"><?= $data['attemptCount'] ?> attempt(s)</span>
+          <span class="status-badge status-badge-completed"><?= $data['attemptCount'] ?> attempt(s)</span>
         <?php endif; ?>
       </div>
       
@@ -29,14 +29,14 @@
           <a href="/parent/quiz/start/<?= (int)$data['child']['id'] ?>" class="dash-btn dash-btn-sm dash-btn-primary">Take New Quiz</a>
         </div>
       <?php else: ?>
-        <p class="text-muted py-2">No screening completed yet.</p>
+        <p class="dash-text-muted py-2">No screening completed yet.</p>
         <a href="/parent/quiz/start/<?= (int)$data['child']['id'] ?>" class="dash-btn dash-btn-sm dash-btn-primary">Start Screening</a>
       <?php endif; ?>
       
       <?php if (count($data['attempts']) > 1): ?>
         <details class="mt-1">
           <summary>View History (<?= count($data['attempts']) ?> attempts)</summary>
-          <table class="table table-hover align-middle small mt-2">
+          <table class="table table-hover">
             <thead>
               <tr><th>Date</th><th>Score</th><th>Risk Level</th><th></th></tr>
             </thead>

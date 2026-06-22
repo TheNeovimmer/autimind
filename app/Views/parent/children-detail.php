@@ -1,4 +1,4 @@
-<div class="dash-header">
+<div class="dash-header-premium">
   <div>
     <h1><?= htmlspecialchars($child['name']) ?></h1>
     <p>Child profile and activity overview</p>
@@ -6,7 +6,7 @@
   <a href="/parent/children" class="dash-btn dash-btn-outline"><i class="fas fa-arrow-left"></i> Back to Children</a>
 </div>
 
-<div class="card mb-2">
+<div class="card dash-field">
   <div class="child-profile-header">
     <div class="child-avatar-large">
       <?php if (!empty($child['avatar'])): ?>
@@ -27,11 +27,11 @@
   </div>
 </div>
 
-<div class="row row-cols-1 row-cols-md-2 g-3 mb-3">
+<div class="dash-grid-2">
   <div class="card">
     <h3><i class="fas fa-clipboard-list"></i> Quiz History</h3>
     <?php if (!empty($quizHistory)): ?>
-      <table class="table table-hover align-middle mb-0 small">
+      <table class="dash-table">
         <thead><tr><th>Date</th><th>Score</th><th>Risk Level</th><th>Actions</th></tr></thead>
         <tbody>
           <?php foreach ($quizHistory as $qh): ?>
@@ -45,14 +45,14 @@
         </tbody>
       </table>
     <?php else: ?>
-      <p class="text-muted py-2">No quiz attempts yet. <a href="/parent/quiz/start/<?= (int)$child['id'] ?>">Start a screening quiz</a></p>
+      <p class="dash-text-muted py-2">No quiz attempts yet. <a href="/parent/quiz/start/<?= (int)$child['id'] ?>">Start a screening quiz</a></p>
     <?php endif; ?>
   </div>
 
   <div class="card">
     <h3><i class="fas fa-gamepad"></i> Activity Progress</h3>
     <?php if (!empty($progress)): ?>
-      <table class="table table-hover align-middle mb-0 small">
+      <table class="dash-table">
         <thead><tr><th>Activity</th><th>Category</th><th>Difficulty</th><th>Score</th><th>Date</th></tr></thead>
         <tbody>
           <?php foreach ($progress as $p): ?>
@@ -70,7 +70,7 @@
         <p class="mt-1"><strong>Average Score:</strong> <?= round($averageScore, 1) ?></p>
       <?php endif; ?>
     <?php else: ?>
-      <p class="text-muted py-2">No activity data yet.</p>
+      <p class="dash-text-muted py-2">No activity data yet.</p>
     <?php endif; ?>
   </div>
 </div>
@@ -78,7 +78,7 @@
 <div class="card">
   <h3><i class="fas fa-calendar-check"></i> Appointments</h3>
   <?php if (!empty($appointments)): ?>
-    <table class="table table-hover align-middle mb-0 small">
+    <table class="dash-table">
       <thead><tr><th>Specialist</th><th>Date</th><th>Time</th><th>Status</th></tr></thead>
       <tbody>
         <?php foreach ($appointments as $apt): ?>
@@ -86,12 +86,12 @@
             <td><?= htmlspecialchars($apt['specialist_name']) ?></td>
             <td><?= htmlspecialchars($apt['date']) ?></td>
             <td><?= htmlspecialchars(substr($apt['time'], 0, 5)) ?></td>
-            <td><span class="badge <?= match($apt['status']) { 'active','confirmed' => 'bg-success', 'pending' => 'bg-warning text-dark', 'cancelled','expired' => 'bg-danger', default => 'bg-primary' } ?>"><?= ucfirst(htmlspecialchars($apt['status'])) ?></span></td>
+            <td><span class="status-badge <?= match($apt['status']) { 'active','confirmed' => 'status-badge-active', 'pending' => 'status-badge-pending', 'cancelled','expired' => 'status-badge-cancelled', default => '' } ?>"><?= ucfirst(htmlspecialchars($apt['status'])) ?></span></td>
           </tr>
         <?php endforeach; ?>
       </tbody>
     </table>
   <?php else: ?>
-    <p class="text-muted py-2">No appointments for this child. <a href="/parent/appointments/book">Book an appointment</a></p>
+    <p class="dash-text-muted py-2">No appointments for this child. <a href="/parent/appointments/book">Book an appointment</a></p>
   <?php endif; ?>
 </div>

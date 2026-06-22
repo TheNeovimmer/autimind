@@ -11,6 +11,7 @@ use App\Models\Appointment;
 use App\Models\Message;
 use App\Models\QuizQuestion;
 use App\Models\QuizAttempt;
+use App\Models\Subscription;
 use App\Services\QuizScoringService;
 use App\Services\ChatbotService;
 use App\Services\InsightService;
@@ -35,6 +36,10 @@ class ParentController
         $upcomingAppointments = Appointment::getUpcomingByParent($parentId);
         $unreadMessages = Message::countUnread($parentId);
         $childCount = Child::countByParent($parentId);
+        $db = Database::getInstance();
+
+        // All children IDs
+        $childIds = array_column($children, 'id');
 
         $insights = [];
         $latestQuiz = null;
@@ -42,6 +47,49 @@ class ParentController
             $insightService = new InsightService();
             $insights = $insightService->getInsights($children[0]['id']);
             $latestQuiz = QuizAttempt::getLatestByChild($children[0]['id']);
+        }
+
+        // Quiz score history for first child
+        $quizScoreHistory = [];
+        if (!empty($childIds)) {
+            $firstChildId = $childIds[0];
+            $stmt = $db->prepare("
+                SELECT DATE(completed_at) as day, total_score, MAX_SCORE
+                FROM quiz_attempts
+                WHERE child_id = ? AND completed_at IS NOT NULL AND status = 'completed'
+                ORDER BY completed_at ASC
+            ");
+            $stmt->execute([$firstChildId]);
+            $quizScoreHistory = $stmt->fetchAll();
+        }
+
+        // Appointment status counts
+        $stmt = $db->prepare("
+            SELECT a.status, COUNT(*) as count
+            FROM appointments a
+            JOIN children c ON a.child_id = c.id
+            WHERE c.parent_id = ?
+            GROUP BY a.status
+        ");
+        $stmt->execute([$parentId]);
+        $apptStatuses = $stmt->fetchAll();
+
+        // Activity by category (using quiz category distribution)
+        $activityByCat = [];
+        if (!empty($childIds)) {
+            $placeholders = implode(',', array_fill(0, count($childIds), '?'));
+            $params = $childIds;
+            $params[] = 'completed';
+            $stmt = $db->prepare("
+                SELECT COALESCE(qq.category, 'General') as category, COUNT(*) as count
+                FROM quiz_attempts qa
+                JOIN quiz_questions qq ON qa.quiz_id = qq.id
+                WHERE qa.child_id IN ($placeholders) AND qa.status = ?
+                GROUP BY qq.category
+                ORDER BY count DESC
+            ");
+            $stmt->execute($params);
+            $activityByCat = $stmt->fetchAll();
         }
 
         View::render('parent/dashboard', [
@@ -52,6 +100,10 @@ class ParentController
             'childCount' => $childCount,
             'insights' => $insights,
             'latestQuiz' => $latestQuiz,
+            'uniqueSpecialists' => 0,
+            'quizScoreHistory' => $quizScoreHistory,
+            'apptStatuses' => $apptStatuses,
+            'activityByCat' => $activityByCat,
         ], 'dashboard');
     }
 

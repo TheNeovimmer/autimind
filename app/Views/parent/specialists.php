@@ -1,4 +1,4 @@
-<div class="dash-header">
+<div class="dash-header-premium">
   <div>
     <h1>Specialists</h1>
     <p>Browse our specialist directory</p>

@@ -1,4 +1,4 @@
-<div class="dash-header">
+<div class="dash-header-premium">
   <div>
     <h1>Subscription</h1>
     <p>Manage your subscription plan</p>
@@ -6,18 +6,18 @@
 </div>
 
 <?php if ($currentSubscription): ?>
-<div class="card mb-2">
+<div class="card dash-field">
   <h3>Current Plan</h3>
   <div class="current-plan-badge">
     <span class="plan-label"><?= ucfirst(htmlspecialchars($currentSubscription['plan'])) ?></span>
-    <span class="plan-status badge bg-success">Active</span>
+    <span class="plan-status status-badge status-badge-active">Active</span>
   </div>
   <p><strong>Started:</strong> <?= htmlspecialchars($currentSubscription['started_at'] ?? 'N/A') ?></p>
   <p><strong>Expires:</strong> <?= htmlspecialchars($currentSubscription['ends_at'] ?? 'N/A') ?></p>
 </div>
 <?php endif; ?>
 
-<h2 class="mb-2">Available Plans</h2>
+<h2 class="dash-field">Available Plans</h2>
 <div class="pricing-grid">
   <?php foreach ($plans as $planKey => $plan): ?>
     <div class="pricing-card <?= $currentSubscription && $currentSubscription['plan'] === $planKey ? 'pricing-current' : '' ?>">

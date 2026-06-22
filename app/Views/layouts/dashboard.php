@@ -18,9 +18,7 @@
     <main class="dashboard-main">
       <?php \App\Core\View::renderPartial('dashboard-topbar'); ?>
       <div class="dashboard-content">
-        <div class="container-fluid p-4">
-          <?= $content ?>
-        </div>
+        <?= $content ?>
       </div>
       <?php \App\Core\View::renderPartial('toast'); ?>
     </main>

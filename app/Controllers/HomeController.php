@@ -105,7 +105,94 @@ class HomeController
 
     public function chatbotStart(): void
     {
-        View::render('public/chatbotstart', ['title' => 'Chatbot'], 'main');
+        $user = User::findById(Session::get('user_id'));
+
+        View::render('public/chatbotstart', [
+            'title' => 'Chatbot',
+            'userName' => $user['name'] ?? 'Guest',
+            'csrf_token' => Session::csrf_token(),
+        ], 'main');
+    }
+
+    public function chatbotMessage(): void
+    {
+        if (!Session::verify_csrf($_POST['_csrf_token'] ?? '')) {
+            http_response_code(419);
+            echo json_encode(['error' => 'Invalid token']);
+            exit;
+        }
+
+        $message = $_POST['message'] ?? '';
+        if (empty($message)) {
+            echo json_encode(['response' => 'Please enter a message.']);
+            exit;
+        }
+
+        $userId = Session::get('user_id');
+
+        $db = Database::getInstance();
+        $stmt = $db->prepare('INSERT INTO chat_history (user_id, message, sender) VALUES (?, ?, ?)');
+        $stmt->execute([$userId, $message, 'user']);
+
+        $response = $this->callOpenRouter($message);
+
+        $stmt = $db->prepare('INSERT INTO chat_history (user_id, message, sender) VALUES (?, ?, ?)');
+        $stmt->execute([$userId, $response, 'bot']);
+
+        header('Content-Type: application/json');
+        echo json_encode(['response' => $response]);
+        exit;
+    }
+
+    private function callOpenRouter(string $message): string
+    {
+        $apiKey = $_ENV['OPENROUTER_API_KEY'] ?? '';
+        $model = $_ENV['OPENROUTER_MODEL'] ?? 'google/gemma-4-31b-it:free';
+
+        if (empty($apiKey)) {
+            return "OpenRouter API key is not configured. Please set OPENROUTER_API_KEY in .env file.";
+        }
+
+        $ch = curl_init('https://openrouter.ai/api/v1/chat/completions');
+        curl_setopt_array($ch, [
+            CURLOPT_POST => true,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_HTTPHEADER => [
+                'Authorization: Bearer ' . $apiKey,
+                'Content-Type: application/json',
+                'HTTP-Referer: ' . ($_SERVER['HTTP_HOST'] ?? 'localhost'),
+                'X-Title: AutiMind',
+            ],
+            CURLOPT_POSTFIELDS => json_encode([
+                'model' => $model,
+                'messages' => [
+                    ['role' => 'system', 'content' => 'You are AutiMind AI, a helpful assistant specialized in autism spectrum disorder support, child development, and parenting resources. Provide accurate, compassionate, and practical responses. Keep responses concise and supportive.'],
+                    ['role' => 'user', 'content' => $message],
+                ],
+            ]),
+            CURLOPT_TIMEOUT => 60,
+            CURLOPT_SSL_VERIFYPEER => true,
+            CURLOPT_USERAGENT => 'AutiMind/1.0',
+        ]);
+
+        $result = curl_exec($ch);
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $curlError = curl_error($ch);
+        curl_close($ch);
+
+        if ($httpCode !== 200 || !$result) {
+            error_log("OpenRouter API error: HTTP $httpCode - $curlError");
+            return "I'm having trouble connecting right now. Please try again in a moment.";
+        }
+
+        $data = json_decode($result, true);
+
+        if (isset($data['error'])) {
+            error_log("OpenRouter API error: " . json_encode($data['error']));
+            return "I'm having trouble connecting right now. Please try again in a moment.";
+        }
+
+        return $data['choices'][0]['message']['content'] ?? "I'm not sure how to respond to that. Could you rephrase?";
     }
 
     public function subscribe(): void

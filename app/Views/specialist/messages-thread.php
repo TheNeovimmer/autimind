@@ -1,4 +1,4 @@
-<div class="dash-header">
+<div class="dash-header-premium">
   <div>
     <h1>Messages with <?= htmlspecialchars($partner['name']) ?></h1>
   </div>
@@ -18,7 +18,7 @@
       </div>
     <?php endforeach; ?>
   <?php else: ?>
-    <p class="text-muted py-2">No messages yet.</p>
+    <p class="dash-text-muted py-2">No messages yet.</p>
   <?php endif; ?>
 </div>
 
@@ -27,8 +27,8 @@
   <input type="hidden" name="receiver_id" value="<?= (int)$partner['id'] ?>">
   <input type="hidden" name="subject" value="Re: <?= htmlspecialchars(isset($thread[0]) ? $thread[0]['subject'] : 'Message') ?>">
 
-  <div class="mb-3">
-    <textarea name="body" rows="3" class="form-control" required placeholder="Type your reply..."></textarea>
+  <div class="dash-field">
+    <textarea name="body" rows="3" class="" required placeholder="Type your reply..."></textarea>
   </div>
   <button type="submit" class="dash-btn dash-btn-primary">Send Reply</button>
 </form>
