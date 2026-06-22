@@ -244,6 +244,40 @@ class AdminController
         exit;
     }
 
+    public function toggleUserStatus(int $id): void
+    {
+        if (!Session::verify_csrf($_POST['_csrf_token'] ?? '')) {
+            http_response_code(419);
+            View::render('errors/419', [], 'dashboard');
+            return;
+        }
+
+        if ($id === $this->getAdminId()) {
+            Session::setFlash('error', 'You cannot deactivate your own account.');
+            header('Location: /admin/users');
+            exit;
+        }
+
+        $db = Database::getInstance();
+        $stmt = $db->prepare('SELECT is_active FROM users WHERE id = ?');
+        $stmt->execute([$id]);
+        $user = $stmt->fetch();
+
+        if (!$user) {
+            Session::setFlash('error', 'User not found.');
+            header('Location: /admin/users');
+            exit;
+        }
+
+        $newStatus = $user['is_active'] ? 0 : 1;
+        $stmt = $db->prepare('UPDATE users SET is_active = ? WHERE id = ?');
+        $stmt->execute([$newStatus, $id]);
+
+        Session::setFlash('success', 'User status updated successfully.');
+        header('Location: /admin/users');
+        exit;
+    }
+
     public function manageSpecialists(): void
     {
         $db = Database::getInstance();

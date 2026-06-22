@@ -96,6 +96,7 @@ $router->post('/admin/users/add', 'AdminController@addUser', ['auth', 'role:admi
 $router->get('/admin/users/{id}/edit', 'AdminController@editUserForm', ['auth', 'role:admin']);
 $router->post('/admin/users/{id}/edit', 'AdminController@editUser', ['auth', 'role:admin']);
 $router->post('/admin/users/{id}/delete', 'AdminController@deleteUser', ['auth', 'role:admin']);
+$router->post('/admin/users/{id}/toggle-status', 'AdminController@toggleUserStatus', ['auth', 'role:admin']);
 $router->get('/admin/specialists', 'AdminController@manageSpecialists', ['auth', 'role:admin']);
 $router->post('/admin/specialists/{id}/approve', 'AdminController@approveSpecialist', ['auth', 'role:admin']);
 $router->get('/admin/specialists/{id}/edit', 'AdminController@editSpecialistDetailsForm', ['auth', 'role:admin']);

@@ -41,6 +41,14 @@
           <td><?= $u['is_active'] ? '<span class="status-badge status-badge-active">Active</span>' : '<span class="status-badge status-badge-cancelled">Inactive</span>' ?></td>
           <td><?= htmlspecialchars($u['created_at']) ?></td>
           <td>
+            <?php if ((int)$u['id'] !== (int)\App\Core\Session::get('user_id')): ?>
+            <form method="POST" action="/admin/users/<?= (int)$u['id'] ?>/toggle-status" class="d-inline-flex">
+              <input type="hidden" name="_csrf_token" value="<?= \App\Core\Session::csrf_token() ?>">
+              <button type="submit" class="dash-btn dash-btn-sm <?= $u['is_active'] ? 'dash-btn-danger' : 'dash-btn-success' ?>">
+                <?= $u['is_active'] ? 'Disapprove' : 'Approve' ?>
+              </button>
+            </form>
+            <?php endif; ?>
             <a href="/admin/users/<?= (int)$u['id'] ?>/edit" class="dash-btn dash-btn-sm dash-btn-outline">Edit</a>
             <?php if ((int)$u['id'] !== (int)\App\Core\Session::get('user_id')): ?>
             <form method="POST" action="/admin/users/<?= (int)$u['id'] ?>/delete" class="d-inline-flex" onsubmit="return confirm('Delete this user?');">
