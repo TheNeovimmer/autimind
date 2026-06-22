@@ -102,9 +102,22 @@ If Composer is not found, download it from [https://getcomposer.org/download/](h
    - Under **File to import**, click **Choose File**
    - Select `migrations/001_create_tables.sql` from the `autimind` folder
    - Scroll down and click **Import**
-5. You should see a success message: "Import has been successfully finished"
+5. Repeat the same process to import `migrations/002_seed_data.sql` — this adds default accounts and sample data
+6. You should see a success message: "Import has been successfully finished"
 
-### Step 7: Configure OpenRouter AI (Optional but Recommended)
+### Step 7: Default Accounts
+
+After importing `002_seed_data.sql`, these accounts are available:
+
+| Role | Email | Password |
+|------|-------|----------|
+| **Admin** | admin@autimind.com | admin123 |
+| **Specialist** | sarah@autimind.com | admin123 |
+| **Specialist** | david@autimind.com | admin123 |
+
+Login at `http://autimind.test/login` using the admin account to access the admin panel.
+
+### Step 8: Configure OpenRouter AI (Optional but Recommended)
 
 1. Sign up for a free account at [https://openrouter.ai/](https://openrouter.ai/)
 2. Generate an API key from your dashboard
@@ -115,7 +128,7 @@ If Composer is not found, download it from [https://getcomposer.org/download/](h
    ```
 4. You can also change the model later from the Admin Panel → Chatbot page
 
-### Step 8: Set Folder Permissions
+### Step 9: Set Folder Permissions
 
 On Windows, ensure the uploads folder is writable:
 
@@ -125,7 +138,7 @@ On Windows, ensure the uploads folder is writable:
 4. Select your user and make sure **Full control** is checked
 5. Click **Apply** → **OK**
 
-### Step 9: Access the Application
+### Step 10: Access the Application
 
 1. In Laragon, click **Start All** if not already running
 2. Open your browser and go to: `http://autimind.test`
