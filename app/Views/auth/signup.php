@@ -39,7 +39,7 @@
             <option value="">Select Role</option>
             <option value="parent" <?= ($old['role'] ?? '') === 'parent' ? 'selected' : '' ?>>Parent</option>
             <option value="specialist" <?= ($old['role'] ?? '') === 'specialist' ? 'selected' : '' ?>>Specialist</option>
-            <option value="educator" <?= ($old['role'] ?? '') === 'educator' ? 'selected' : '' ?>>Educator</option>
+
           </select>
         </div>
       </div>

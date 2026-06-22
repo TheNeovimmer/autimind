@@ -89,7 +89,7 @@ class AuthController
             'name' => 'required|min:2|max:255',
             'email' => 'required|email',
             'password' => 'required|min:8|confirmed',
-            'role' => 'required|in:parent,specialist,educator'
+            'role' => 'required|in:parent,specialist'
         ])) {
             View::render('auth/signup', ['errors' => $validator->errors(), 'old' => $this->filterOld($_POST)], 'main');
             return;
@@ -103,7 +103,7 @@ class AuthController
             return;
         }
 
-        $role = $_POST['role'] === 'educator' ? 'specialist' : $_POST['role'];
+        $role = $_POST['role'];
         $userId = User::create([
             'role' => $role,
             'name' => $_POST['name'],
