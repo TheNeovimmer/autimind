@@ -30,7 +30,6 @@
   document.addEventListener('DOMContentLoaded', function() {
     var sidebar = document.getElementById('dashSidebar');
     var toggle = document.getElementById('dashSidebarToggle');
-    var close = document.getElementById('dashSidebarClose');
     var backdrop = document.getElementById('dashSidebarBackdrop');
 
     function toggleSidebar() {
@@ -60,7 +59,6 @@
     }
 
     if (toggle) toggle.addEventListener('click', toggleSidebar);
-    if (close) close.addEventListener('click', toggleSidebar);
     if (backdrop) backdrop.addEventListener('click', closeSidebar);
   });
   </script>

@@ -168,25 +168,6 @@
   height: 30px;
 }
 
-.dash-sidebar-close {
-  background: none;
-  border: none;
-  color: rgba(255,255,255,0.4);
-  font-size: 1.1rem;
-  padding: 0.25rem;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: all 0.15s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.dash-sidebar-close:hover {
-  color: #fff;
-  background: rgba(255,255,255,0.1);
-}
-
 .dash-sidebar-nav {
   flex: 1;
   padding: 0.25rem 0.75rem;
@@ -279,9 +260,6 @@
   color: #fff;
 }
 
-.dash-sidebar.collapsed .dash-sidebar-close {
-  display: none;
-}
 
 .dash-sidebar.collapsed .dash-sidebar-nav {
   padding: 0.25rem 0.5rem;

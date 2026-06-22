@@ -5,9 +5,6 @@ $currentUri = $_SERVER['REQUEST_URI'];
 <aside class="dash-sidebar" id="dashSidebar">
   <div class="dash-sidebar-logo">
     <a href="/"><img src="https://static.codia.ai/image/2026-06-19/6vuxJTHMOw.png" alt="AutiMind"></a>
-    <button class="dash-sidebar-close" id="dashSidebarClose" aria-label="Close">
-      <i class="fas fa-xmark"></i>
-    </button>
   </div>
   <nav class="dash-sidebar-nav">
     <?php if ($role === 'parent'): ?>
