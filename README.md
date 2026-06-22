@@ -96,14 +96,18 @@ If Composer is not found, download it from [https://getcomposer.org/download/](h
    - Under **Create database**, enter `autimind`
    - Select `utf8mb4_general_ci` as the collation
    - Click **Create**
-4. Now import the tables:
+4. Import the SQL files (one at a time):
    - Click on the `autimind` database in the left sidebar
-   - Click the **Import** tab at the top
-   - Under **File to import**, click **Choose File**
-   - Select `migrations/001_create_tables.sql` from the `autimind` folder
-   - Scroll down and click **Import**
-5. Repeat the same process to import `migrations/002_seed_data.sql` — this adds default accounts and sample data
-6. You should see a success message: "Import has been successfully finished"
+   - Click the **Import** tab at the top of the page
+   - Click the **Choose File** button under "File to import"
+   - Browse and select `migrations/001_create_tables.sql`
+   - Scroll to the bottom and click **Import**
+   - Wait for the green success message
+5. Repeat for the second file:
+   - Click the **Import** tab again
+   - Click **Choose File** and select `migrations/002_seed_data.sql`
+   - Click **Import** at the bottom
+6. You should see: "Import has been successfully finished" for both files
 
 ### Step 7: Default Accounts
 
