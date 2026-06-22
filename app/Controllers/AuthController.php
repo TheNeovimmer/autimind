@@ -52,7 +52,7 @@ class AuthController
 
         if (!$user['is_active']) {
             View::render('auth/login', [
-                'errors' => ['email' => ['Your account has been deactivated']],
+                'errors' => ['email' => ['Your account is not active. Please wait for admin approval.']],
                 'old' => $this->filterOld($_POST)
             ], 'main');
             return;
@@ -109,6 +109,7 @@ class AuthController
             'name' => $_POST['name'],
             'email' => $_POST['email'],
             'password' => password_hash($_POST['password'], PASSWORD_BCRYPT),
+            'is_active' => 0,
         ]);
 
         if ($role === 'specialist') {
@@ -117,12 +118,9 @@ class AuthController
             $stmt->execute([$userId, 'New Specialist', '']);
         }
 
-        Session::set('user_id', $userId);
-        Session::set('user_name', $_POST['name']);
-        Session::set('user_email', $_POST['email']);
-        Session::set('role', $role);
-
-        $this->redirectToDashboard();
+        Session::setFlash('success', 'Account created successfully. An admin will review and activate your account shortly.');
+        header('Location: /login');
+        exit;
     }
 
     public function logout(): void
