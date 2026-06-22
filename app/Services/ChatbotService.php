@@ -33,7 +33,7 @@ class ChatbotService
             CURLOPT_HTTPHEADER => [
                 'Authorization: Bearer ' . $apiKey,
                 'Content-Type: application/json',
-                'HTTP-Referer: AutiMind',
+                'HTTP-Referer: https://autimind.ai',
                 'X-Title: AutiMind',
             ],
             CURLOPT_POSTFIELDS => json_encode([

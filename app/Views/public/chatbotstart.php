@@ -93,7 +93,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const chatMessages = document.getElementById('chatstartMessages');
   const sendBtn = document.getElementById('chatstartSendBtn');
   const chatbarTop = document.querySelector('.chatstart-chatbar-top');
-  const csrfToken = document.getElementById('chatstartCsrf').value;
 
   const input = document.createElement('input');
   input.type = 'text';
@@ -120,18 +119,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function sendMessage(message) {
     addMessage(message, 'user');
+    const currentToken = document.getElementById('chatstartCsrf').value;
 
     fetch('/chatbot/message', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams({
-        _csrf_token: csrfToken,
+        _csrf_token: currentToken,
         message: message
       })
     })
     .then(r => r.json())
     .then(data => {
-      addMessage(data.response, 'bot');
+      if (data.csrf_token) {
+        document.getElementById('chatstartCsrf').value = data.csrf_token;
+      }
+      addMessage(data.response || 'Sorry, something went wrong.', 'bot');
     })
     .catch(() => {
       addMessage("I'm having trouble connecting right now. Please try again in a moment.", 'bot');

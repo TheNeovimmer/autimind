@@ -117,8 +117,8 @@ class HomeController
     public function chatbotMessage(): void
     {
         if (!Session::verify_csrf($_POST['_csrf_token'] ?? '')) {
-            http_response_code(419);
-            echo json_encode(['error' => 'Invalid token']);
+            header('Content-Type: application/json');
+            echo json_encode(['response' => 'Session expired. Please refresh the page and try again.']);
             exit;
         }
 
@@ -140,14 +140,17 @@ class HomeController
         $stmt->execute([$userId, $response, 'bot']);
 
         header('Content-Type: application/json');
-        echo json_encode(['response' => $response]);
+        echo json_encode([
+            'response' => $response,
+            'csrf_token' => Session::csrf_token(),
+        ]);
         exit;
     }
 
     private function callOpenRouter(string $message): string
     {
-        $apiKey = $_ENV['OPENROUTER_API_KEY'] ?? '';
-        $model = $_ENV['OPENROUTER_MODEL'] ?? 'google/gemma-4-31b-it:free';
+        $apiKey = getenv('OPENROUTER_API_KEY') ?: $_ENV['OPENROUTER_API_KEY'] ?? '';
+        $model = getenv('OPENROUTER_MODEL') ?: $_ENV['OPENROUTER_MODEL'] ?? 'google/gemma-4-31b-it:free';
 
         if (empty($apiKey)) {
             return "OpenRouter API key is not configured. Please set OPENROUTER_API_KEY in .env file.";
@@ -160,7 +163,7 @@ class HomeController
             CURLOPT_HTTPHEADER => [
                 'Authorization: Bearer ' . $apiKey,
                 'Content-Type: application/json',
-                'HTTP-Referer: ' . ($_SERVER['HTTP_HOST'] ?? 'localhost'),
+                'HTTP-Referer: https://autimind.ai',
                 'X-Title: AutiMind',
             ],
             CURLOPT_POSTFIELDS => json_encode([
