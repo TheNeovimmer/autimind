@@ -4199,10 +4199,19 @@ i.parent-tool-icon {
   text-align: center;
 }
 
-.chatstart-benefit img {
+.chatstart-benefit img,
+.chatstart-benefit-icon {
   width: 80px;
   height: 80px;
   object-fit: contain;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chatstart-benefit-icon i {
+  font-size: 44px;
+  color: var(--primary);
 }
 
 .chatstart-benefit strong {

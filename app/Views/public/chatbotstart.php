@@ -68,17 +68,17 @@
 
     <div class="chatstart-benefits">
       <div class="chatstart-benefit">
-        <img src="https://static.codia.ai/image/2026-06-19/juUrk5NoVz.png" alt="">
+        <div class="chatstart-benefit-icon"><i class="fas fa-clock"></i></div>
         <strong>24/7</strong>
         <span>Always Available</span>
       </div>
       <div class="chatstart-benefit">
-        <img src="https://static.codia.ai/image/2026-06-19/3pYEKKfKCM.png" alt="">
+        <div class="chatstart-benefit-icon"><i class="fas fa-chart-line"></i></div>
         <strong>10 K+</strong>
         <span>Questions Answered</span>
       </div>
       <div class="chatstart-benefit">
-        <img src="https://static.codia.ai/image/2026-06-19/r4uJDJmwBR.png" alt="">
+        <div class="chatstart-benefit-icon"><i class="fas fa-shield-alt"></i></div>
         <strong>Trusted &amp; Secure</strong>
         <span>Your privacy is our priority</span>
       </div>
