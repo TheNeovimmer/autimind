@@ -4152,6 +4152,11 @@ i.parent-tool-icon {
   object-fit: contain;
 }
 
+.chatstart-fc-icon i {
+  font-size: 18px;
+  color: #fff;
+}
+
 .chatstart-fc-deco {
   width: 48px;
   height: 48px;
