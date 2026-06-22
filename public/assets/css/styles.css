@@ -4152,11 +4152,6 @@ i.parent-tool-icon {
   object-fit: contain;
 }
 
-.chatstart-fc-icon i {
-  font-size: 16px;
-  color: #fff;
-}
-
 .chatstart-fc-deco {
   width: 48px;
   height: 48px;
@@ -4208,19 +4203,6 @@ i.parent-tool-icon {
   width: 80px;
   height: 80px;
   object-fit: contain;
-}
-
-.chatstart-benefit-icon {
-  width: 80px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.chatstart-benefit-icon i {
-  font-size: 48px;
-  color: var(--primary);
 }
 
 .chatstart-benefit strong {

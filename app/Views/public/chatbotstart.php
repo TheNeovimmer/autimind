@@ -42,7 +42,7 @@
     <div class="chatstart-features">
       <div class="chatstart-feature-card">
         <div class="chatstart-fc-top">
-          <div class="chatstart-fc-icon"><i class="fas fa-image"></i></div>
+          <div class="chatstart-fc-icon"></div>
           <img src="https://static.codia.ai/image/2026-06-19/prnoyHAYpg.png" alt="" class="chatstart-fc-deco">
         </div>
         <div class="chatstart-fc-title">Image Generator</div>
@@ -50,7 +50,7 @@
       </div>
       <div class="chatstart-feature-card">
         <div class="chatstart-fc-top">
-          <div class="chatstart-fc-icon"><i class="fas fa-book-open"></i></div>
+          <div class="chatstart-fc-icon"></div>
           <img src="https://static.codia.ai/image/2026-06-19/mDXQNB15oS.png" alt="" class="chatstart-fc-deco">
         </div>
         <div class="chatstart-fc-title">Story Creator</div>
@@ -58,7 +58,7 @@
       </div>
       <div class="chatstart-feature-card">
         <div class="chatstart-fc-top">
-          <div class="chatstart-fc-icon"><i class="fas fa-microphone"></i></div>
+          <div class="chatstart-fc-icon"></div>
           <img src="https://static.codia.ai/image/2026-06-19/WbXshTiXQO.png" alt="" class="chatstart-fc-deco">
         </div>
         <div class="chatstart-fc-title">Voice Assistant</div>
@@ -68,17 +68,17 @@
 
     <div class="chatstart-benefits">
       <div class="chatstart-benefit">
-        <div class="chatstart-benefit-icon"><i class="fas fa-clock"></i></div>
+        <img src="https://static.codia.ai/image/2026-06-19/juUrk5NoVz.png" alt="">
         <strong>24/7</strong>
         <span>Always Available</span>
       </div>
       <div class="chatstart-benefit">
-        <div class="chatstart-benefit-icon"><i class="fas fa-chart-line"></i></div>
+        <img src="https://static.codia.ai/image/2026-06-19/3pYEKKfKCM.png" alt="">
         <strong>10 K+</strong>
         <span>Questions Answered</span>
       </div>
       <div class="chatstart-benefit">
-        <div class="chatstart-benefit-icon"><i class="fas fa-shield-alt"></i></div>
+        <img src="https://static.codia.ai/image/2026-06-19/r4uJDJmwBR.png" alt="">
         <strong>Trusted &amp; Secure</strong>
         <span>Your privacy is our priority</span>
       </div>
