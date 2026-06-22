@@ -33,20 +33,34 @@
     var close = document.getElementById('dashSidebarClose');
     var backdrop = document.getElementById('dashSidebarBackdrop');
 
-    function openSidebar() {
-      sidebar.classList.add('open');
-      backdrop.classList.add('show');
-      document.body.style.overflow = 'hidden';
+    function toggleSidebar() {
+      if (window.innerWidth <= 768) {
+        sidebar.classList.remove('collapsed');
+        sidebar.classList.toggle('open');
+        if (backdrop) backdrop.classList.toggle('show');
+        document.body.style.overflow = sidebar.classList.contains('open') ? 'hidden' : '';
+      } else {
+        sidebar.classList.toggle('collapsed');
+        sidebar.classList.remove('open');
+        var icon = toggle ? toggle.querySelector('i') : null;
+        if (icon) icon.className = sidebar.classList.contains('collapsed') ? 'fas fa-chevron-right' : 'fas fa-bars';
+      }
     }
 
     function closeSidebar() {
-      sidebar.classList.remove('open');
-      backdrop.classList.remove('show');
-      document.body.style.overflow = '';
+      if (window.innerWidth <= 768) {
+        sidebar.classList.remove('open');
+        if (backdrop) backdrop.classList.remove('show');
+        document.body.style.overflow = '';
+      } else {
+        sidebar.classList.add('collapsed');
+        var icon = toggle ? toggle.querySelector('i') : null;
+        if (icon) icon.className = 'fas fa-chevron-right';
+      }
     }
 
-    if (toggle) toggle.addEventListener('click', openSidebar);
-    if (close) close.addEventListener('click', closeSidebar);
+    if (toggle) toggle.addEventListener('click', toggleSidebar);
+    if (close) close.addEventListener('click', toggleSidebar);
     if (backdrop) backdrop.addEventListener('click', closeSidebar);
   });
   </script>

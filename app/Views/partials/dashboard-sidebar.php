@@ -79,7 +79,7 @@ $currentUri = $_SERVER['REQUEST_URI'];
     <?php endif; ?>
   </nav>
   <div class="dash-sidebar-footer">
-    <a href="/logout"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
+    <a href="/logout" class="dash-nav-item dash-nav-logout"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
   </div>
 </aside>
 <div class="dash-sidebar-backdrop" id="dashSidebarBackdrop"></div>
